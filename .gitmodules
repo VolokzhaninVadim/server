@@ -1,0 +1,3 @@
+[submodule "repos/cloud/dns"]
+	path = repos/cloud/dns
+	url = git@github.com:VolokzhaninVadim/dns.git
