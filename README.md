@@ -5,7 +5,7 @@ Commands:
 
 ```
 # For clone with submodules
-git clone --recurse-submodules git@github.com:adeo/lmru--alfor--main.git
+git clone --recurse-submodules git@github.com:VolokzhaninVadim/server
 
 # Add submodule
 git submodule add git@<repo>
