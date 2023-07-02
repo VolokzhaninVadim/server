@@ -1,3 +1,7 @@
 [submodule "repos/cloud/dns"]
 	path = repos/cloud/dns
 	url = git@github.com:VolokzhaninVadim/dns.git
+[submodule "repos/cloud/gitlab"]
+	path = repos/cloud/gitlab
+	url = git@github.com:VolokzhaninVadim/gitlab.git
+	branch = main
