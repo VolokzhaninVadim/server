@@ -5,3 +5,6 @@
 	path = repos/cloud/gitlab
 	url = git@github.com:VolokzhaninVadim/gitlab.git
 	branch = main
+[submodule "repos/cloud/private_cloud"]
+	path = repos/cloud/private_cloud
+	url = git@github.com:VolokzhaninVadim/private_cloud.git
