@@ -8,3 +8,6 @@
 [submodule "repos/cloud/private_cloud"]
 	path = repos/cloud/private_cloud
 	url = git@github.com:VolokzhaninVadim/private_cloud.git
+[submodule "repos/media/media_server"]
+	path = repos/media/media_server
+	url = git@github.com:VolokzhaninVadim/media_server.git
