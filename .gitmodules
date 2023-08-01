@@ -14,3 +14,6 @@
 [submodule "repos/cloud/private_library"]
 	path = repos/cloud/private_library
 	url = git@github.com:VolokzhaninVadim/private_library.git
+[submodule "repos/cloud/docker_manager"]
+	path = repos/cloud/docker_manager
+	url = git@github.com:VolokzhaninVadim/docker_manager.git
