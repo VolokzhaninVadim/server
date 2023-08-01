@@ -11,3 +11,6 @@
 [submodule "repos/media/media_server"]
 	path = repos/media/media_server
 	url = git@github.com:VolokzhaninVadim/media_server.git
+[submodule "repos/cloud/private_library"]
+	path = repos/cloud/private_library
+	url = git@github.com:VolokzhaninVadim/private_library.git
