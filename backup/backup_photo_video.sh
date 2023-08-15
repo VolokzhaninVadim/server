@@ -18,7 +18,7 @@ tar --create \
     --ignore-failed-read \
     --preserve-permissions \
     --verbose \
-    --listed-incremental='/home/volokzhanin/server/repos/cloud/private_cloud/'$PROJECT.snar \
+    --listed-incremental='/home/volokzhanin/server/backup/'$PROJECT.snar \
 $DIRECTORY_SOURCE
 
 echo $(date '+%Y-%m-%d %H %M %S') 'Create encrypted archive'
