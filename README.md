@@ -13,3 +13,5 @@ git submodule add git@<repo>
 # Update submodules
 git submodule update --remote
 ```
+# Backup
+For backup use [backup](./backup)
