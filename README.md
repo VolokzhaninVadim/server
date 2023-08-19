@@ -11,7 +11,7 @@ git clone --recurse-submodules git@github.com:VolokzhaninVadim/server
 git submodule add git@<repo>
 
 # Update submodules
-git submodule update --recursive --remote
+git pull --recurse-submodules
 ```
 # Backup
 For backup use [backup](./backup)
