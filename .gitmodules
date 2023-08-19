@@ -1,5 +1,5 @@
 [submodule "repos/cloud/dns"]
-	path = repos/cloud/dns
+	path = repos/proxy/dns
 	url = git@github.com:VolokzhaninVadim/dns.git
 [submodule "repos/cloud/gitlab"]
 	path = repos/cloud/gitlab
