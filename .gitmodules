@@ -3,7 +3,7 @@
 	url = git@github.com:VolokzhaninVadim/dns.git
 	branch = main
 [submodule "repos/proxy/npm"]
-	path = repos/proxy/dns
+	path = repos/proxy/npm
 	url = git@github.com:VolokzhaninVadim/npm.git
 	branch = main
 [submodule "repos/cloud/gitlab"]
