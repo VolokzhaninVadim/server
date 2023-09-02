@@ -6,7 +6,7 @@ ARCHIVE_TYPE='zst'
 GPG_TYPE='gpg'
 PROJECT='system'
 DIRECTORY_TARGET='/mnt/backup/backup/backup'
-DIRECTORY_SOURCE="${DIRECTORY_TARGET}/packages.txt $DIRECTORY_TARGET/crontab /home/volokzhanin/.ssh /home/volokzhanin/.gnupg"
+DIRECTORY_SOURCE="${DIRECTORY_TARGET}/packages.txt $DIRECTORY_TARGET/test $DIRECTORY_TARGET/crontab /home/volokzhanin/.ssh /home/volokzhanin/.gnupg"
 DIRECTORY_S3='/mnt/s3/backup/'$PROJECT
 GPG_KEY=634064C6
 GPG_PASSPHRASE=/home/volokzhanin/.gnupg/backup_passphrase
@@ -14,8 +14,8 @@ GPG_PASSPHRASE=/home/volokzhanin/.gnupg/backup_passphrase
 echo $(date '+%Y-%m-%d %H %M %S') 'Create list of packages'
 dpkg --get-selections | grep -v deinstall > $DIRECTORY_TARGET/packages.txt
 
-echo $(date '+%Y-%m-%d %H %M %S') 'Create list of cron tasks'
-crontab -l > $DIRECTORY_TARGET/crontab
+echo $(date '+%Y-%m-%d %H %M %S') 'Create list of environment variables'
+printenv > $DIRECTORY_TARGET/test
 
 echo $(date '+%Y-%m-%d %H %M %S') 'Create archive'
 tar --create \
@@ -27,6 +27,7 @@ tar --create \
 $DIRECTORY_SOURCE
 rm $DIRECTORY_TARGET/packages.txt
 rm $DIRECTORY_TARGET/crontab
+rm $DIRECTORY_TARGET/test
 
 echo $(date '+%Y-%m-%d %H %M %S') 'Create encrypted archive'
 gpg --recipient $GPG_KEY \
