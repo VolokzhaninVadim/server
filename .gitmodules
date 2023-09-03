@@ -26,3 +26,6 @@
 	path = repos/cloud/docker_manager
 	url = git@github.com:VolokzhaninVadim/docker_manager.git
 	branch = main
+[submodule "repos/cloud/airflow"]
+	path = repos/cloud/airflow
+	url = git@github.com:VolokzhaninVadim/airflow.git
