@@ -29,3 +29,6 @@
 [submodule "repos/cloud/airflow"]
 	path = repos/cloud/airflow
 	url = git@github.com:VolokzhaninVadim/airflow.git
+[submodule "repos/cloud/notes"]
+	path = repos/cloud/notes
+	url = git@github.com:VolokzhaninVadim/notes.git
