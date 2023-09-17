@@ -32,3 +32,6 @@
 [submodule "repos/cloud/notes"]
 	path = repos/cloud/notes
 	url = git@github.com:VolokzhaninVadim/notes.git
+[submodule "repos/development/vscode_server"]
+	path = repos/development/vscode_server
+	url = git@github.com:VolokzhaninVadim/vscode_server.git
