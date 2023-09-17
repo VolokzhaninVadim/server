@@ -33,7 +33,7 @@ echo $(date '+%Y-%m-%d %H %M %S') 'Remove archive'
 rm $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE
 
 echo $(date '+%Y-%m-%d %H %M %S') 'Split encrypted archive'
-split --bytes=20GB \
+split --bytes=70GB \
     $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE.$GPG_TYPE \
     $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE.$GPG_TYPE.part_
 rm $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE.$GPG_TYPE
