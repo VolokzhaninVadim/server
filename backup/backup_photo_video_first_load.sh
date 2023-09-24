@@ -39,7 +39,7 @@ split --bytes=70GB \
 rm $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE.$GPG_TYPE
 
 echo $(date '+%Y-%m-%d %H %M %S') 'Move file'
-for i in /mnt/backup/backup/backup/2023-08-13_17_28_13_photo_video_.zst.gpg.part_*;
+for i in $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE.$GPG_TYPE.part_*;
 do
 rsync --partial --progress $i $DIRECTORY_S3
 rm $i;
