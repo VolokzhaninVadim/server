@@ -14,4 +14,8 @@ git submodule add git@<repo>
 git pull --recurse-submodules
 ```
 # Backup
-For backup use [backup](./backup)
+For backup use [backup](./backup)<br>
+For `part` use (example):
+```bash
+cat /mnt/backup/backup/backup/2023-08-12_17_51_54_dns_.zst.gpg.part_* > /mnt/backup/backup/backup/2023-08-12_17_51_54_dns_.zst.gpg
+```

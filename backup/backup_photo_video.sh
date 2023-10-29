@@ -32,6 +32,15 @@ gpg --recipient $GPG_KEY \
 echo $(date '+%Y-%m-%d %H %M %S') 'Remove archive'
 rm $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE
 
+echo $(date '+%Y-%m-%d %H %M %S') 'Split encrypted archive'
+split --bytes=70GB \
+    $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE.$GPG_TYPE \
+    $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE.$GPG_TYPE.part_
+rm $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE.$GPG_TYPE
+
 echo $(date '+%Y-%m-%d %H %M %S') 'Move file'
-rsync --partial --progress $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE'.'$GPG_TYPE $DIRECTORY_S3
-rm $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE'.'$GPG_TYPE
+for i in $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE.$GPG_TYPE.part_*;
+do
+rsync --partial --progress $i $DIRECTORY_S3
+rm $i;
+done;

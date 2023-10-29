@@ -24,7 +24,5 @@ tar --preserve-permissions \
     --listed-incremental='/home/volokzhanin/server/backup/'$PROJECT.snar \
     --file "$i";
 
-rm $i;
+# rm $i;
 done;
-
-# For part use cat /mnt/backup/backup/backup/2023-08-12_17_51_54_dns_.zst.gpg.part_* > /mnt/backup/backup/backup/2023-08-12_17_51_54_dns_.zst.gpg

@@ -4,9 +4,9 @@ echo $(date '+%Y-%m-%d %H %M %S') 'Create variables'
 FILE=$(date '+%Y-%m-%d_%H_%M_%S')
 ARCHIVE_TYPE='zst'
 GPG_TYPE='gpg'
-PROJECT='documents'
-DIRECTORY_SOURCE='/mnt/backup/'$PROJECT
+PROJECT='server'
 DIRECTORY_TARGET='/mnt/backup/backup/backup'
+DIRECTORY_SOURCE="/home/volokzhanin/server"
 DIRECTORY_S3='/mnt/s3/backup/'$PROJECT
 GPG_KEY=634064C6
 GPG_PASSPHRASE=/home/volokzhanin/.gnupg/backup_passphrase
@@ -18,7 +18,6 @@ tar --create \
     --ignore-failed-read \
     --preserve-permissions \
     --verbose \
-    --listed-incremental='/home/volokzhanin/server/backup/'$PROJECT.snar \
 $DIRECTORY_SOURCE
 
 echo $(date '+%Y-%m-%d %H %M %S') 'Create encrypted archive'
@@ -32,15 +31,11 @@ gpg --recipient $GPG_KEY \
 echo $(date '+%Y-%m-%d %H %M %S') 'Remove archive'
 rm $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE
 
-echo $(date '+%Y-%m-%d %H %M %S') 'Split encrypted archive'
-split --bytes=70GB \
-    $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE.$GPG_TYPE \
-    $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE.$GPG_TYPE.part_
-rm $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE.$GPG_TYPE
-
 echo $(date '+%Y-%m-%d %H %M %S') 'Move file'
-for i in $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE.$GPG_TYPE.part_*;
-do
-rsync --partial --progress $i $DIRECTORY_S3
-rm $i;
-done;
+rsync --partial --progress $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE'.'$GPG_TYPE $DIRECTORY_S3
+rm $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE'.'$GPG_TYPE
+
+echo $(date '+%Y-%m-%d %H %M %S') 'Delete files older than n days'
+find $DIRECTORY_S3 -mtime +14 \
+    -type f \
+    -delete
