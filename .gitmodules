@@ -35,3 +35,6 @@
 [submodule "repos/development/vscode_server"]
 	path = repos/development/vscode_server
 	url = git@github.com:VolokzhaninVadim/vscode_server.git
+[submodule "repos/backup/duplicati"]
+	path = repos/backup/duplicati
+	url = git@github.com:VolokzhaninVadim/duplicati.git
