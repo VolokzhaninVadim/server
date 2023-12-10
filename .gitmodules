@@ -38,3 +38,6 @@
 [submodule "repos/backup/duplicati"]
 	path = repos/backup/duplicati
 	url = git@github.com:VolokzhaninVadim/duplicati.git
+[submodule "repos/dashboard/homarr"]
+	path = repos/dashboard/homarr
+	url = git@github.com:VolokzhaninVadim/homarr.git
