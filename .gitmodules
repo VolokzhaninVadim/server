@@ -41,3 +41,6 @@
 [submodule "repos/dashboard/homarr"]
 	path = repos/dashboard/homarr
 	url = git@github.com:VolokzhaninVadim/homarr.git
+[submodule "repos/media/archivebox"]
+	path = repos/media/archivebox
+	url = git@github.com:VolokzhaninVadim/archivebox.git
