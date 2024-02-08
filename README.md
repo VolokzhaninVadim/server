@@ -15,6 +15,9 @@ git rm -rf --cached  <submodule path>
 
 # Update submodules
 git pull --recurse-submodules
+
+# Move submodule
+git mv old/submodule new/submodule
 ```
 # Install Docker
 ```bash

@@ -44,3 +44,6 @@
 [submodule "repos/media/archivebox"]
 	path = repos/media/archivebox
 	url = git@github.com:VolokzhaninVadim/archivebox.git
+[submodule "repos/media/game_server"]
+	path = repos/media/game_server
+	url = git@github.com:VolokzhaninVadim/game_server.git
