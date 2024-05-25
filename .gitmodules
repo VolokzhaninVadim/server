@@ -47,3 +47,6 @@
 [submodule "repos/media/game_server"]
 	path = repos/media/game_server
 	url = git@github.com:VolokzhaninVadim/game_server.git
+[submodule "repos/dashboard/smart_home"]
+	path = repos/dashboard/smart_home
+	url = git@github.com:VolokzhaninVadim/smart_home.git
