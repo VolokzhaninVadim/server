@@ -1,5 +1,5 @@
 # My system
-![system.svg](./img/system.svg)
+![system.svg](./img/system.png)
 
 Commands:
 
