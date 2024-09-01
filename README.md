@@ -33,8 +33,9 @@ apt-cache policy docker-ce
 sudo apt-get -y install docker-ce
 # Add user in docker group, that do not launch docker with sudo
 sudo groupadd docker
-sudo usermod -aG docker $USER
 newgrp docker
+sudo usermod -aG docker $USER
+
 # Install docker-compose
 sudo apt install python3-pip
 sudo pip3 install docker-compose
