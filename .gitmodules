@@ -50,3 +50,6 @@
 [submodule "repos/dashboard/smart_home"]
 	path = repos/dashboard/smart_home
 	url = git@github.com:VolokzhaninVadim/smart_home.git
+[submodule "repos/cloud/gitea"]
+	path = repos/cloud/gitea
+	url = git@github.com:VolokzhaninVadim/gitea.git
