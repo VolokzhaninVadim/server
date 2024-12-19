@@ -53,3 +53,6 @@
 [submodule "repos/cloud/gitea"]
 	path = repos/cloud/gitea
 	url = git@github.com:VolokzhaninVadim/gitea.git
+[submodule "repos/cloud/davmail"]
+	path = repos/cloud/davmail
+	url = git@github.com:VolokzhaninVadim/davmail.git
