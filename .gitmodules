@@ -56,3 +56,6 @@
 [submodule "repos/cloud/davmail"]
 	path = repos/cloud/davmail
 	url = git@github.com:VolokzhaninVadim/davmail.git
+[submodule "repos/dashboard/dashboard"]
+	path = repos/dashboard/dashboard
+	url = git@github.com:VolokzhaninVadim/dashboard.git
