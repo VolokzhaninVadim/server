@@ -1,0 +1,63 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+!procedure $CreateTag ($alias, $description="")
+    AddElementTag($alias, $legendText=$description, $sprite=%string("img:../_images/100x100/"+$alias+".png{scale=0.5}"))
+!endprocedure
+
+$CreateTag(firefox, "firefox")
+$CreateTag(tplink, "tplink")
+$CreateTag(pikvm, "pikvm")
+$CreateTag(nut, "nut")
+$CreateTag(proxmox, "proxmox")
+$CreateTag(ubuntu, "ubuntu")
+$CreateTag(pihole, "pihole")
+
+title "Сервер Волокжанина Вадима"
+
+Person(users, "Пользователи сервисов")
+System_Ext(browser, "Браузер пользователя", "Просмотр web-контента", $tags="firefox")
+System_Ext(tplink, "Роутер", "Маршрутизация трафика", $tags="tplink")
+System(pikvm, "KVM", "Удаленное управление через web-браузер", $tags="pikvm")
+System(ups, "UPS", "Мониторинг UPS", $tags="nut")
+
+
+
+AddProperty("Свойство", "Свойство")
+Deployment_Node(server, "Сервер Волокжанина Вадима", $tags="proxmox") {
+  Deployment_Node(proxy, "Проксирование web-запросов", "VM", "Docker", $tags="ubuntu"){
+    Component_Ext(pihole, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
+}
+
+  Deployment_Node(mediaserver, "Медиа сервер", "VM", "Docker", $tags="ubuntu"){
+    Component_Ext(test, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
+}
+
+  Deployment_Node(cloud, "Облако", "VM", "Docker", $tags="ubuntu"){
+    Component_Ext(test1, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
+}
+
+  Deployment_Node(smart-home, "Умный дом", "VM", "Docker", $tags="ubuntu"){
+    Component_Ext(test2, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
+}
+
+  Deployment_Node(backup-server, "Сервер резервных копий", "VM", "Docker", $tags="proxmox"){
+    Component_Ext(test3, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
+}
+
+}
+
+Rel(users, browser, "Просмотр Web-страниц")
+Rel(browser, tplink, "Web-запросы")
+Rel(tplink, pikvm, "Web-запросы")
+Rel(tplink, server, "Web-запросы")
+Rel(pikvm, server, "Управление")
+Rel(ups, server, "Электричество")
+Rel(server, ups, "Сигнал о штатном выключении")
+
+SHOW_LEGEND()
+
+@enduml

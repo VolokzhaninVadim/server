@@ -8,7 +8,7 @@
 
 .. toctree::
    :maxdepth: 4
-   :caption: Contents:
+   :caption: Содержимое:
 
    main.md
 
