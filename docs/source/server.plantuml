@@ -15,6 +15,7 @@ $CreateTag(nut, "nut")
 $CreateTag(proxmox, "proxmox")
 $CreateTag(ubuntu, "ubuntu")
 $CreateTag(pihole, "pihole")
+$CreateTag(npm, "Nginx Proxy Manager")
 
 title "Сервер Волокжанина Вадима"
 
@@ -25,11 +26,18 @@ System(pikvm, "KVM", "Удаленное управление через web-б�
 System(ups, "UPS", "Мониторинг UPS", $tags="nut")
 
 
-
-AddProperty("Свойство", "Свойство")
+AddProperty("vCPU", "6")
+AddProperty("RAM GB", "94")
+AddProperty("SSD GB (System)", "2 * 512 [ZFS RAID 1]")
+AddProperty("HDD TB (VMs)", "2 * 12 [ZFS RAID 1] + 128 GB SSD for cache (VMs)")
+AddProperty("HDD TB (for cache VMs)", "128 GB SSD ")
+AddProperty("HDD TB (Backups)", "8 [ZFS Single disk]")
+AddProperty("NIC", "1")
+AddProperty("graphic card (NVidia)", "1")
 Deployment_Node(server, "Сервер Волокжанина Вадима", $tags="proxmox") {
   Deployment_Node(proxy, "Проксирование web-запросов", "VM", "Docker", $tags="ubuntu"){
     Component_Ext(pihole, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
+    Component_Ext(npm, "Nginx Proxy Manager", "Proxy-сервер", "Проксирование web-запросов", $tags="npm")
 }
 
   Deployment_Node(mediaserver, "Медиа сервер", "VM", "Docker", $tags="ubuntu"){
