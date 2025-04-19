@@ -23,6 +23,13 @@ $CreateTag(vscode, "VSCode")
 $CreateTag(node_red, "Node-RED")
 $CreateTag(mosquitto, "Mosquitto")
 $CreateTag(zigbee2mqtt, "Zigbee2mqtt")
+$CreateTag(nextcloud, "Nextcloud")
+$CreateTag(syncthing, "Syncthing")
+$CreateTag(gitea, "Gitea")
+$CreateTag(davmail, "DavMail")
+$CreateTag(redis, "Redis")
+$CreateTag(elasticsearch, "Elasticsearch")
+$CreateTag(homepage, "Homepage")
 
 title "Сервер Волокжанина Вадима"
 
@@ -52,23 +59,28 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component_Ext(node_red, "Node-RED", "Node-RED", "Визуальное программирование автоматизаций", $tags="node_red")
     Component_Ext(mosquitto, "Mosquitto", "Mosquitto", "Брокер сообщений для умного дома", $tags="mosquitto")
     Component_Ext(mosquzigbee2mqttitto, "Zigbee2mqtt", "Zigbee2mqtt", "Zigbee сообщения в MQTT сообщения", $tags="zigbee2mqtt")
+    Component_Ext(homepage, "Homepage", "Homepage", "Приборная панель для сервисов сервера", $tags="homepage")
 }
 
   Deployment_Node(proxy, "Проксирование web-запросов", "VM", "Docker", $tags="ubuntu"){
-    Component_Ext(pihole, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
-    Component_Ext(npm, "Nginx Proxy Manager", "Proxy-сервер", "Проксирование web-запросов на сервер", $tags="npm")
+    Component_Ext(pihole, "PiHole", "PiHole", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
+    Component_Ext(npm, "Nginx Proxy Manager", "Nginx Proxy Manager", "Проксирование web-запросов на сервер", $tags="npm")
     Component_Ext(duckdns, "DuckDNS", "DuckDNS", "DDNS", $tags="duckdns")
     Component_Ext(tor, "TOR", "TOR", "Проксирование web-запросов от сервера", $tags="tor")
+}
+
+  Deployment_Node(cloud, "Облако", "VM", "Docker", $tags="ubuntu"){
+    Component_Ext(nextcloud, "Nextcloud", "Nextcloud", "Частное облако", $tags="nextcloud")
+    Component_Ext(redis, "Redis", "Redis", "Кэширование запросов в облако", $tags="redis")
+    Component_Ext(elasticsearch, "Elasticsearch", "Elasticsearch", "Поиск по тексту", $tags="elasticsearch")
+    Component_Ext(syncthing, "Syncthing", "Syncthing", "Синхронизация файлов между сервером", $tags="syncthing")
+    Component_Ext(gitea, "Gitea", "Gitea", "Git-сервер с функцией зеркалирования репозиториев Github", $tags="gitea")
+    Component_Ext(davmail, "DavMail", "DavMail", "POP/IMAP/SMTP/Caldav/Carddav/LDAP шлюз для перевода в Carddav и Caldav", $tags="davmail")
 }
 
   Deployment_Node(mediaserver, "Медиа сервер", "VM", "Docker", $tags="ubuntu"){
     Component_Ext(test, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
 }
-
-  Deployment_Node(cloud, "Облако", "VM", "Docker", $tags="ubuntu"){
-    Component_Ext(test1, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
-}
-
 
 
 }
