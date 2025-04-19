@@ -8,14 +8,21 @@ LAYOUT_WITH_LEGEND()
     AddElementTag($alias, $legendText=$description, $sprite=%string("img:../_images/100x100/"+$alias+".png{scale=0.5}"))
 !endprocedure
 
-$CreateTag(firefox, "firefox")
-$CreateTag(tplink, "tplink")
-$CreateTag(pikvm, "pikvm")
-$CreateTag(nut, "nut")
-$CreateTag(proxmox, "proxmox")
-$CreateTag(ubuntu, "ubuntu")
-$CreateTag(pihole, "pihole")
+$CreateTag(firefox, "Firefox")
+$CreateTag(tplink, "TP-Link")
+$CreateTag(pikvm, "PiKVM")
+$CreateTag(nut, "NUT")
+$CreateTag(proxmox, "Proxmox")
+$CreateTag(ubuntu, "Ubuntu")
+$CreateTag(pihole, "PiHole")
 $CreateTag(npm, "Nginx Proxy Manager")
+$CreateTag(duckdns, "DuckDNS")
+$CreateTag(tor, "TOR")
+$CreateTag(home_assistant, "home_assistant")
+$CreateTag(vscode, "VSCode")
+$CreateTag(node_red, "Node-RED")
+$CreateTag(mosquitto, "Mosquitto")
+$CreateTag(zigbee2mqtt, "Zigbee2mqtt")
 
 title "Сервер Волокжанина Вадима"
 
@@ -35,9 +42,23 @@ AddProperty("HDD TB (Backups)", "8 [ZFS Single disk]")
 AddProperty("NIC", "1")
 AddProperty("graphic card (NVidia)", "1")
 Deployment_Node(server, "Сервер Волокжанина Вадима", $tags="proxmox") {
+
+  Deployment_Node(backup-server, "Сервер резервных копий", "VM", "", $tags="proxmox"){
+}
+
+  Deployment_Node(smart-home, "Умный дом", "VM", "Docker", $tags="ubuntu"){
+    Component_Ext(home_assistant, "Home Assistant", "Умный дом", "Управление умным домом", $tags="home_assistant")
+    Component_Ext(vscode, "VSCode server", "VSCode server", "Написание и редактирование кода", $tags="vscode")
+    Component_Ext(node_red, "Node-RED", "Node-RED", "Визуальное программирование автоматизаций", $tags="node_red")
+    Component_Ext(mosquitto, "Mosquitto", "Mosquitto", "Брокер сообщений для умного дома", $tags="mosquitto")
+    Component_Ext(mosquzigbee2mqttitto, "Zigbee2mqtt", "Zigbee2mqtt", "Zigbee сообщения в MQTT сообщения", $tags="zigbee2mqtt")
+}
+
   Deployment_Node(proxy, "Проксирование web-запросов", "VM", "Docker", $tags="ubuntu"){
     Component_Ext(pihole, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
-    Component_Ext(npm, "Nginx Proxy Manager", "Proxy-сервер", "Проксирование web-запросов", $tags="npm")
+    Component_Ext(npm, "Nginx Proxy Manager", "Proxy-сервер", "Проксирование web-запросов на сервер", $tags="npm")
+    Component_Ext(duckdns, "DuckDNS", "DuckDNS", "DDNS", $tags="duckdns")
+    Component_Ext(tor, "TOR", "TOR", "Проксирование web-запросов от сервера", $tags="tor")
 }
 
   Deployment_Node(mediaserver, "Медиа сервер", "VM", "Docker", $tags="ubuntu"){
@@ -48,13 +69,7 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component_Ext(test1, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
 }
 
-  Deployment_Node(smart-home, "Умный дом", "VM", "Docker", $tags="ubuntu"){
-    Component_Ext(test2, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
-}
 
-  Deployment_Node(backup-server, "Сервер резервных копий", "VM", "Docker", $tags="proxmox"){
-    Component_Ext(test3, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
-}
 
 }
 
