@@ -2,7 +2,7 @@
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
-LAYOUT_WITH_LEGEND()
+' LAYOUT_WITH_LEGEND()
 
 !procedure $CreateTag ($alias, $description="")
     AddElementTag($alias, $legendText=$description, $sprite=%string("img:../_images/100x100/"+$alias+".png{scale=0.5}"))
@@ -30,6 +30,18 @@ $CreateTag(davmail, "DavMail")
 $CreateTag(redis, "Redis")
 $CreateTag(elasticsearch, "Elasticsearch")
 $CreateTag(homepage, "Homepage")
+$CreateTag(photoprism, "Photoprism")
+$CreateTag(steam, "Steam")
+$CreateTag(calibre, "Calibre")
+$CreateTag(transmission, "Transmission")
+$CreateTag(torrserver, "Torrserver")
+$CreateTag(radarr, "Radarr")
+$CreateTag(lidarr, "Lidarr")
+$CreateTag(sonarr, "Sonarr")
+$CreateTag(readarr, "Readarr")
+$CreateTag(plex, "Plex")
+$CreateTag(jackett, "Jackett")
+$CreateTag(lampa, "Lampa")
 
 title "Сервер Волокжанина Вадима"
 
@@ -79,10 +91,19 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
 }
 
   Deployment_Node(mediaserver, "Медиа сервер", "VM", "Docker", $tags="ubuntu"){
-    Component_Ext(test, "PiHole", "DNS-сервер", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
+    Component_Ext(photoprism, "Photoprism", "Photoprism", "", $tags="photoprism")
+    Component_Ext(steam, "Steam", "Steam", "", $tags="steam")
+    Component_Ext(calibre, "Calibre", "Calibre", "", $tags="calibre")
+    Component_Ext(transmission, "Transmission", "Transmission", "", $tags="transmission")
+    Component_Ext(torrserver, "Torrserver", "Torrserver", "", $tags="torrserver")
+    Component_Ext(radarr, "Radarr", "Radarr", "", $tags="radarr")
+    Component_Ext(lidarr, "Lidarr", "Lidarr", "", $tags="lidarr")
+    Component_Ext(sonarr, "Sonarr", "Sonarr", "", $tags="sonarr")
+    Component_Ext(readarr, "Readarr", "Readarr", "", $tags="readarr")
+    Component_Ext(plex, "Plex", "Plex", "", $tags="plex")
+    Component_Ext(jackett, "Jackett", "Jackett", "", $tags="jackett")
+    Component_Ext(lampa, "Lampa", "Lampa", "", $tags="lampa")
 }
-
-
 }
 
 Rel(users, browser, "Просмотр Web-страниц")
@@ -93,6 +114,6 @@ Rel(pikvm, server, "Управление")
 Rel(ups, server, "Электричество")
 Rel(server, ups, "Сигнал о штатном выключении")
 
-SHOW_LEGEND()
+' SHOW_LEGEND()
 
 @enduml
