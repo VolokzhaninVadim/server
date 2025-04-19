@@ -51,6 +51,8 @@
               <p class="caption" role="heading"><span class="caption-text">Содержимое:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Сервер Волокжанина Вадима</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#docker">Установка Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id2">Работа с репозиторием</a></li>
 </ul>
 
         </div>
@@ -81,8 +83,49 @@
 <h1>Сервер Волокжанина Вадима<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
 <p><a class="reference external" href="https://github.com/VolokzhaninVadim/server/tree/main/repos">Репозитории</a>
 <img alt="" src="_images/server.png" /></p>
+</section>
+<section id="docker">
+<h1>Установка Docker<a class="headerlink" href="#docker" title="Ссылка на этот заголовок"></a></h1>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install packages for work with net</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>net-tools
+sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>apt-transport-https<span class="w"> </span>ca-certificates<span class="w"> </span>curl<span class="w"> </span>software-properties-common
+<span class="c1"># Install Docker</span>
+curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/ubuntu/gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+sudo<span class="w"> </span>apt-key<span class="w"> </span>fingerprint<span class="w"> </span>0EBFCD88
+sudo<span class="w"> </span>add-apt-repository<span class="w"> </span><span class="s2">&quot;deb [arch=arm64] https://download.docker.com/linux/ubuntu </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> stable&quot;</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+apt-cache<span class="w"> </span>policy<span class="w"> </span>docker-ce
+sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>docker-ce
+<span class="c1"># Add user in docker group, that do not launch docker with sudo</span>
+sudo<span class="w"> </span>groupadd<span class="w"> </span>docker
+newgrp<span class="w"> </span>docker
+sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
+<span class="c1"># Install docker-compose</span>
+sudo<span class="w"> </span>curl<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;https://github.com/docker/compose/releases/latest/download/docker-compose-</span><span class="k">$(</span>uname<span class="w"> </span>-s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span>/usr/local/bin/docker-compose
+sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/docker-compose
+sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/bin/docker-compose<span class="w"> </span>/usr/bin/docker-compose
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h1>Работа с репозиторием<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h1>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># For clone with submodules</span>
+git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>git@github.com:VolokzhaninVadim/server
+
+<span class="c1"># Add submodule</span>
+git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>git@&lt;repo&gt;
+
+<span class="c1"># Remove submodule</span>
+git<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>--cached<span class="w">  </span>&lt;submodule<span class="w"> </span>path&gt;
+
+<span class="c1"># Update submodules</span>
+git<span class="w"> </span>pull<span class="w"> </span>--recurse-submodules
+
+<span class="c1"># Move submodule</span>
+git<span class="w"> </span>mv<span class="w"> </span>old/submodule<span class="w"> </span>new/submodule
+</pre></div>
+</div>
 <p>Создано <a class="reference external" href="https://github.com/sphinx-doc/sphinx">Sphinx</a></p>
-<p>Установку Docker вынести в отдельное место + работу с репозиторием.</p>
 </section>
 
 
