@@ -1,7 +1,8 @@
 # Сервер Волокжанина Вадима
 [Репозитории](https://github.com/VolokzhaninVadim/server/tree/main/repos)
-![](../_images/server.png)
-
+```{uml}
+!include ./plantuml/server.plantuml
+```
 # Установка Docker
 ```bash
 # Install packages for work with net
@@ -43,4 +44,3 @@ git mv old/submodule new/submodule
 ```
 
 Создано [Sphinx](https://github.com/sphinx-doc/sphinx)
-
