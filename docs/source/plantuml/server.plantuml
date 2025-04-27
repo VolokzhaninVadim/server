@@ -5,7 +5,7 @@
 ' LAYOUT_WITH_LEGEND()
 
 !procedure $CreateTag ($alias, $description="")
-    AddElementTag($alias, $legendText=$description, $sprite=%string("img:../_images/100x100/"+$alias+".png{scale=0.5}"))
+    AddElementTag($alias, $legendText=$description, $sprite=%string("img:../../_images/100x100/"+$alias+".png{scale=0.5}"))
 !endprocedure
 
 $CreateTag(firefox, "Firefox")

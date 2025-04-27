@@ -16,6 +16,7 @@ release = '0.0.1'
 
 extensions = [
     'sphinx.ext.intersphinx',
+    'sphinxcontrib.plantuml',
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
     'sphinx_markdown_builder',
@@ -34,6 +35,8 @@ templates_path = ['_templates']
 exclude_patterns = [
     'build/*'
 ]
+
+plantuml = ['java', '-jar', '/home/volokzhanin/.java/plantuml.jar']
 
 language = 'ru'
 
