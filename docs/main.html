@@ -51,8 +51,8 @@
               <p class="caption" role="heading"><span class="caption-text">Содержимое:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Сервер Волокжанина Вадима</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#docker">Установка Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#id2">Работа с репозиторием</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id3">Статьи</a></li>
 </ul>
 
         </div>
@@ -83,31 +83,118 @@
 <h1>Сервер Волокжанина Вадима<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
 <p><a class="reference external" href="https://github.com/VolokzhaninVadim/server/tree/main/repos">Репозитории</a></p>
 <p class="plantuml">
-<img src="_images/plantuml-daae2147df78e08c7112d1fba91246c1043422d9.png" alt="!include ./plantuml/server.plantuml"/>
+<img src="_images/plantuml-fbb8144b7fbc4bfe59e00ac3a2d7c8e846084990.png" alt="&#64;startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+' LAYOUT_WITH_LEGEND()
+
+!procedure $CreateTag ($alias, $description=&quot;&quot;)
+    AddElementTag($alias, $legendText=$description, $sprite=%string(&quot;img:../_images/100x100/&quot;+$alias+&quot;.png{scale=0.5}&quot;))
+!endprocedure
+
+$CreateTag(firefox, &quot;Firefox&quot;)
+$CreateTag(tplink, &quot;TP-Link&quot;)
+$CreateTag(pikvm, &quot;PiKVM&quot;)
+$CreateTag(nut, &quot;NUT&quot;)
+$CreateTag(proxmox, &quot;Proxmox&quot;)
+$CreateTag(ubuntu, &quot;Ubuntu&quot;)
+$CreateTag(pihole, &quot;PiHole&quot;)
+$CreateTag(npm, &quot;Nginx Proxy Manager&quot;)
+$CreateTag(duckdns, &quot;DuckDNS&quot;)
+$CreateTag(tor, &quot;TOR&quot;)
+$CreateTag(home_assistant, &quot;home_assistant&quot;)
+$CreateTag(vscode, &quot;VSCode&quot;)
+$CreateTag(node_red, &quot;Node-RED&quot;)
+$CreateTag(mosquitto, &quot;Mosquitto&quot;)
+$CreateTag(zigbee2mqtt, &quot;Zigbee2mqtt&quot;)
+$CreateTag(nextcloud, &quot;Nextcloud&quot;)
+$CreateTag(syncthing, &quot;Syncthing&quot;)
+$CreateTag(gitea, &quot;Gitea&quot;)
+$CreateTag(davmail, &quot;DavMail&quot;)
+$CreateTag(redis, &quot;Redis&quot;)
+$CreateTag(elasticsearch, &quot;Elasticsearch&quot;)
+$CreateTag(homepage, &quot;Homepage&quot;)
+$CreateTag(photoprism, &quot;Photoprism&quot;)
+$CreateTag(steam, &quot;Steam&quot;)
+$CreateTag(calibre, &quot;Calibre&quot;)
+$CreateTag(transmission, &quot;Transmission&quot;)
+$CreateTag(torrserver, &quot;Torrserver&quot;)
+$CreateTag(jellyfin, &quot;Jellyfin&quot;)
+$CreateTag(jackett, &quot;Jackett&quot;)
+$CreateTag(lampa, &quot;Lampa&quot;)
+
+title &quot;Сервер Волокжанина Вадима&quot;
+
+Person(users, &quot;Пользователи сервисов&quot;)
+System_Ext(browser, &quot;Браузер пользователя&quot;, &quot;Просмотр web-контента&quot;, $tags=&quot;firefox&quot;)
+System_Ext(tplink, &quot;Роутер&quot;, &quot;Маршрутизация трафика&quot;, $tags=&quot;tplink&quot;)
+System(pikvm, &quot;KVM&quot;, &quot;Удаленное управление через web-браузер&quot;, $tags=&quot;pikvm&quot;)
+System(ups, &quot;UPS&quot;, &quot;Мониторинг UPS&quot;, $tags=&quot;nut&quot;)
+
+
+AddProperty(&quot;vCPU&quot;, &quot;6&quot;)
+AddProperty(&quot;RAM GB&quot;, &quot;94&quot;)
+AddProperty(&quot;SSD GB (System)&quot;, &quot;2 * 512 [ZFS RAID 1]&quot;)
+AddProperty(&quot;HDD TB (VMs)&quot;, &quot;2 * 12 [ZFS RAID 1]&quot;)
+AddProperty(&quot;HDD TB (Сache VMs)&quot;, &quot;128 GB SSD &quot;)
+AddProperty(&quot;HDD TB (Backups)&quot;, &quot;8 [ZFS Single disk]&quot;)
+AddProperty(&quot;NIC&quot;, &quot;1&quot;)
+AddProperty(&quot;Graphic card (NVidia)&quot;, &quot;1&quot;)
+Deployment_Node(server, &quot;Сервер Волокжанина Вадима&quot;, $tags=&quot;proxmox&quot;) {
+
+  Deployment_Node(backup-server, &quot;Сервер резервных копий&quot;, &quot;VM&quot;, &quot;&quot;, $tags=&quot;proxmox&quot;){
+}
+
+  Deployment_Node(smart-home, &quot;Умный дом&quot;, &quot;VM&quot;, &quot;Docker&quot;, $tags=&quot;ubuntu&quot;){
+    Component(home_assistant, &quot;Home Assistant&quot;, &quot;Умный дом&quot;, &quot;Управление умным домом&quot;, $tags=&quot;home_assistant&quot;)
+    Component(vscode, &quot;VSCode server&quot;, &quot;VSCode server&quot;, &quot;Написание и редактирование кода&quot;, $tags=&quot;vscode&quot;)
+    Component(node_red, &quot;Node-RED&quot;, &quot;Node-RED&quot;, &quot;Визуальное программирование автоматизаций&quot;, $tags=&quot;node_red&quot;)
+    Component(mosquitto, &quot;Mosquitto&quot;, &quot;Mosquitto&quot;, &quot;Брокер сообщений для умного дома&quot;, $tags=&quot;mosquitto&quot;)
+    Component(mosquzigbee2mqttitto, &quot;Zigbee2mqtt&quot;, &quot;Zigbee2mqtt&quot;, &quot;Zigbee сообщения в MQTT сообщения&quot;, $tags=&quot;zigbee2mqtt&quot;)
+    Component(homepage, &quot;Homepage&quot;, &quot;Homepage&quot;, &quot;Приборная панель для сервисов сервера&quot;, $tags=&quot;homepage&quot;)
+}
+
+  Deployment_Node(proxy, &quot;Проксирование web-запросов&quot;, &quot;VM&quot;, &quot;Docker&quot;, $tags=&quot;ubuntu&quot;){
+    Component(pihole, &quot;PiHole&quot;, &quot;PiHole&quot;, &quot;Локальный DNS-сервер с функцией блокировки рекламы&quot;, $tags=&quot;pihole&quot;)
+    Component(npm, &quot;Nginx Proxy Manager&quot;, &quot;Nginx Proxy Manager&quot;, &quot;Проксирование web-запросов на сервер&quot;, $tags=&quot;npm&quot;)
+    Component(duckdns, &quot;DuckDNS&quot;, &quot;DuckDNS&quot;, &quot;DDNS&quot;, $tags=&quot;duckdns&quot;)
+    Component(tor, &quot;TOR&quot;, &quot;TOR&quot;, &quot;Проксирование web-запросов от сервера&quot;, $tags=&quot;tor&quot;)
+}
+
+  Deployment_Node(cloud, &quot;Облако&quot;, &quot;VM&quot;, &quot;Docker&quot;, $tags=&quot;ubuntu&quot;){
+    Component(nextcloud, &quot;Nextcloud&quot;, &quot;Nextcloud&quot;, &quot;Частное облако&quot;, $tags=&quot;nextcloud&quot;)
+    Component(redis, &quot;Redis&quot;, &quot;Redis&quot;, &quot;Кэширование запросов в облако&quot;, $tags=&quot;redis&quot;)
+    Component(elasticsearch, &quot;Elasticsearch&quot;, &quot;Elasticsearch&quot;, &quot;Поиск по тексту&quot;, $tags=&quot;elasticsearch&quot;)
+    Component(syncthing, &quot;Syncthing&quot;, &quot;Syncthing&quot;, &quot;Синхронизация файлов между сервером и устройствами&quot;, $tags=&quot;syncthing&quot;)
+    Component(gitea, &quot;Gitea&quot;, &quot;Gitea&quot;, &quot;Git-сервер с функцией зеркалирования репозиториев Github&quot;, $tags=&quot;gitea&quot;)
+    Component(davmail, &quot;DavMail&quot;, &quot;DavMail&quot;, &quot;POP/IMAP/SMTP/Caldav/Carddav/LDAP шлюз для перевода в Carddav и Caldav&quot;, $tags=&quot;davmail&quot;)
+}
+
+  Deployment_Node(mediaserver, &quot;Медиа сервер&quot;, &quot;VM&quot;, &quot;Docker&quot;, $tags=&quot;ubuntu&quot;){
+    Component(photoprism, &quot;Photoprism&quot;, &quot;Photoprism&quot;, &quot;Сервис для хранения личных фото/видео c AI&quot;, $tags=&quot;photoprism&quot;)
+    Component(steam, &quot;Steam&quot;, &quot;Steam&quot;, &quot;Игровой сервер&quot;, $tags=&quot;steam&quot;)
+    Component(calibre, &quot;Calibre&quot;, &quot;Calibre&quot;, &quot;Электронная библиотека&quot;, $tags=&quot;calibre&quot;)
+    Component(transmission, &quot;Transmission&quot;, &quot;Transmission&quot;, &quot;Торрент-качалка&quot;, $tags=&quot;transmission&quot;)
+    Component(torrserver, &quot;Torrserver&quot;, &quot;Torrserver&quot;, &quot;Просмотр торррентов on-line с функцией DLNA&quot;, $tags=&quot;torrserver&quot;)
+    Component(jellyfin, &quot;Jellyfin&quot;, &quot;Jellyfin&quot;, &quot;Медиасервер&quot;, $tags=&quot;jellyfin&quot;)
+    Component(jackett, &quot;Jackett&quot;, &quot;Jackett&quot;, &quot;Торрент-поиск&quot;, $tags=&quot;jackett&quot;)
+    Component(lampa, &quot;Lampa&quot;, &quot;Lampa&quot;, &quot;Медиасервер для торрентов&quot;, $tags=&quot;lampa&quot;)
+}
+}
+
+Rel(users, browser, &quot;Просмотр Web-страниц&quot;)
+Rel(browser, tplink, &quot;Web-запросы&quot;)
+Rel(tplink, pikvm, &quot;Web-запросы&quot;)
+Rel(tplink, server, &quot;Web-запросы&quot;)
+Rel(pikvm, server, &quot;Управление&quot;)
+Rel(ups, server, &quot;Электричество&quot;)
+Rel(server, ups, &quot;Сигналы от автоматизаций&quot;)
+
+' SHOW_LEGEND()
+
+&#64;enduml"/>
 </p>
-</section>
-<section id="docker">
-<h1>Установка Docker<a class="headerlink" href="#docker" title="Ссылка на этот заголовок"></a></h1>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install packages for work with net</span>
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>net-tools
-sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>apt-transport-https<span class="w"> </span>ca-certificates<span class="w"> </span>curl<span class="w"> </span>software-properties-common
-<span class="c1"># Install Docker</span>
-curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/ubuntu/gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
-sudo<span class="w"> </span>apt-key<span class="w"> </span>fingerprint<span class="w"> </span>0EBFCD88
-sudo<span class="w"> </span>add-apt-repository<span class="w"> </span><span class="s2">&quot;deb [arch=arm64] https://download.docker.com/linux/ubuntu </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> stable&quot;</span>
-sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-apt-cache<span class="w"> </span>policy<span class="w"> </span>docker-ce
-sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>docker-ce
-<span class="c1"># Add user in docker group, that do not launch docker with sudo</span>
-sudo<span class="w"> </span>groupadd<span class="w"> </span>docker
-newgrp<span class="w"> </span>docker
-sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
-<span class="c1"># Install docker-compose</span>
-sudo<span class="w"> </span>curl<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;https://github.com/docker/compose/releases/latest/download/docker-compose-</span><span class="k">$(</span>uname<span class="w"> </span>-s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span>/usr/local/bin/docker-compose
-sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/docker-compose
-sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/bin/docker-compose<span class="w"> </span>/usr/bin/docker-compose
-</pre></div>
-</div>
 </section>
 <section id="id2">
 <h1>Работа с репозиторием<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h1>
@@ -127,6 +214,13 @@ git<span class="w"> </span>pull<span class="w"> </span>--recurse-submodules
 git<span class="w"> </span>mv<span class="w"> </span>old/submodule<span class="w"> </span>new/submodule
 </pre></div>
 </div>
+</section>
+<section id="id3">
+<h1>Статьи<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="articles/docker.html"><span class="std std-doc">Как установить Docker?</span></a></p></li>
+<li><p><a class="reference internal" href="articles/nvidia_drivers.html"><span class="std std-doc">Как установить драйвера Nvidia в Linux?</span></a></p></li>
+</ol>
 <p>Создано <a class="reference external" href="https://github.com/sphinx-doc/sphinx">Sphinx</a></p>
 </section>
 

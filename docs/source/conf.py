@@ -28,7 +28,8 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'sphinx_togglebutton',
-    'myst_parser'
+    'myst_parser',
+    'sphinx_math_dollar'
 ]
 
 templates_path = ['_templates']
@@ -53,3 +54,10 @@ markdown_uri_doc_suffix = ".html"
 pygments_style = 'sphinx'
 source_suffix = ['.rst', '.md']
 myst_heading_anchors = 4
+
+mathjax3_config = {
+  "tex": {
+    "inlineMath": [['\\(', '\\)']],
+    "displayMath": [["\\[", "\\]"]],
+  }
+}
