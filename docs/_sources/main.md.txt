@@ -133,9 +133,13 @@ git mv old/submodule new/submodule
 ```
 
 # Статьи
+## Сервер
+1. [Как установить Proxmox?](../source/articles/proxmox.md)
 1. [Как установить Docker?](../source/articles/docker.md)
 1. [Как установить драйвера Nvidia в Linux?](../source/articles/nvidia_drivers.md)
-1. [Как установить Proxmox?](../source/articles/proxmox.md)
+
+## Умный дом
+1. [Как запустить сервис по управлению умным домом?](../source/articles/homeassistant.md)
 1. [Как подключить координатор для управления IoT устройствами](../source/articles/zigbee.md)
 
 Создано [Sphinx](https://github.com/sphinx-doc/sphinx)
