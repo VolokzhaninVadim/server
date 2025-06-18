@@ -134,6 +134,8 @@ git mv old/submodule new/submodule
 
 # Статьи
 ## Сервер
+1. [Зачем нужен собственный сервер в 2025?](../source/articles/server.md)
+1. [Как создать загрузочную флешку?](../source/articles/loading_flash.md)
 1. [Как установить Proxmox?](../source/articles/proxmox.md)
 1. [Как установить Docker?](../source/articles/docker.md)
 1. [Как установить драйвера Nvidia в Linux?](../source/articles/nvidia_drivers.md)
