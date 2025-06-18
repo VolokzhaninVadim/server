@@ -161,3 +161,6 @@ cython_debug/
 
 # User files
 *.snar
+
+
+docs/_plantuml/*
