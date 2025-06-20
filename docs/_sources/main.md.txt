@@ -140,6 +140,7 @@ git mv old/submodule new/submodule
 1. [Как установить Docker?](../source/articles/docker.md)
 1. [Как установить драйвера Nvidia в Linux?](../source/articles/nvidia_drivers.md)
 1. [Как запустить собственный git-сервер?](../source/articles/gitea.md)
+1. [Как запустить свой менеджер паролей?](../source/articles/password_manager.md)
 
 ## Умный дом
 1. [Как запустить сервис по управлению умным домом?](../source/articles/homeassistant.md)
