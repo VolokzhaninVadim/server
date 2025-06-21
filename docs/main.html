@@ -87,7 +87,7 @@
 <h1>Сервер Волокжанина Вадима<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
 <p><a class="reference external" href="https://github.com/VolokzhaninVadim/server/tree/main/repos">Репозитории</a></p>
 <p class="plantuml">
-<img src="_images/plantuml-fbb8144b7fbc4bfe59e00ac3a2d7c8e846084990.png" alt="&#64;startuml
+<img src="_images/plantuml-a6beb4ae044eb1756b9324b41fa434e07fbc4594.png" alt="&#64;startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
@@ -127,6 +127,7 @@ $CreateTag(torrserver, &quot;Torrserver&quot;)
 $CreateTag(jellyfin, &quot;Jellyfin&quot;)
 $CreateTag(jackett, &quot;Jackett&quot;)
 $CreateTag(lampa, &quot;Lampa&quot;)
+$CreateTag(onlyoffice, &quot;ONLYOFFICE&quot;)
 
 title &quot;Сервер Волокжанина Вадима&quot;
 
@@ -168,6 +169,7 @@ Deployment_Node(server, &quot;Сервер Волокжанина Вадима&q
 
   Deployment_Node(cloud, &quot;Облако&quot;, &quot;VM&quot;, &quot;Docker&quot;, $tags=&quot;ubuntu&quot;){
     Component(nextcloud, &quot;Nextcloud&quot;, &quot;Nextcloud&quot;, &quot;Частное облако&quot;, $tags=&quot;nextcloud&quot;)
+    Component(onlyoffice, &quot;ONLYOFFICE&quot;, &quot;ONLYOFFICE&quot;, &quot;Работа с документами on-line&quot;, $tags=&quot;onlyoffice&quot;)
     Component(redis, &quot;Redis&quot;, &quot;Redis&quot;, &quot;Кэширование запросов в облако&quot;, $tags=&quot;redis&quot;)
     Component(elasticsearch, &quot;Elasticsearch&quot;, &quot;Elasticsearch&quot;, &quot;Поиск по тексту&quot;, $tags=&quot;elasticsearch&quot;)
     Component(syncthing, &quot;Syncthing&quot;, &quot;Syncthing&quot;, &quot;Синхронизация файлов между сервером и устройствами&quot;, $tags=&quot;syncthing&quot;)

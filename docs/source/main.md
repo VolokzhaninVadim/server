@@ -41,6 +41,7 @@ $CreateTag(torrserver, "Torrserver")
 $CreateTag(jellyfin, "Jellyfin")
 $CreateTag(jackett, "Jackett")
 $CreateTag(lampa, "Lampa")
+$CreateTag(onlyoffice, "ONLYOFFICE")
 
 title "Сервер Волокжанина Вадима"
 
@@ -82,6 +83,7 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
 
   Deployment_Node(cloud, "Облако", "VM", "Docker", $tags="ubuntu"){
     Component(nextcloud, "Nextcloud", "Nextcloud", "Частное облако", $tags="nextcloud")
+    Component(onlyoffice, "ONLYOFFICE", "ONLYOFFICE", "Работа с документами on-line", $tags="onlyoffice")
     Component(redis, "Redis", "Redis", "Кэширование запросов в облако", $tags="redis")
     Component(elasticsearch, "Elasticsearch", "Elasticsearch", "Поиск по тексту", $tags="elasticsearch")
     Component(syncthing, "Syncthing", "Syncthing", "Синхронизация файлов между сервером и устройствами", $tags="syncthing")
