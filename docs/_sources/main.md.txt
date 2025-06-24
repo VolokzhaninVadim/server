@@ -149,4 +149,7 @@ git mv old/submodule new/submodule
 1. [Как подключить координатор для управления IoT устройствами](../source/articles/zigbee.md)
 1. [Как запустить device tracking для умного дома?](../source/articles/device_tracking.md)
 
+## Прокси
+1. [Как бесплатно получить собственный домен?](../source/articles/duckdns.md)
+
 Создано [Sphinx](https://github.com/sphinx-doc/sphinx)
