@@ -151,5 +151,6 @@ git mv old/submodule new/submodule
 
 ## Прокси
 1. [Как бесплатно получить собственный домен?](../source/articles/duckdns.md)
+1. [Как запустить прокси-сервер для сервисов?](../source/articles/npm.md)
 
 Создано [Sphinx](https://github.com/sphinx-doc/sphinx)
