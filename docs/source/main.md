@@ -150,6 +150,7 @@ git mv old/submodule new/submodule
 
 ## Медиа
 1. [Как просматривать медиа с торрентов?](../source/articles/torrserver.md)
+1. [Как запустить сервис по поиску торрентов?](../source/articles/jackett.md)
 
 ## Умный дом
 1. [Как запустить сервис по управлению умным домом?](../source/articles/homeassistant.md)
