@@ -143,14 +143,14 @@ git mv old/submodule new/submodule
 1. [Как установить драйвера Nvidia в Linux?](../source/articles/nvidia_drivers.md)
 1. [Как запустить собственный git-сервер?](../source/articles/gitea.md)
 1. [Как запустить свой менеджер паролей?](../source/articles/password_manager.md)
-1. [Как настроить центральный менеджмент сервер для ИПБ?](../source/articles/ups.md)
+1. [Как настроить центральный менеджмент сервер для ИБП?](../source/articles/ups.md)
 
 ## Прокси
 1. [Как бесплатно получить собственный домен?](../source/articles/duckdns.md)
 1. [Как запустить прокси-сервер для сервисов?](../source/articles/npm.md)
 
 ## Медиа
-1. [Как просматривать медиа с торрентов?](../source/articles/lampa.md)
+1. [Как создать систему для просмотра торрентов?](../source/articles/lampa.md)
 1. [Как просматривать медиа с торрентов?](../source/articles/torrserver.md)
 1. [Как запустить сервис по поиску торрентов?](../source/articles/jackett.md)
 
