@@ -307,3 +307,4 @@ docker exec -it nextcloud-app php occ app:install calendar
 1. [Как установить Proxmox?](./proxmox.md)
 1. [Как установить Docker?](./docker.md)
 1. [Как запустить прокси-сервер для сервисов?](./npm.md)
+1. [Как запустить сервис по управлению умным домом?](./homeassistant.md)
