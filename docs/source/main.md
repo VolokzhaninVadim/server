@@ -155,7 +155,7 @@ git mv old/submodule new/submodule
 1. [Как запустить сервис по поиску торрентов?](../source/articles/jackett.md)
 
 ## Облако
-1. [Как запустить собственное облако?](../source/articles/nextcloud.md)
+1. [Как запустить сервис с собственным облаком?](../source/articles/nextcloud.md)
 
 ## Умный дом
 1. [Как запустить сервис по управлению умным домом?](../source/articles/homeassistant.md)
