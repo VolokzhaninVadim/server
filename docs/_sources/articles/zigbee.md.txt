@@ -9,51 +9,7 @@
 Концептуальная схема выглядит так:
 
 ```{uml}
-@startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
-!include <eip/EIP-PlantUML>
-
-!procedure $CreateTag ($alias, $description="")
-    AddElementTag($alias, $legendText=$description, $sprite=%string("img:../../_images/100x100/"+$alias+".png{scale=0.5}"))
-!endprocedure
-
-$CreateTag(docker, "Docker")
-$CreateTag(zigbee, "Zigbee устройства")
-$CreateTag(home_assistant, "home_assistant")
-$CreateTag(mosquitto, "Брокер сообщений mosquitto")
-$CreateTag(zigbee2mqtt, "Мост zigbee2mqtt")
-$CreateTag(zigbee_coordinator, "Координтатор zigbee")
-
-
-title "Схема взаимодействия с IoT устройствами"
-
-Person(users, "Пользователи умного дома")
-
-  System_Boundary(docker, "Docker"){
-    Component(home_assistant, "Home Assistant", "Умный дом", "Управление умным домом", $tags="home_assistant")
-    Component(mosquitto, "Mosquitto", "Брокер сообщений", "Брокер сообщений", $tags="mosquitto")
-    Component(zigbee2mqtt, "Zigbee2MQTT", "Мост", "Мост", $tags="zigbee2mqtt")
-}
-
-  System_Boundary(zigbee_system, "Zigbee"){
-    Component(zigbee_coordinator, "Координтатор", "Координтатор", "Координтатор", $tags="zigbee_coordinator")
-    Component(zigbee, "Zigbee", "Zigbee", "Устройства", $tags="zigbee")
-}
-
-
-Rel(users, home_assistant, "Запросы")
-Rel(home_assistant, users, "Ответы")
-Rel(home_assistant, mosquitto, "Запросы")
-Rel(mosquitto, home_assistant, "Ответы")
-Rel(zigbee2mqtt, mosquitto, "Запросы")
-Rel(mosquitto, zigbee2mqtt, "Ответы")
-Rel(zigbee2mqtt, zigbee_coordinator, "Запросы")
-Rel(zigbee_coordinator, zigbee2mqtt, "Ответы")
-Rel(zigbee_coordinator, zigbee, "Запросы")
-Rel(zigbee, zigbee_coordinator, "Ответы")
-
-@enduml
+!include plantuml/zigbee.plantuml
 ```
 
 ## Покупка координатора

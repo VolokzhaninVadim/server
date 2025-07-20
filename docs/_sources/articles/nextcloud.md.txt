@@ -13,79 +13,7 @@
 ## VM
 Для работы облака у меня развернута отдельная VM с backup. Концептуальную схему можно увидеть [тут](https://volokzhaninvadim.github.io/server/main.html).  Если говорить о работе с дискам, то она выглядит так:
 ```{uml}
-@startuml
-skinparam nodesep 20
-skinparam ranksep 30
-skinparam defaultFontSize 12
-skinparam folderBackgroundColor #F0F8FF
-skinparam rectangle<<device>> {
-    backgroundColor #FFFACD
-    borderColor #FFA500
-}
-skinparam databaseBackgroundColor #E6F0FF
-skinparam databaseBorderColor #4682B4
-
-rectangle "**Хост Proxmox**" as host {
-    database "Физические HDD" as disks {
-        card "HDD A\n(12TB, 7200RPM)" as hdd1
-        card "HDD B\n(12TB, 7200RPM)" as hdd2
-    }
-
-    database "ZFS RAID1 Pool" as zpool {
-        card "Тип: mirror (RAID1)"
-        card "Пул: main"
-        card "Размер: 12TB"
-        card "Избыточность: 100%"
-    }
-
-    folder "ZFS Том:\n/main" as vol_main #C9E3F0 {
-        folder "media" as media_dir
-        folder "private_media" as private_dir
-    }
-
-    hdd1 --> zpool : Зеркало
-    hdd2 --> zpool : Зеркало
-    zpool --> vol_main
-}
-
-rectangle "**ВМ: Cloud**" as vm1 {
-    rectangle "VirtIO-FS Dev\n(main)" as dev1_main <<device>>
-    folder "Точка монтирования:\n/mnt/media" as mount1_media #C8F0C9
-    folder "Точка монтирования:\n/mnt/private_media" as mount1_private #B8E0B9
-}
-
-rectangle "**ВМ: Media**" as vm2 {
-    rectangle "VirtIO-FS Dev\n(main)" as dev2_main <<device>>
-    folder "Точка монтирования:\n/mnt/media" as mount2_media #D0F0D0
-    folder "Точка монтирования:\n/mnt/private_media" as mount2_private #C0E0C0
-}
-
-vol_main --> dev1_main : Проброс
-vol_main --> dev2_main : Проброс
-
-dev1_main --> mount1_media : Доступ
-dev1_main --> mount1_private : Доступ
-dev2_main --> mount2_media : Доступ
-dev2_main --> mount2_private : Доступ
-
-note left of disks
-  **Конфигурация RAID1:**
-  - 2 × HDD 12TB SATA
-  - Режим: mirror (зеркалирование)
-  - Полезный объём: 12TB
-  - Полная избыточность:
-    данные идентичны на обоих дисках
-end note
-
-note right of zpool
-  **ZFS Параметры:**
-  - Пул: main
-  - Том main:
-  - Подтом media:
-  - Подтом private_media:
-end note
-
-@enduml
+!include plantuml/nextcloud_disks.plantuml
 ```
 Если еще короче, то к серверу с [Proxmox](https://ru.wikipedia.org/wiki/Proxmox_Virtual_Environment) присоединены 2 диска с зеркалированием. На этих дисках стоит файловая система [ZFS](https://ru.wikipedia.org/wiki/ZFS) и там заведено несколько папок, которые проброшены в [VMs](https://ru.wikipedia.org/wiki/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%B0) и примонтированы как диски. Такая логическая организация дисков позволила манипудировать общими данными на нескольких VMs.
 
@@ -250,7 +178,7 @@ KEYS *
  7) "e28776fbaa397fc10461d72569392a5c/theming-https://test.volokzhanin.duckdns.orgshouldReplaceIcons"
 ...
 ```
-Устанавливаем прилдожения:
+Устанавливаем приложения:
 ```bash
 # Календарь
 docker exec -it nextcloud-app php occ app:install calendar
