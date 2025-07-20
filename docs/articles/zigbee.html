@@ -91,51 +91,7 @@
 <p>По всем этим критериям на тот момент победу одержала технология <a class="reference external" href="https://ru.wikipedia.org/wiki/Zigbee">Zigbee</a>. Были и недостатки в виде несовместимости некоторых устройств, производители которых используют свои закрытые прошивки и при этом указывают «Zigbee». Также есть ограничение по скорости, поэтому не рекомендуется передавать потокового видео, например. Для меня это были не проблемы, поэтому пошел в выбранную сторону. В этой статье буду описывать как я настроил работу координатора Zigbee, который занимает центральное место в сети IoT устройств.
 Концептуальная схема выглядит так:</p>
 <p class="plantuml">
-<img src="../_images/plantuml-ef9714ebbde37ffb3a4f59d713fee87a89f55147.png" alt="&#64;startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
-!include &lt;eip/EIP-PlantUML&gt;
-
-!procedure $CreateTag ($alias, $description=&quot;&quot;)
-    AddElementTag($alias, $legendText=$description, $sprite=%string(&quot;img:../../_images/100x100/&quot;+$alias+&quot;.png{scale=0.5}&quot;))
-!endprocedure
-
-$CreateTag(docker, &quot;Docker&quot;)
-$CreateTag(zigbee, &quot;Zigbee устройства&quot;)
-$CreateTag(home_assistant, &quot;home_assistant&quot;)
-$CreateTag(mosquitto, &quot;Брокер сообщений mosquitto&quot;)
-$CreateTag(zigbee2mqtt, &quot;Мост zigbee2mqtt&quot;)
-$CreateTag(zigbee_coordinator, &quot;Координтатор zigbee&quot;)
-
-
-title &quot;Схема взаимодействия с IoT устройствами&quot;
-
-Person(users, &quot;Пользователи умного дома&quot;)
-
-  System_Boundary(docker, &quot;Docker&quot;){
-    Component(home_assistant, &quot;Home Assistant&quot;, &quot;Умный дом&quot;, &quot;Управление умным домом&quot;, $tags=&quot;home_assistant&quot;)
-    Component(mosquitto, &quot;Mosquitto&quot;, &quot;Брокер сообщений&quot;, &quot;Брокер сообщений&quot;, $tags=&quot;mosquitto&quot;)
-    Component(zigbee2mqtt, &quot;Zigbee2MQTT&quot;, &quot;Мост&quot;, &quot;Мост&quot;, $tags=&quot;zigbee2mqtt&quot;)
-}
-
-  System_Boundary(zigbee_system, &quot;Zigbee&quot;){
-    Component(zigbee_coordinator, &quot;Координтатор&quot;, &quot;Координтатор&quot;, &quot;Координтатор&quot;, $tags=&quot;zigbee_coordinator&quot;)
-    Component(zigbee, &quot;Zigbee&quot;, &quot;Zigbee&quot;, &quot;Устройства&quot;, $tags=&quot;zigbee&quot;)
-}
-
-
-Rel(users, home_assistant, &quot;Запросы&quot;)
-Rel(home_assistant, users, &quot;Ответы&quot;)
-Rel(home_assistant, mosquitto, &quot;Запросы&quot;)
-Rel(mosquitto, home_assistant, &quot;Ответы&quot;)
-Rel(zigbee2mqtt, mosquitto, &quot;Запросы&quot;)
-Rel(mosquitto, zigbee2mqtt, &quot;Ответы&quot;)
-Rel(zigbee2mqtt, zigbee_coordinator, &quot;Запросы&quot;)
-Rel(zigbee_coordinator, zigbee2mqtt, &quot;Ответы&quot;)
-Rel(zigbee_coordinator, zigbee, &quot;Запросы&quot;)
-Rel(zigbee, zigbee_coordinator, &quot;Ответы&quot;)
-
-&#64;enduml"/>
+<img src="../_images/plantuml-9ab35902a9d56a0436fd93863c870c5b96185284.png" alt="!include plantuml/zigbee.plantuml"/>
 </p>
 </section>
 <section id="id2">
