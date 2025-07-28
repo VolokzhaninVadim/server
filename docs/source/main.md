@@ -41,6 +41,7 @@ git mv old/submodule new/submodule
 1. [Как создать систему для просмотра торрентов?](../source/articles/lampa.md)
 1. [Как просматривать медиа с торрентов?](../source/articles/torrserver.md)
 1. [Как запустить сервис по поиску торрентов?](../source/articles/jackett.md)
+1. [Как запустить собственную электронную библиотеку?](../source/articles/calibre.md)
 
 ## Облако
 1. [Как запустить сервис с собственным облаком?](../source/articles/nextcloud.md)
