@@ -45,6 +45,7 @@ git mv old/submodule new/submodule
 
 ## Облако
 1. [Как запустить сервис с собственным облаком?](../source/articles/nextcloud.md)
+1. [Как запустить свою базу знаний?](../source/articles/syncthing.md)
 
 ## Умный дом
 1. [Как запустить сервис по управлению умным домом?](../source/articles/homeassistant.md)
