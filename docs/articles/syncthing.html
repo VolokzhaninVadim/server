@@ -93,10 +93,9 @@
 <p>Из предпосылок видно, что чтобы эффективно взаимодействовать с окружающим миром мы вынуждены выносить значительную часть информации на внешние «носители». Таким образом, мы уже подошли к необходимости создания базы знаний.</p>
 <p>Требования к базе знаний:</p>
 <ol class="arabic simple">
-<li><p>Хранение большей части информации локально, чтобы не зависеть от корпораций и их «желаний».</p></li>
+<li><p>Хранение большей части информации локально, чтобы не зависеть от корпораций и наличия интернета.</p></li>
 <li><p>Наличие поиска и он должен работать за разумное время.</p></li>
 <li><p>База знаний должна быть доступна на всех устройствах.</p></li>
-<li><p>Желательно хранить базу знаний локально или значительную ее часть, чтобы иметь постоянный доступ  и не зависеть от наличия интернета. Этот пункт с нюансом, но об этом позже.</p></li>
 </ol>
 <p>В статье попытается максимально выполнить все наши требования.</p>
 </section>
@@ -129,8 +128,8 @@
 <span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">syncthing</span>
 <span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">syncthing</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUID=33</span><span class="w"> </span><span class="c1"># Это пользвоталь www-data и он нужен для отсутсвия конфликто с nextcloud. Можно заменить на 1000 и итогда будет работать от текущего пользовтаеля</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGID=33</span><span class="w"> </span><span class="c1"># Это группа www-data и он нужен для отсутсвия конфликто с nextcloud. Можно заменить на 1000 и итогда будет работать от текущего пользовтаеля</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUID=33</span><span class="w"> </span><span class="c1"># Это пользвоталь www-data и он нужен для отсутсвия конфликтов с nextcloud. Можно заменить на 1000 и итогда будет работать от текущего пользовтаеля</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGID=33</span><span class="w"> </span><span class="c1"># Это группа www-data и он нужен для отсутсвия конфликтов с nextcloud. Можно заменить на 1000 и итогда будет работать от текущего пользовтаеля</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./config_syncthing:/config</span><span class="w"> </span><span class="c1"># Основной конфиг</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/mnt/private_media:/mnt/private_media</span><span class="w"> </span><span class="c1"># Мои фото/видео для синхронизации смартфонов</span>
