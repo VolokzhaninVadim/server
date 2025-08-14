@@ -39,6 +39,7 @@ $CreateTag(jellyfin, "Jellyfin")
 $CreateTag(jackett, "Jackett")
 $CreateTag(lampa, "Lampa")
 $CreateTag(onlyoffice, "ONLYOFFICE")
+$CreateTag(musicassistant, "Music Assistant")
 
 title "Сервер Волокжанина Вадима"
 
@@ -69,6 +70,7 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(mosquitto, "Mosquitto", "Mosquitto", "Брокер сообщений для умного дома", $tags="mosquitto")
     Component(mosquzigbee2mqttitto, "Zigbee2mqtt", "Zigbee2mqtt", "Zigbee сообщения в MQTT сообщения", $tags="zigbee2mqtt")
     Component(homepage, "Homepage", "Homepage", "Приборная панель для сервисов сервера", $tags="homepage")
+    Component(homepage, "Music Assistant", "Music Assistant", "Управление проигрыванием музыки", $tags="musicassistant")
 }
 
   Deployment_Node(proxy, "Проксирование web-запросов", "VM", "Docker", $tags="ubuntu"){
