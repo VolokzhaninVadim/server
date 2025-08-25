@@ -52,6 +52,6 @@ git mv old/submodule new/submodule
 1. [Как запустить сервис по управлению умным домом?](../source/articles/homeassistant.md)
 1. [Как подключить координатор для управления IoT устройствами](../source/articles/zigbee.md)
 1. [Как запустить device tracking для умного дома?](../source/articles/device_tracking.md)
-
+1. [Как запустить сервис для создания автоматизаций в умном доме?](../source/articles/nodered.md)
 
 Создано [Sphinx](https://github.com/sphinx-doc/sphinx)
