@@ -59,3 +59,6 @@
 [submodule "repos/dashboard/dashboard"]
 	path = repos/dashboard/dashboard
 	url = git@github.com:VolokzhaninVadim/dashboard.git
+[submodule "repos/proxy/docker_manager"]
+	path = repos/proxy/docker_manager
+	url = git@github.com:VolokzhaninVadim/docker_manager.git
