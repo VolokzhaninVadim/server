@@ -40,6 +40,7 @@ $CreateTag(jackett, "Jackett")
 $CreateTag(lampa, "Lampa")
 $CreateTag(onlyoffice, "ONLYOFFICE")
 $CreateTag(musicassistant, "Music Assistant")
+$CreateTag(portainer, "Docker Manager")
 
 title "Сервер Волокжанина Вадима"
 
@@ -70,7 +71,7 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(mosquitto, "Mosquitto", "Mosquitto", "Брокер сообщений для умного дома", $tags="mosquitto")
     Component(mosquzigbee2mqttitto, "Zigbee2mqtt", "Zigbee2mqtt", "Zigbee сообщения в MQTT сообщения", $tags="zigbee2mqtt")
     Component(homepage, "Homepage", "Homepage", "Приборная панель для сервисов сервера", $tags="homepage")
-    Component(homepage, "Music Assistant", "Music Assistant", "Управление проигрыванием музыки", $tags="musicassistant")
+    Component(musicassistant, "Music Assistant", "Music Assistant", "Управление проигрыванием музыки", $tags="musicassistant")
 }
 
   Deployment_Node(proxy, "Проксирование web-запросов", "VM", "Docker", $tags="ubuntu"){
@@ -78,6 +79,7 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(npm, "Nginx Proxy Manager", "Nginx Proxy Manager", "Проксирование web-запросов на сервер", $tags="npm")
     Component(duckdns, "DuckDNS", "DuckDNS", "DDNS", $tags="duckdns")
     Component(tor, "TOR", "TOR", "Проксирование web-запросов от сервера", $tags="tor")
+    Component(portainer, "Portainer", "Portainer", "Управление Docker", $tags="portainer")
 }
 
   Deployment_Node(cloud, "Облако", "VM", "Docker", $tags="ubuntu"){
