@@ -41,6 +41,8 @@ $CreateTag(lampa, "Lampa")
 $CreateTag(onlyoffice, "ONLYOFFICE")
 $CreateTag(musicassistant, "Music Assistant")
 $CreateTag(portainer, "Docker Manager")
+$CreateTag(postgres, "Database")
+$CreateTag(immich, "Immich")
 
 title "Сервер Волокжанина Вадима"
 
@@ -72,6 +74,7 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(mosquzigbee2mqttitto, "Zigbee2mqtt", "Zigbee2mqtt", "Zigbee сообщения в MQTT сообщения", $tags="zigbee2mqtt")
     Component(homepage, "Homepage", "Homepage", "Приборная панель для сервисов сервера", $tags="homepage")
     Component(musicassistant, "Music Assistant", "Music Assistant", "Управление проигрыванием музыки", $tags="musicassistant")
+    Component(postgres_smart_home, "Postgres smart home", "Postgres smart home", "База данных для умного дома", $tags="postgres")
 }
 
   Deployment_Node(proxy, "Проксирование web-запросов", "VM", "Docker", $tags="ubuntu"){
@@ -90,10 +93,13 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(syncthing, "Syncthing", "Syncthing", "Синхронизация файлов между сервером и устройствами", $tags="syncthing")
     Component(gitea, "Gitea", "Gitea", "Git-сервер с функцией зеркалирования репозиториев Github", $tags="gitea")
     Component(davmail, "DavMail", "DavMail", "POP/IMAP/SMTP/Caldav/Carddav/LDAP шлюз для перевода в Carddav и Caldav", $tags="davmail")
+    Component(postgres_private_cloud, "Postgres private cloud ", "Postgres private cloud", "База данных для частного облака", $tags="postgres")
 }
 
   Deployment_Node(mediaserver, "Медиа сервер", "VM", "Docker", $tags="ubuntu"){
-    Component(photoprism, "Photoprism", "Photoprism", "Сервис для хранения личных фото/видео c AI", $tags="photoprism")
+    Component(immich, "Immich", "Immich", "Управление частными фото/видео c AI", $tags="immich")
+    Component(postgres_private_media, "Postgres private media", "Postgres private media", "База данных для частных фото/видео", $tags="postgres")
+    Component(redis, "Redis", "Redis", "Кэширование запросов для частных фото/видеоh", $tags="redis")
     Component(steam, "Steam", "Steam", "Игровой сервер", $tags="steam")
     Component(calibre, "Calibre", "Calibre", "Электронная библиотека", $tags="calibre")
     Component(transmission, "Transmission", "Transmission", "Торрент-качалка", $tags="transmission")
