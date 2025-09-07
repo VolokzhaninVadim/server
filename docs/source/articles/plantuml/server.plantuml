@@ -75,6 +75,7 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(homepage, "Homepage", "Homepage", "Приборная панель для сервисов сервера", $tags="homepage")
     Component(musicassistant, "Music Assistant", "Music Assistant", "Управление проигрыванием музыки", $tags="musicassistant")
     Component(postgres_smart_home, "Postgres smart home", "Postgres smart home", "База данных для умного дома", $tags="postgres")
+    Component(portainer_agent_smart_home, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
 }
 
   Deployment_Node(proxy, "Проксирование web-запросов", "VM", "Docker", $tags="ubuntu"){
@@ -94,6 +95,8 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(gitea, "Gitea", "Gitea", "Git-сервер с функцией зеркалирования репозиториев Github", $tags="gitea")
     Component(davmail, "DavMail", "DavMail", "POP/IMAP/SMTP/Caldav/Carddav/LDAP шлюз для перевода в Carddav и Caldav", $tags="davmail")
     Component(postgres_private_cloud, "Postgres private cloud ", "Postgres private cloud", "База данных для частного облака", $tags="postgres")
+    Component(postgres_gitea, "Postgres Gitea ", "Postgres Gitea", "База данных для собственного git", $tags="postgres")
+    Component(portainer_agent_private_cloud, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
 }
 
   Deployment_Node(mediaserver, "Медиа сервер", "VM", "Docker", $tags="ubuntu"){
@@ -107,6 +110,7 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(jellyfin, "Jellyfin", "Jellyfin", "Медиасервер", $tags="jellyfin")
     Component(jackett, "Jackett", "Jackett", "Торрент-поиск", $tags="jackett")
     Component(lampa, "Lampa", "Lampa", "Медиасервер для торрентов", $tags="lampa")
+    Component(portainer_agent_private_media, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
 }
 }
 
