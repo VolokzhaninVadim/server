@@ -62,3 +62,6 @@
 [submodule "repos/proxy/docker_manager"]
 	path = repos/proxy/docker_manager
 	url = git@github.com:VolokzhaninVadim/docker_manager.git
+[submodule "repos/media/private_media"]
+	path = repos/media/private_media
+	url = git@github.com:VolokzhaninVadim/private_media.git
