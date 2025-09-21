@@ -320,8 +320,21 @@ curl<span class="w"> </span>-o-<span class="w"> </span>https://raw.githubusercon
 <h3>Интеграция с умным домом<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h3>
 <p>Для интеграции возможно подключить <a class="reference external" href="https://www.home-assistant.io/integrations/immich/">интеграцию</a>. Для работы нам потребуется выпустить API key в UI умного дома: <code class="docutils literal notranslate"><span class="pre">Настройки</span> <span class="pre">учетной</span> <span class="pre">записи</span> <span class="pre">-&gt;</span> <span class="pre">Ключи</span> <span class="pre">API</span> <span class="pre">-&gt;</span> <span class="pre">Создать</span></code>. Права оставляем только на чтение. Теперь можем просматривать альбомы, найденных людей и теги.</p>
 </section>
+</section>
 <section id="id9">
-<h3>Итог<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h3>
+<h2>Мобильное приложение<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h2>
+<p>Через <a class="reference external" href="https://ru.wikipedia.org/wiki/F-Droid">F-Droid</a> устанавливаем <a class="reference external" href="https://f-droid.org/ru/packages/app.alextran.immich/">Immich</a>.</p>
+<p>Рекомендую настроить:</p>
+<ol class="arabic simple">
+<li><p>Настройки -&gt; Сеть -&gt; Локальная сеть.
+Здесь указываете наименование вашей сети и локальный адрес вашего сервиса.</p></li>
+<li><p>Настройки -&gt; Сеть -&gt; Внешняя сеть.
+Здесь указываете наименование вашей сети и внешний адрес вашего сервиса.</p></li>
+</ol>
+<p>Теперь мобильное устройство будет знать какой адрес и в какой момент использовать для подключения к нашему сервису.</p>
+</section>
+<section id="id10">
+<h2>Итог<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h2>
 <p>До этого я много лет использовал <a class="reference external" href="https://www.photoprism.app/">PhotoPrism</a> и решил составить таблицу сравнения с текущим продуктом.</p>
 <table class="docutils align-default">
 <thead>
@@ -381,8 +394,8 @@ curl<span class="w"> </span>-o-<span class="w"> </span>https://raw.githubusercon
 </tr>
 </tbody>
 </table>
-<section id="id10">
-<h4>Ключевые выводы для домашнего использования:<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h4>
+<section id="id11">
+<h3>Ключевые выводы для домашнего использования:<a class="headerlink" href="#id11" title="Ссылка на этот заголовок"></a></h3>
 <ol class="arabic simple">
 <li><p><strong>Для автоматического резервного копирования с телефона</strong> лучше подходит <strong>Immich</strong> благодаря нативному мобильному приложению и беспроблемной фоновой загрузке.</p></li>
 <li><p><strong>Для ценителей приватности и безопасности</strong> <strong>Immich</strong> предлагает более современные варианты аутентификации (OIDC, MFA).</p></li>
@@ -400,7 +413,6 @@ curl<span class="w"> </span>-o-<span class="w"> </span>https://raw.githubusercon
 <li><p><a class="reference internal" href="nvidia_drivers.html"><span class="std std-doc">Как установить драйвера NVIDIA в Linux?</span></a></p></li>
 <li><p><a class="reference internal" href="homeassistant.html"><span class="std std-doc">Как запустить сервис по управлению умным домом?</span></a></p></li>
 </ol>
-</section>
 </section>
 </section>
 </section>
