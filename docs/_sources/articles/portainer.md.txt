@@ -51,3 +51,7 @@ docker run -d \ -p 9001:9001 \ --name portainer_agent \ --restart=always \ -v /v
 ```{uml}
 !include plantuml/portainer.plantuml
 ```
+Ссылки:
+1. [Зачем нужен собственный сервер в 2025?](./server.md)
+1. [Как установить Proxmox?](./proxmox.md)
+1. [Как установить Docker?](./docker.md)

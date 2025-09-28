@@ -62,3 +62,6 @@ sudo pacman -S docker-buildx
 ```bash
 docker network create -d bridge your_network
 ```
+
+Ссылки:
+1. [Зачем нужен собственный сервер в 2025?](./server.md)
