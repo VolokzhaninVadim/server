@@ -1,0 +1,36 @@
+@startuml
+title Архитектура управления Docker-хостами через Portainer
+
+node "VM1 (Управляющий сервер)" {
+  [Portainer Server] <<Docker Container>> as Portainer
+  [Docker Daemon] as Docker1
+  database "База данных\nPortainer" as DB
+}
+
+node "VM2 (Удаленный хост)" {
+  [Docker Daemon] as Docker2
+  [App Container 1] <<Docker Container>>
+  [App Container 2] <<Docker Container>>
+  [App Container 3] <<Docker Container>>
+}
+
+node "VM3 (Удаленный хост)" {
+  [Docker Daemon] as Docker3
+  [App Container 4] <<Docker Container>>
+  [App Container 5] <<Docker Container>>
+}
+
+Portainer -[#0073E6]--> Docker1 : Управляет (локально)
+Portainer -[#0073E6]--> Docker2 : Управляет через TCP/SSH
+Portainer -[#0073E6]--> Docker3 : Управляет через TCP/SSH
+
+Portainer --> DB : Сохраняет конфигурацию
+
+Docker2 --> [App Container 1]
+Docker2 --> [App Container 2]
+Docker2 --> [App Container 3]
+
+Docker3 --> [App Container 4]
+Docker3 --> [App Container 5]
+
+@enduml
