@@ -20,3 +20,8 @@ sudo pacman -S ventoy
 
 
 ![](https://sun9-74.userapi.com/impg/K5JCT8sMrlDqk1Ix0Qa-vN6Ivucpx35ZDLYlSA/joMMU0iZvJo.jpg?size=807x577&quality=95&sign=63b06bb765c196e2450d2aa84dcfc3f6&type=album)
+
+Ссылки:
+1. [Зачем нужен собственный сервер в 2025?](./server.md)
+1. [Как установить Proxmox?](./proxmox.md)
+1. [Как установить Docker?](./docker.md)
