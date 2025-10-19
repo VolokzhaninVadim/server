@@ -65,3 +65,6 @@
 [submodule "repos/media/private_media"]
 	path = repos/media/private_media
 	url = git@github.com:VolokzhaninVadim/private_media.git
+[submodule "repos/media/llm"]
+	path = repos/media/llm
+	url = git@github.com:VolokzhaninVadim/llm.git
