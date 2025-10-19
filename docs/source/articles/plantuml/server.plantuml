@@ -43,6 +43,8 @@ $CreateTag(musicassistant, "Music Assistant")
 $CreateTag(portainer, "Docker Manager")
 $CreateTag(postgres, "Database")
 $CreateTag(immich, "Immich")
+$CreateTag(ollama, "Ollama")
+$CreateTag(anythingllm, "Anythingllm")
 
 title "Сервер Волокжанина Вадима"
 
@@ -110,7 +112,10 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(jellyfin, "Jellyfin", "Jellyfin", "Медиасервер", $tags="jellyfin")
     Component(jackett, "Jackett", "Jackett", "Торрент-поиск", $tags="jackett")
     Component(lampa, "Lampa", "Lampa", "Медиасервер для торрентов", $tags="lampa")
-    Component(portainer_agent_private_media, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
+    Component(portainer_agent_media, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
+    Component(ollama, "Local LLM", "Local LLM", "Лоальная LLM", $tags="ollama")
+    Component(postgres_ollama, "Postgres for vectors", "Postgres for vectors", "База для эбеддингов", $tags="postgres")
+    Component(anythingllm, "UI for LLM", "UI for LLM", "Интерфейс для работы с LLM", $tags="anythingllm")
 }
 }
 

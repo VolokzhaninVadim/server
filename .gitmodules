@@ -17,7 +17,7 @@
 [submodule "repos/media/media_server"]
 	path = repos/media/media_server
 	url = git@github.com:VolokzhaninVadim/media_server.git
-	branch = main
+	branch = master
 [submodule "repos/cloud/private_library"]
 	path = repos/media/private_library
 	url = git@github.com:VolokzhaninVadim/private_library.git
@@ -26,29 +26,11 @@
 	path = repos/cloud/docker_manager
 	url = git@github.com:VolokzhaninVadim/docker_manager.git
 	branch = main
-[submodule "repos/cloud/airflow"]
-	path = repos/cloud/airflow
-	url = git@github.com:VolokzhaninVadim/airflow.git
-[submodule "repos/cloud/notes"]
-	path = repos/cloud/notes
-	url = git@github.com:VolokzhaninVadim/notes.git
-[submodule "repos/development/vscode_server"]
-	path = repos/development/vscode_server
-	url = git@github.com:VolokzhaninVadim/vscode_server.git
-[submodule "repos/backup/duplicati"]
-	path = repos/backup/duplicati
-	url = git@github.com:VolokzhaninVadim/duplicati.git
-[submodule "repos/dashboard/homarr"]
-	path = repos/dashboard/homarr
-	url = git@github.com:VolokzhaninVadim/homarr.git
-[submodule "repos/media/archivebox"]
-	path = repos/media/archivebox
-	url = git@github.com:VolokzhaninVadim/archivebox.git
 [submodule "repos/media/game_server"]
 	path = repos/media/game_server
 	url = git@github.com:VolokzhaninVadim/game_server.git
 [submodule "repos/dashboard/smart_home"]
-	path = repos/dashboard/smart_home
+	path = repos/smart_home/smart_home
 	url = git@github.com:VolokzhaninVadim/smart_home.git
 [submodule "repos/cloud/gitea"]
 	path = repos/cloud/gitea
@@ -56,12 +38,12 @@
 [submodule "repos/cloud/davmail"]
 	path = repos/cloud/davmail
 	url = git@github.com:VolokzhaninVadim/davmail.git
-[submodule "repos/dashboard/dashboard"]
-	path = repos/dashboard/dashboard
-	url = git@github.com:VolokzhaninVadim/dashboard.git
 [submodule "repos/proxy/docker_manager"]
 	path = repos/proxy/docker_manager
 	url = git@github.com:VolokzhaninVadim/docker_manager.git
 [submodule "repos/media/private_media"]
 	path = repos/media/private_media
 	url = git@github.com:VolokzhaninVadim/private_media.git
+[submodule "repos/media/llm"]
+	path = repos/media/llm
+	url = git@github.com:VolokzhaninVadim/llm.git
