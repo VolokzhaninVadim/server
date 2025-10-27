@@ -6,3 +6,4 @@ myst-parser>=4.0.1
 sphinx-markdown-tables>=0.0.17
 sphinxcontrib-plantuml>=0.30
 sphinx-math-dollar>=1.2.1
+sphinxcontrib-mermaid>=1.0.0
