@@ -29,7 +29,8 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx_togglebutton',
     'myst_parser',
-    'sphinx_math_dollar'
+    'sphinx_math_dollar',
+    'sphinxcontrib.mermaid'
 ]
 
 templates_path = ['_templates']
@@ -54,6 +55,9 @@ markdown_uri_doc_suffix = ".html"
 pygments_style = 'sphinx'
 source_suffix = ['.rst', '.md']
 myst_heading_anchors = 4
+html_js_files = [
+   'js/mermaid.js',
+]
 
 mathjax3_config = {
   "tex": {
