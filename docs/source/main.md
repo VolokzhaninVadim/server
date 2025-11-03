@@ -1,9 +1,7 @@
 # Сервер Волокжанина Вадима
 [Репозитории](https://github.com/VolokzhaninVadim/server/tree/main/repos)
-
 ```{uml}
 !include ./articles/plantuml/server.plantuml
-
 ```
 
 # Работа с репозиторием
