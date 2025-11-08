@@ -44,6 +44,8 @@ $CreateTag(portainer, "Docker Manager")
 $CreateTag(postgres, "Database")
 $CreateTag(immich, "Immich")
 $CreateTag(ollama, "Ollama")
+$CreateTag(unbound, "Unbound")
+
 
 title "Сервер Волокжанина Вадима"
 
@@ -80,7 +82,8 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
 }
 
   Deployment_Node(proxy, "Проксирование web-запросов", "VM", "Docker", $tags="ubuntu"){
-    Component(pihole, "PiHole", "PiHole", "Локальный DNS-сервер с функцией блокировки рекламы", $tags="pihole")
+    Component(pihole, "PiHole", "PiHole", "Блокировщик рекламы", $tags="pihole")
+    Component(unbound, "Unbound", "Unbound", "DNS-сервер", $tags="unbound")
     Component(npm, "Nginx Proxy Manager", "Nginx Proxy Manager", "Проксирование web-запросов на сервер", $tags="npm")
     Component(duckdns, "DuckDNS", "DuckDNS", "DDNS", $tags="duckdns")
     Component(tor, "TOR", "TOR", "Проксирование web-запросов от сервера", $tags="tor")
