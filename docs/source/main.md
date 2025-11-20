@@ -44,6 +44,7 @@ git mv old/submodule new/submodule
 1. [Как запустить сервис по поиску торрентов?](../source/articles/jackett.md)
 1. [Как запустить собственную электронную библиотеку?](../source/articles/calibre.md)
 1. [Как запустить сервис для работы с частным медиа?](../source/articles/immich.md)
+1. [Как запустить игровой сервер?](../source/articles/staem.md)
 
 ## Облако
 1. [Как запустить сервис с собственным облаком?](../source/articles/nextcloud.md)
