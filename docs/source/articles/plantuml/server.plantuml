@@ -10,7 +10,6 @@
 
 $CreateTag(firefox, "Firefox")
 $CreateTag(tplink, "TP-Link")
-$CreateTag(pikvm, "PiKVM")
 $CreateTag(nut, "NUT")
 $CreateTag(proxmox, "Proxmox")
 $CreateTag(ubuntu, "Ubuntu")
@@ -45,6 +44,7 @@ $CreateTag(postgres, "Database")
 $CreateTag(immich, "Immich")
 $CreateTag(ollama, "Ollama")
 $CreateTag(unbound, "Unbound")
+$CreateTag(raspberry_pi, "Raspberry Pi")
 
 
 title "Сервер Волокжанина Вадима"
@@ -52,9 +52,25 @@ title "Сервер Волокжанина Вадима"
 Person(users, "Пользователи сервисов")
 System_Ext(browser, "Браузер пользователя", "Просмотр web-контента", $tags="firefox")
 System_Ext(tplink, "Роутер", "Маршрутизация трафика", $tags="tplink")
-System(pikvm, "KVM", "Удаленное управление через web-браузер", $tags="pikvm")
 System(ups, "UPS", "Мониторинг UPS", $tags="nut")
 
+
+AddProperty("CPU", "4")
+AddProperty("RAM GB", "8")
+AddProperty("Micro SD GB (System)", "128")
+Deployment_Node(smarthome, "Сервер умного дома", $tags="raspberry_pi"){
+  Deployment_Node(smart-home, "Умный дом", "VM", "Docker", $tags="ubuntu"){
+    Component(home_assistant, "Home Assistant", "Умный дом", "Управление умным домом", $tags="home_assistant")
+    Component(vscode, "VSCode server", "VSCode server", "Написание и редактирование кода", $tags="vscode")
+    Component(node_red, "Node-RED", "Node-RED", "Визуальное программирование автоматизаций", $tags="node_red")
+    Component(mosquitto, "Mosquitto", "Mosquitto", "Брокер сообщений для умного дома", $tags="mosquitto")
+    Component(mosquzigbee2mqttitto, "Zigbee2mqtt", "Zigbee2mqtt", "Zigbee сообщения в MQTT сообщения", $tags="zigbee2mqtt")
+    Component(homepage, "Homepage", "Homepage", "Приборная панель для сервисов сервера", $tags="homepage")
+    Component(musicassistant, "Music Assistant", "Music Assistant", "Управление проигрыванием музыки", $tags="musicassistant")
+    Component(postgres_smart_home, "Postgres smart home", "Postgres smart home", "База данных для умного дома", $tags="postgres")
+    Component(portainer_agent_smart_home, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
+}
+}
 
 AddProperty("vCPU", "6")
 AddProperty("RAM GB", "94")
@@ -67,18 +83,6 @@ AddProperty("Graphic card (NVidia)", "1")
 Deployment_Node(server, "Сервер Волокжанина Вадима", $tags="proxmox") {
 
   Deployment_Node(backup-server, "Сервер резервных копий", "VM", "", $tags="proxmox"){
-}
-
-  Deployment_Node(smart-home, "Умный дом", "VM", "Docker", $tags="ubuntu"){
-    Component(home_assistant, "Home Assistant", "Умный дом", "Управление умным домом", $tags="home_assistant")
-    Component(vscode, "VSCode server", "VSCode server", "Написание и редактирование кода", $tags="vscode")
-    Component(node_red, "Node-RED", "Node-RED", "Визуальное программирование автоматизаций", $tags="node_red")
-    Component(mosquitto, "Mosquitto", "Mosquitto", "Брокер сообщений для умного дома", $tags="mosquitto")
-    Component(mosquzigbee2mqttitto, "Zigbee2mqtt", "Zigbee2mqtt", "Zigbee сообщения в MQTT сообщения", $tags="zigbee2mqtt")
-    Component(homepage, "Homepage", "Homepage", "Приборная панель для сервисов сервера", $tags="homepage")
-    Component(musicassistant, "Music Assistant", "Music Assistant", "Управление проигрыванием музыки", $tags="musicassistant")
-    Component(postgres_smart_home, "Postgres smart home", "Postgres smart home", "База данных для умного дома", $tags="postgres")
-    Component(portainer_agent_smart_home, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
 }
 
   Deployment_Node(proxy, "Проксирование web-запросов", "VM", "Docker", $tags="ubuntu"){
@@ -122,9 +126,8 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
 
 Rel(users, browser, "Просмотр Web-страниц")
 Rel(browser, tplink, "Web-запросы")
-Rel(tplink, pikvm, "Web-запросы")
 Rel(tplink, server, "Web-запросы")
-Rel(pikvm, server, "Управление")
+Rel(tplink, smarthome, "Web-запросы")
 Rel(ups, server, "Электричество")
 Rel(server, ups, "Сигналы от автоматизаций")
 
