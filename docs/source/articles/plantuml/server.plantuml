@@ -128,8 +128,9 @@ Rel(users, browser, "Просмотр Web-страниц")
 Rel(browser, tplink, "Web-запросы")
 Rel(tplink, server, "Web-запросы")
 Rel(tplink, smarthome, "Web-запросы")
+Rel(ups, smarthome, "Электричество")
+Rel(smarthome, ups, "Сигналы от автоматизаций")
 Rel(ups, server, "Электричество")
-Rel(server, ups, "Сигналы от автоматизаций")
 
 ' SHOW_LEGEND()
 
