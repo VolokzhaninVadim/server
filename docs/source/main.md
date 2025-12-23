@@ -37,6 +37,7 @@ git mv old/submodule new/submodule
 1. [Как бесплатно получить собственный домен?](../source/articles/duckdns.md)
 1. [Как запустить прокси-сервер для сервисов?](../source/articles/npm.md)
 1. [Как запустить сервис для управления docker контейнерам?](../source/articles/portainer.md)
+1. [Как запустить фильтр для рекламы?](../source/articles/pihole.md)
 
 ## Медиа
 1. [Как запустить игровой сервер?](../source/articles/staem.md)
