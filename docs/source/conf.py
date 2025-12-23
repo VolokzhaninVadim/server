@@ -58,6 +58,7 @@ myst_heading_anchors = 4
 html_js_files = [
    'js/mermaid.js',
 ]
+mermaid_version = "11.12.1"
 
 mathjax3_config = {
   "tex": {
