@@ -45,7 +45,7 @@ $CreateTag(immich, "Immich")
 $CreateTag(ollama, "Ollama")
 $CreateTag(unbound, "Unbound")
 $CreateTag(raspberry_pi, "Raspberry Pi")
-
+$CreateTag(frendly_elec, "Frendly Elec")
 
 title "Сервер Волокжанина Вадима"
 
@@ -72,6 +72,14 @@ Deployment_Node(smarthome, "Сервер умного дома", $tags="raspberr
 }
 }
 
+AddProperty("CPU", "4")
+AddProperty("RAM GB", "4")
+AddProperty("Micro SD GB (System)", "32")
+Deployment_Node(backup, "Сервер резервных копий", $tags="frendly_elec"){
+  Deployment_Node(backup-server, "Сервер резервных копий", "VM", "", $tags="proxmox"){
+}
+}
+
 AddProperty("vCPU", "6")
 AddProperty("RAM GB", "94")
 AddProperty("SSD GB (System)", "2 * 512 [ZFS RAID 1]")
@@ -81,9 +89,6 @@ AddProperty("HDD TB (Backups)", "8 [ZFS Single disk]")
 AddProperty("NIC", "1")
 AddProperty("Graphic card (NVidia)", "1")
 Deployment_Node(server, "Сервер Волокжанина Вадима", $tags="proxmox") {
-
-  Deployment_Node(backup-server, "Сервер резервных копий", "VM", "", $tags="proxmox"){
-}
 
   Deployment_Node(proxy, "Проксирование web-запросов", "VM", "Docker", $tags="ubuntu"){
     Component(pihole, "PiHole", "PiHole", "Блокировщик рекламы", $tags="pihole")
@@ -130,6 +135,7 @@ Rel(tplink, server, "Web-запросы")
 Rel(tplink, smarthome, "Web-запросы")
 Rel(ups, smarthome, "Электричество")
 Rel(smarthome, ups, "Сигналы от автоматизаций")
+Rel(ups, backup, "Электричество")
 Rel(ups, server, "Электричество")
 
 ' SHOW_LEGEND()
