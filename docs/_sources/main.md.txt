@@ -33,6 +33,7 @@ git mv old/submodule new/submodule
 1. [Как запустить собственный git-сервер?](../source/articles/gitea.md)
 1. [Как запустить свой менеджер паролей?](../source/articles/password_manager.md)
 1. [Как настроить центральный менеджмент сервер для ИБП?](../source/articles/ups.md)
+1. [Как запустить сервер резервных копий?](../source/articles/pbs.md)
 
 ## Прокси
 1. [Как бесплатно получить собственный домен?](../source/articles/duckdns.md)
