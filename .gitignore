@@ -162,6 +162,16 @@ cython_debug/
 # User files
 *.snar
 
+# Sphinx
+# Сгенерированная документация Sphinx (обычно выходная папка)
+docs/_build/
+docs/.doctrees/
+docs/.buildinfo
+docs/.buildinfo.bak
 
-docs/_plantuml/*
-docs/_plantuml/*
+# Сгенерированные статические файлы Sphinx
+docs/_static/
+docs/_sources/
+
+# Временные файлы
+docs/_plantuml/
