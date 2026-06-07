@@ -52,6 +52,7 @@ git mv old/submodule new/submodule
 ## Облако
 1. [Как запустить сервис с собственным облаком?](../source/articles/nextcloud.md)
 1. [Как запустить свою базу знаний?](../source/articles/syncthing.md)
+1. [Как запустить вопросно-ответную систему по базе знаний?](../source/articles/rag_obsidian.md)
 1. [Как запустить локально LLM?](../source/articles/llm.md)
 1. [Домашнее облако: запускаем полнотекстовый поиск и онлайн-редактор документов](../source/articles/fulltextsearch_document_editor.md)
 
