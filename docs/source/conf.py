@@ -59,7 +59,8 @@ html_js_files = [
    'js/mermaid.js',
 ]
 mermaid_version = "11.12.1"
-
+mermaid_d3_zoom = True
+mermaid_output_format = 'raw'
 mathjax3_config = {
   "tex": {
     "inlineMath": [['\\(', '\\)']],
