@@ -77,9 +77,9 @@ sequenceDiagram
 | 3.        | [Media card for Home Assistant Lovelace UI](https://github.com/kalkih/mini-media-player)                                             | Красивое отображение станции в виде плеера.                                  |
 | 4.        | [Иконки Яндекс устройств для Home Assistant](https://github.com/iswitch/ha-yandex-icons)                                             | Для отображения иконок Yandex экосистемы.                                    |
 | 5.        | [Управление устройствами из Home Assistant через Алису](https://github.com/dext0r/yandex_smart_home)                                 | Умный дом от Yandex. Простыми словами: даем доступ HA к Yandex.              |
-1. Установка [Управление Яндекс.Станцией и другими устройствами умного дома с Алисой из Home Assistant](https://github.com/AlexxIT/YandexStation)
+1. [Управление Яндекс.Станцией и другими устройствами умного дома с Алисой из Home Assistant](https://github.com/AlexxIT/YandexStation)
 Установка через QRCode -> Выбираем станцию
-2. Установка [Yandex Media Browser](https://github.com/alexanderznamensky/hass-yandex-music-browser)
+2. [Yandex Media Browser](https://github.com/alexanderznamensky/hass-yandex-music-browser)
 Добавляем как пользовательский репозиторий -> Выбираем auto при настройке интеграции
 3. [Media card for Home Assistant Lovelace UI](https://github.com/kalkih/mini-media-player)
 Устанавливаем ->Добавляем в `configuration.yaml`:
@@ -130,7 +130,7 @@ frontend:
   extra_module_url:
     - /local/community/custom-brand-icons/custom-brand-icons.js
 ```
-4.  [Управление устройствами из Home Assistant через Алису](https://github.com/dext0r/yandex_smart_home)
+5.  [Управление устройствами из Home Assistant через Алису](https://github.com/dext0r/yandex_smart_home)
 Используем облачный тип подключения -> Выбор объектов через интерфейс -> Добавляем устройства для теста -> Сохраняем данные для привязки устройства.
 ## Смартфон
 Устанавливаем на Android [приложение "Дом с Алисой"](https://play.google.com/store/apps/details?id=com.yandex.iot). Почти все управление умным домом со стороны Yandex будет выполняться через это приложение.
