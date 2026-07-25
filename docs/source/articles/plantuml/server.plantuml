@@ -46,6 +46,8 @@ $CreateTag(ollama, "Ollama")
 $CreateTag(unbound, "Unbound")
 $CreateTag(raspberry_pi, "Raspberry Pi")
 $CreateTag(frendly_elec, "Frendly Elec")
+$CreateTag(vps, "VPS")
+$CreateTag(amneziavpn, "Amnezia VPN")
 
 title "Сервер Волокжанина Вадима"
 
@@ -54,6 +56,17 @@ System_Ext(browser, "Браузер пользователя", "Просмотр
 System_Ext(tplink, "Роутер", "Маршрутизация трафика", $tags="tplink")
 System(ups, "UPS", "Мониторинг UPS", $tags="nut")
 
+AddProperty("vCPU", "1")
+AddProperty("RAM GB", "1")
+AddProperty("Storage GB", "10")
+AddProperty("Public IPv4", Germany)
+AddProperty("Bandwidth", "10 Mbit/s")
+
+Deployment_Node(vps_node, "VPS в облаке", $tags="vps") {
+    Component(amneziavpn, "Amnezia VPN", "VPN-сервис", "Обеспечивает доступ к некоторым ресурсам через шифрование", $tags="amneziavpn")
+}
+
+System_Ext(external_resources, "Интернет-ресурсы", "Сайты и сервисы, доступные только через VPN")
 
 AddProperty("CPU", "4")
 AddProperty("RAM GB", "8")
@@ -76,7 +89,7 @@ AddProperty("CPU", "4")
 AddProperty("RAM GB", "4")
 AddProperty("Micro SD GB (System)", "32")
 Deployment_Node(backup, "Сервер резервных копий", $tags="frendly_elec"){
-  Deployment_Node(backup-server, "Сервер резервных копий", "VM", "", $tags="proxmox"){
+Deployment_Node(backup-server, "Сервер резервных копий", "VM", "", $tags="proxmox"){
 }
 }
 
@@ -125,14 +138,19 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(lampa, "Lampa", "Lampa", "Медиасервер для торрентов", $tags="lampa")
     Component(portainer_agent_media, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
     Component(ollama, "Local LLM", "Local LLM", "Лоальная LLM", $tags="ollama")
-     Component(stable_diffusion, "Stable Diffusion", "Stable Diffusion", "Лоальная Stable Diffusions", $tags="stable_diffusion")
+    Component(stable_diffusion, "Stable Diffusion", "Stable Diffusion", "Лоальная Stable Diffusions", $tags="stable_diffusion")
 }
 }
 
+' --- Связи ---
+
 Rel(users, browser, "Просмотр Web-страниц")
 Rel(browser, tplink, "Web-запросы")
-Rel(tplink, server, "Web-запросы")
-Rel(tplink, smarthome, "Web-запросы")
+Rel(tplink, server, "Запросы к домашним сервисам")
+Rel(tplink, smarthome, "Запросы к умному дому")
+Rel(tplink, vps_node, "Запросы к ресурсам через VPN (Интернет)")
+Rel(vps_node, external_resources, "Проксирование запросов (VPN-туннель)")
+
 Rel(ups, smarthome, "Электричество")
 Rel(smarthome, ups, "Сигналы от автоматизаций")
 Rel(ups, backup, "Электричество")
