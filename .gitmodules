@@ -19,7 +19,7 @@
 	url = git@github.com:VolokzhaninVadim/media_server.git
 	branch = master
 [submodule "repos/cloud/private_library"]
-	path = repos/media/private_library
+	path = repos/library/private_library
 	url = git@github.com:VolokzhaninVadim/private_library.git
 	branch = main
 [submodule "repos/cloud/docker_manager"]
