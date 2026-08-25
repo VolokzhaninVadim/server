@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b1f822e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -104,7 +105,7 @@
 Bus<span class="w"> </span><span class="m">005</span><span class="w"> </span>Device<span class="w"> </span><span class="m">002</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0104<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span>Multifunction<span class="w"> </span>Composite<span class="w"> </span>Gadget
 Bus<span class="w"> </span><span class="m">005</span><span class="w"> </span>Device<span class="w"> </span><span class="m">001</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0002<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span><span class="m">2</span>.0<span class="w"> </span>root<span class="w"> </span>hub
 Bus<span class="w"> </span><span class="m">002</span><span class="w"> </span>Device<span class="w"> </span><span class="m">001</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0003<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span><span class="m">3</span>.0<span class="w"> </span>root<span class="w"> </span>hub
-Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">003</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">0001</span>:0000<span class="w"> </span>Fry<span class="err">&#39;</span>s<span class="w"> </span>Electronics
+Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">003</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">0001</span>:0000<span class="w"> </span>Fry<span class="err">'</span>s<span class="w"> </span>Electronics
 Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">002</span>:<span class="w"> </span>ID<span class="w"> </span>0a12:0001<span class="w"> </span>Cambridge<span class="w"> </span>Silicon<span class="w"> </span>Radio,<span class="w"> </span>Ltd<span class="w"> </span>Bluetooth<span class="w"> </span>Dongle<span class="w"> </span><span class="o">(</span>HCI<span class="w"> </span>mode<span class="o">)</span>
 Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">001</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0002<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span><span class="m">2</span>.0<span class="w"> </span>root<span class="w"> </span>hub
 </pre></div>
@@ -112,7 +113,7 @@ Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Dev
 <ol class="arabic simple" start="3">
 <li><p>Смотрим детальную информацию, указав <code class="docutils literal notranslate"><span class="pre">bus</span></code> и <code class="docutils literal notranslate"><span class="pre">device</span></code>, и выполнив <code class="docutils literal notranslate"><span class="pre">lsusb</span> <span class="pre">-v</span> <span class="pre">-s</span> <span class="pre">1:3</span></code>:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">003</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">0001</span>:0000<span class="w"> </span>Fry<span class="s1">&#39;s Electronics</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">003</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">0001</span>:0000<span class="w"> </span>Fry<span class="s1">'s Electronics</span>
 <span class="s1">Device Descriptor:</span>
 <span class="s1">  bLength                18</span>
 <span class="s1">  bDescriptorType         1</span>
@@ -121,7 +122,7 @@ Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Dev
 <span class="s1">  bDeviceSubClass         0</span>
 <span class="s1">  bDeviceProtocol         0</span>
 <span class="s1">  bMaxPacketSize0        64</span>
-<span class="s1">  idVendor           0x0001 Fry&#39;</span>s<span class="w"> </span>Electronics
+<span class="s1">  idVendor           0x0001 Fry'</span>s<span class="w"> </span>Electronics
 <span class="w">  </span>idProduct<span class="w">          </span>0x0000
 <span class="w">  </span>bcdDevice<span class="w">            </span><span class="m">1</span>.00
 <span class="w">  </span>iManufacturer<span class="w">           </span><span class="m">0</span>
@@ -188,11 +189,11 @@ Device<span class="w"> </span>Status:<span class="w">     </span>0x0000
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Scanning<span class="w"> </span>USB<span class="w"> </span>bus.
 <span class="o">[</span>nutdev1<span class="o">]</span>
-<span class="w">        </span><span class="nv">driver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nutdrv_qx&quot;</span>
-<span class="w">        </span><span class="nv">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;auto&quot;</span>
-<span class="w">        </span><span class="nv">vendorid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0001&quot;</span>
-<span class="w">        </span><span class="nv">productid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0000&quot;</span>
-<span class="w">        </span><span class="nv">bus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;001&quot;</span>
+<span class="w">        </span><span class="nv">driver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"nutdrv_qx"</span>
+<span class="w">        </span><span class="nv">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"auto"</span>
+<span class="w">        </span><span class="nv">vendorid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0001"</span>
+<span class="w">        </span><span class="nv">productid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0000"</span>
+<span class="w">        </span><span class="nv">bus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"001"</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="6">
@@ -225,7 +226,7 @@ cp<span class="w"> </span>/etc/nut/upssched-cmd<span class="w"> </span>/etc/nut/
 <span class="o">[</span>dexp<span class="o">]</span>
 <span class="w">   </span><span class="nv">driver</span><span class="o">=</span>blazer_usb
 <span class="w">   </span><span class="nv">port</span><span class="o">=</span>auto
-<span class="w">   </span><span class="nv">desc</span><span class="o">=</span><span class="s2">&quot;DEXP MIX 850VA&quot;</span>
+<span class="w">   </span><span class="nv">desc</span><span class="o">=</span><span class="s2">"DEXP MIX 850VA"</span>
 <span class="w">   </span><span class="nv">vendorid</span><span class="o">=</span><span class="m">0001</span>
 <span class="w">   </span><span class="nv">productid</span><span class="o">=</span><span class="m">0000</span>
 <span class="w">   </span>default.battery.voltage.high<span class="o">=</span><span class="m">2</span>.27
@@ -243,7 +244,7 @@ Network<span class="w"> </span>UPS<span class="w"> </span>Tools<span class="w"> 
 Please<span class="w"> </span>note<span class="w"> </span>that<span class="w"> </span>this<span class="w"> </span>driver<span class="w"> </span>is<span class="w"> </span>deprecated<span class="w"> </span>and<span class="w"> </span>will<span class="w"> </span>not<span class="w"> </span>receive
 new<span class="w"> </span>development.<span class="w"> </span>If<span class="w"> </span>it<span class="w"> </span>works<span class="w"> </span><span class="k">for</span><span class="w"> </span>managing<span class="w"> </span>your<span class="w"> </span>devices<span class="w"> </span>-<span class="w"> </span>fine,
 but<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>running<span class="w"> </span>it<span class="w"> </span>to<span class="w"> </span>try<span class="w"> </span>setting<span class="w"> </span>up<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>device,<span class="w"> </span>please
-consider<span class="w"> </span>the<span class="w"> </span>newer<span class="w"> </span>nutdrv_qx<span class="w"> </span>instead,<span class="w"> </span>which<span class="w"> </span>should<span class="w"> </span>handle<span class="w"> </span>all<span class="w"> </span><span class="s1">&#39;Qx&#39;</span>
+consider<span class="w"> </span>the<span class="w"> </span>newer<span class="w"> </span>nutdrv_qx<span class="w"> </span>instead,<span class="w"> </span>which<span class="w"> </span>should<span class="w"> </span>handle<span class="w"> </span>all<span class="w"> </span><span class="s1">'Qx'</span>
 protocol<span class="w"> </span>variants<span class="w"> </span><span class="k">for</span><span class="w"> </span>NUT.<span class="w"> </span><span class="o">(</span>Please<span class="w"> </span>also<span class="w"> </span>report<span class="w"> </span><span class="k">if</span><span class="w"> </span>your<span class="w"> </span>device<span class="w"> </span>works
 with<span class="w"> </span>this<span class="w"> </span>driver,<span class="w"> </span>but<span class="w"> </span>nutdrv_qx<span class="w"> </span>would<span class="w"> </span>not<span class="w"> </span>actually<span class="w"> </span>support<span class="w"> </span>it<span class="w"> </span>with
 any<span class="w"> </span>subdriver!<span class="o">)</span>
@@ -254,23 +255,23 @@ Vendor<span class="w"> </span>information<span class="w"> </span><span class="nb
 </div>
 <p>Проверяем работу <code class="docutils literal notranslate"><span class="pre">/lib/nut/blazer_usb</span> <span class="pre">-DDD</span> <span class="pre">-a</span> <span class="pre">dexp</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Network<span class="w"> </span>UPS<span class="w"> </span>Tools<span class="w"> </span>-<span class="w"> </span>Megatec/Q1<span class="w"> </span>protocol<span class="w"> </span>USB<span class="w"> </span>driver<span class="w"> </span><span class="m">0</span>.14<span class="w"> </span><span class="o">(</span><span class="m">2</span>.8.0<span class="o">)</span>
-<span class="w">   </span><span class="m">0</span>.000000<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>do_global_args:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;pollinterval&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;15&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000014<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>do_global_args:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;maxretry&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;3&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000019<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>do_global_args:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;offdelay&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;120&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000024<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>do_global_args:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;ondelay&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;240&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000031<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;desc&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;dexp&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000036<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;port&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000044<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;driver&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;blazer_usb&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000053<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;default.battery.voltage.high&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;2.27&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000060<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;default.battery.voltage.low&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;1.72&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000067<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;runtimecal&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;240,100,720,50&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000075<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;langid_fix&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;0x0409&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000082<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;vendorid&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;0001&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000090<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;productid&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;0000&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000097<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;chargetime&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;43200&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000105<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">&#39;idleload&#39;</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">&#39;1%&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000115<span class="w">     </span><span class="o">[</span>D1<span class="o">]</span><span class="w"> </span>debug<span class="w"> </span>level<span class="w"> </span>is<span class="w"> </span><span class="s1">&#39;3&#39;</span>
-<span class="w">   </span><span class="m">0</span>.000956<span class="w">     </span><span class="o">[</span>D2<span class="o">]</span><span class="w"> </span>language<span class="w"> </span>ID<span class="w"> </span>workaround<span class="w"> </span>enabled<span class="w"> </span><span class="o">(</span>using<span class="w"> </span><span class="s1">&#39;0x409&#39;</span><span class="o">)</span>
+<span class="w">   </span><span class="m">0</span>.000000<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>do_global_args:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'pollinterval'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'15'</span>
+<span class="w">   </span><span class="m">0</span>.000014<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>do_global_args:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'maxretry'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'3'</span>
+<span class="w">   </span><span class="m">0</span>.000019<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>do_global_args:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'offdelay'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'120'</span>
+<span class="w">   </span><span class="m">0</span>.000024<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>do_global_args:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'ondelay'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'240'</span>
+<span class="w">   </span><span class="m">0</span>.000031<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'desc'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'dexp'</span>
+<span class="w">   </span><span class="m">0</span>.000036<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'port'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'auto'</span>
+<span class="w">   </span><span class="m">0</span>.000044<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'driver'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'blazer_usb'</span>
+<span class="w">   </span><span class="m">0</span>.000053<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'default.battery.voltage.high'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'2.27'</span>
+<span class="w">   </span><span class="m">0</span>.000060<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'default.battery.voltage.low'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'1.72'</span>
+<span class="w">   </span><span class="m">0</span>.000067<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'runtimecal'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'240,100,720,50'</span>
+<span class="w">   </span><span class="m">0</span>.000075<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'langid_fix'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'0x0409'</span>
+<span class="w">   </span><span class="m">0</span>.000082<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'vendorid'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'0001'</span>
+<span class="w">   </span><span class="m">0</span>.000090<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'productid'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'0000'</span>
+<span class="w">   </span><span class="m">0</span>.000097<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'chargetime'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'43200'</span>
+<span class="w">   </span><span class="m">0</span>.000105<span class="w">     </span><span class="o">[</span>D3<span class="o">]</span><span class="w"> </span>main_arg:<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="s1">'idleload'</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="s1">'1%'</span>
+<span class="w">   </span><span class="m">0</span>.000115<span class="w">     </span><span class="o">[</span>D1<span class="o">]</span><span class="w"> </span>debug<span class="w"> </span>level<span class="w"> </span>is<span class="w"> </span><span class="s1">'3'</span>
+<span class="w">   </span><span class="m">0</span>.000956<span class="w">     </span><span class="o">[</span>D2<span class="o">]</span><span class="w"> </span>language<span class="w"> </span>ID<span class="w"> </span>workaround<span class="w"> </span>enabled<span class="w"> </span><span class="o">(</span>using<span class="w"> </span><span class="s1">'0x409'</span><span class="o">)</span>
 <span class="w">   </span><span class="m">0</span>.004633<span class="w">     </span><span class="o">[</span>D2<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span>device<span class="w"> </span><span class="m">1</span><span class="w"> </span>of<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="o">(</span>1D6B/0003<span class="o">)</span>
 <span class="w">   </span><span class="m">0</span>.004656<span class="w">     </span><span class="o">[</span>D1<span class="o">]</span><span class="w"> </span>Failed<span class="w"> </span>to<span class="w"> </span>open<span class="w"> </span>device<span class="w"> </span><span class="o">(</span>1D6B/0003<span class="o">)</span>,<span class="w"> </span>skipping:<span class="w"> </span>Access<span class="w"> </span>denied<span class="w"> </span><span class="o">(</span>insufficient<span class="w"> </span>permissions<span class="o">)</span>
 <span class="w">   </span><span class="m">0</span>.004663<span class="w">     </span><span class="o">[</span>D2<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span>device<span class="w"> </span><span class="m">2</span><span class="w"> </span>of<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="o">(</span>1D6B/0104<span class="o">)</span>
@@ -301,7 +302,7 @@ Vendor<span class="w"> </span>information<span class="w"> </span><span class="nb
 <span class="w">   </span><span class="m">0</span>.018941<span class="w">     </span>Please<span class="w"> </span>note<span class="w"> </span>that<span class="w"> </span>this<span class="w"> </span>driver<span class="w"> </span>is<span class="w"> </span>deprecated<span class="w"> </span>and<span class="w"> </span>will<span class="w"> </span>not<span class="w"> </span>receive
 new<span class="w"> </span>development.<span class="w"> </span>If<span class="w"> </span>it<span class="w"> </span>works<span class="w"> </span><span class="k">for</span><span class="w"> </span>managing<span class="w"> </span>your<span class="w"> </span>devices<span class="w"> </span>-<span class="w"> </span>fine,
 but<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>running<span class="w"> </span>it<span class="w"> </span>to<span class="w"> </span>try<span class="w"> </span>setting<span class="w"> </span>up<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>device,<span class="w"> </span>please
-consider<span class="w"> </span>the<span class="w"> </span>newer<span class="w"> </span>nutdrv_qx<span class="w"> </span>instead,<span class="w"> </span>which<span class="w"> </span>should<span class="w"> </span>handle<span class="w"> </span>all<span class="w"> </span><span class="s1">&#39;Qx&#39;</span>
+consider<span class="w"> </span>the<span class="w"> </span>newer<span class="w"> </span>nutdrv_qx<span class="w"> </span>instead,<span class="w"> </span>which<span class="w"> </span>should<span class="w"> </span>handle<span class="w"> </span>all<span class="w"> </span><span class="s1">'Qx'</span>
 protocol<span class="w"> </span>variants<span class="w"> </span><span class="k">for</span><span class="w"> </span>NUT.<span class="w"> </span><span class="o">(</span>Please<span class="w"> </span>also<span class="w"> </span>report<span class="w"> </span><span class="k">if</span><span class="w"> </span>your<span class="w"> </span>device<span class="w"> </span>works
 with<span class="w"> </span>this<span class="w"> </span>driver,<span class="w"> </span>but<span class="w"> </span>nutdrv_qx<span class="w"> </span>would<span class="w"> </span>not<span class="w"> </span>actually<span class="w"> </span>support<span class="w"> </span>it<span class="w"> </span>with
 any<span class="w"> </span>subdriver!<span class="o">)</span>
@@ -356,7 +357,7 @@ LISTEN<span class="w"> </span>::<span class="w"> </span><span class="m">3493</sp
 <span class="nv">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>********
 <span class="c1"># Allow changing values of certain variables in the UPS.</span>
 <span class="nv">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>SET
-<span class="c1"># Allow setting the &quot;Forced Shutdown&quot; flag in the UPS.</span>
+<span class="c1"># Allow setting the "Forced Shutdown" flag in the UPS.</span>
 <span class="nv">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>FSD
 <span class="c1"># Allow all instant commands</span>
 <span class="nv">instcmds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ALL
@@ -376,7 +377,7 @@ upsmon<span class="w"> </span>slave
 MONITOR<span class="w"> </span>apc@localhost<span class="w"> </span><span class="m">1</span><span class="w"> </span>upsadmin<span class="w"> </span>*******<span class="w"> </span>master
 
 MINSUPPLIES<span class="w"> </span><span class="m">1</span>
-SHUTDOWNCMD<span class="w"> </span><span class="s2">&quot;/sbin/shutdown -h&quot;</span>
+SHUTDOWNCMD<span class="w"> </span><span class="s2">"/sbin/shutdown -h"</span>
 NOTIFYCMD<span class="w"> </span>/usr/sbin/upssched
 POLLFREQ<span class="w"> </span><span class="m">4</span>
 POLLFREQALERT<span class="w"> </span><span class="m">2</span>
@@ -385,16 +386,16 @@ DEADTIME<span class="w"> </span><span class="m">24</span>
 MAXAGE<span class="w"> </span><span class="m">24</span>
 POWERDOWNFLAG<span class="w"> </span>/etc/killpower
 
-NOTIFYMSG<span class="w"> </span>ONLINE<span class="w"> </span><span class="s2">&quot;UPS %s on line power&quot;</span>
-NOTIFYMSG<span class="w"> </span>ONBATT<span class="w"> </span><span class="s2">&quot;UPS %s on battery&quot;</span>
-NOTIFYMSG<span class="w"> </span>LOWBATT<span class="w"> </span><span class="s2">&quot;UPS %s battary is low&quot;</span>
-NOTIFYMSG<span class="w"> </span>FSD<span class="w"> </span><span class="s2">&quot;UPS %s: forced shutdown in progress&quot;</span>
-NOTIFYMSG<span class="w"> </span>COMMOK<span class="w"> </span><span class="s2">&quot;Communications with UPS %s established&quot;</span>
-NOTIFYMSG<span class="w"> </span>COMMBAD<span class="w"> </span><span class="s2">&quot;Communications with UPS %s lost&quot;</span>
-NOTIFYMSG<span class="w"> </span>SHUTDOWN<span class="w"> </span><span class="s2">&quot;Auto logout and shutdown proceeding&quot;</span>
-NOTIFYMSG<span class="w"> </span>REPLBATT<span class="w"> </span><span class="s2">&quot;UPS %s battery needs to be replaced&quot;</span>
-NOTIFYMSG<span class="w"> </span>NOCOMM<span class="w"> </span><span class="s2">&quot;UPS %s is unavailable&quot;</span>
-NOTIFYMSG<span class="w"> </span>NOPARENT<span class="w"> </span><span class="s2">&quot;upsmon parent process died - shutdown impossible&quot;</span>
+NOTIFYMSG<span class="w"> </span>ONLINE<span class="w"> </span><span class="s2">"UPS %s on line power"</span>
+NOTIFYMSG<span class="w"> </span>ONBATT<span class="w"> </span><span class="s2">"UPS %s on battery"</span>
+NOTIFYMSG<span class="w"> </span>LOWBATT<span class="w"> </span><span class="s2">"UPS %s battary is low"</span>
+NOTIFYMSG<span class="w"> </span>FSD<span class="w"> </span><span class="s2">"UPS %s: forced shutdown in progress"</span>
+NOTIFYMSG<span class="w"> </span>COMMOK<span class="w"> </span><span class="s2">"Communications with UPS %s established"</span>
+NOTIFYMSG<span class="w"> </span>COMMBAD<span class="w"> </span><span class="s2">"Communications with UPS %s lost"</span>
+NOTIFYMSG<span class="w"> </span>SHUTDOWN<span class="w"> </span><span class="s2">"Auto logout and shutdown proceeding"</span>
+NOTIFYMSG<span class="w"> </span>REPLBATT<span class="w"> </span><span class="s2">"UPS %s battery needs to be replaced"</span>
+NOTIFYMSG<span class="w"> </span>NOCOMM<span class="w"> </span><span class="s2">"UPS %s is unavailable"</span>
+NOTIFYMSG<span class="w"> </span>NOPARENT<span class="w"> </span><span class="s2">"upsmon parent process died - shutdown impossible"</span>
 
 NOTIFYFLAG<span class="w"> </span>ONLINE<span class="w">   </span>SYSLOG+WALL+EXEC
 NOTIFYFLAG<span class="w"> </span>ONBATT<span class="w">   </span>SYSLOG+WALL+EXEC
@@ -529,7 +530,7 @@ test.battery.stop<span class="w"> </span>-<span class="w"> </span>Stop<span clas
 Здесь интересен объект «Dexp Заряд аккумулятора» (sensor.dexp_battery_charge), так как показывает на сколько % заряжен аккумулятор. По моим тестам ИПБ выключается при уровне 27%, поэтому для себя выделил границу 40%, ниже которой стоит отключать сервер.</p>
 <p>Для выключения Proxmox в файл <code class="docutils literal notranslate"><span class="pre">configuration.yaml</span></code> добавляем следующий код:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>shell_command:
-<span class="w">  </span>shutdown_proxmox:<span class="w"> </span><span class="s2">&quot;curl &#39;https://&lt;IP&gt;:8006/api2/extjs/nodes/proxmox/status&#39; -H &#39;Authorization: PVEAPIToken=&lt;user&gt;!&lt;token_id&gt;=&lt;token&gt;&#39; -H &#39;Content-Type: application/x-www-form-urlencoded&#39; --data &#39;command=shutdown&#39; --insecure&quot;</span>
+<span class="w">  </span>shutdown_proxmox:<span class="w"> </span><span class="s2">"curl 'https://&lt;IP&gt;:8006/api2/extjs/nodes/proxmox/status' -H 'Authorization: PVEAPIToken=&lt;user&gt;!&lt;token_id&gt;=&lt;token&gt;' -H 'Content-Type: application/x-www-form-urlencoded' --data 'command=shutdown' --insecure"</span>
 </pre></div>
 </div>
 <p>где:</p>

@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b1f822e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -103,21 +104,21 @@ mkdir<span class="w"> </span>./torrserver/config_torrserver
 <ol class="arabic simple" start="2">
 <li><p>Редактируем <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> через <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">docker-compose.yml</span></code> и вставляем данные:</p></li>
 </ol>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>services:
-  torrserver:
-    image: ghcr.io/yourok/torrserver
-    container_name: torrserver
-    network_mode: host
-    environment:
-        - TS_PORT=5665
-        - TS_DONTKILL=1
-        - TS_HTTPAUTH=0
-        - TS_CONF_PATH=/opt/ts/config
-        - TS_TORR_DIR=/opt/ts/torrents
-    volumes:
-        - &#39;./config_torrserver/CACHE:/opt/ts/torrents&#39;
-        - &#39;./config_torrserver/CONFIG:/opt/ts/config&#39;
-    restart: unless-stopped
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">torrserver</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/yourok/torrserver</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">torrserver</span>
+<span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TS_PORT=5665</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TS_DONTKILL=1</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TS_HTTPAUTH=0</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TS_CONF_PATH=/opt/ts/config</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TS_TORR_DIR=/opt/ts/torrents</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'./config_torrserver/CACHE:/opt/ts/torrents'</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'./config_torrserver/CONFIG:/opt/ts/config'</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -125,13 +126,13 @@ mkdir<span class="w"> </span>./torrserver/config_torrserver
 <li><p>Переходим по пути <code class="docutils literal notranslate"><span class="pre">http://&lt;ip&gt;:5665</span></code>. Внутренний IP можно посмотреть через: <code class="docutils literal notranslate"><span class="pre">hostname</span> <span class="pre">-I</span></code>. При желании можно сделать сервис доступным из интернета.</p></li>
 </ol>
 <p>Если необходима авторизация, то в  <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> изменяем переменную <code class="docutils literal notranslate"><span class="pre">TS_HTTPAUTH</span></code>:</p>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span> environment:
-        - TS_HTTPAUTH=1
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TS_HTTPAUTH=1</span>
 </pre></div>
 </div>
 <p>Также создаем файл <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">./config_torrserver/CONFIG/accs.db</span></code> и в нем добавляем данные для авторизации (<code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">./config_torrserver/CONFIG/accs.db</span></code>) :</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password&quot;</span>
+<span class="w">    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span>
 <span class="p">}</span>
 </pre></div>
 </div>

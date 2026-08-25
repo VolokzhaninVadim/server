@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b1f822e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -114,9 +115,9 @@ touch<span class="w"> </span><span class="o">{</span>docker-compose.yml,.env<spa
 <span class="w">    </span>volumes:
 <span class="w">      </span>-<span class="w"> </span>./config_postgres:/var/lib/postgresql/data
 <span class="w">      </span>-<span class="w"> </span>/etc/localtime:/etc/localtime:ro
-<span class="w">    </span>env_file:<span class="w"> </span><span class="s2">&quot;.env&quot;</span>
+<span class="w">    </span>env_file:<span class="w"> </span><span class="s2">".env"</span>
 <span class="w">    </span>ports:
-<span class="w">      </span>-<span class="w"> </span><span class="s2">&quot;8443:8443&quot;</span>
+<span class="w">      </span>-<span class="w"> </span><span class="s2">"8443:8443"</span>
 <span class="w">    </span>environment:
 <span class="w">      </span>-<span class="w"> </span><span class="nv">POSTGRES_USER</span><span class="o">=</span><span class="si">${</span><span class="nv">HOMEASSISTANT_PG_USER</span><span class="si">}</span>
 <span class="w">      </span>-<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span><span class="si">${</span><span class="nv">HOMEASSISTANT_PG_PASSWORD</span><span class="si">}</span>
@@ -136,12 +137,12 @@ touch<span class="w"> </span><span class="o">{</span>docker-compose.yml,.env<spa
 <span class="w">      </span>-<span class="w"> </span>./config_codeserver:/config
 <span class="w">      </span>-<span class="w"> </span>./config_homeassistant:/config_homeassistant
 <span class="w">    </span>ports:
-<span class="w">      </span>-<span class="w"> </span><span class="s2">&quot;8443:8443&quot;</span>
+<span class="w">      </span>-<span class="w"> </span><span class="s2">"8443:8443"</span>
 <span class="w">    </span>network_mode:<span class="w"> </span>host
 
 <span class="w">  </span>homeassistant:
 <span class="w">    </span>container_name:<span class="w"> </span>homeassistant
-<span class="w">    </span>image:<span class="w"> </span><span class="s2">&quot;ghcr.io/home-assistant/home-assistant:stable&quot;</span>
+<span class="w">    </span>image:<span class="w"> </span><span class="s2">"ghcr.io/home-assistant/home-assistant:stable"</span>
 <span class="w">    </span>volumes:
 <span class="w">      </span>-<span class="w"> </span>./config_homeassistant:/config
 <span class="w">      </span>-<span class="w"> </span>/etc/localtime:/etc/localtime:ro
@@ -198,8 +199,8 @@ touch<span class="w"> </span><span class="o">{</span>docker-compose.yml,.env<spa
 <p><code class="docutils literal notranslate"><span class="pre">DNS</span> <span class="pre">proxy</span></code> - для возможности доступа к HA через <a class="reference external" href="https://nginxproxymanager.com/">Nginx Proxy Manager</a>  (далее npm). <code class="docutils literal notranslate"><span class="pre">Database</span></code> - для подключения HA к нашей базе данных.</p>
 <p>В <code class="docutils literal notranslate"><span class="pre">secrets.yaml</span></code> вставляем:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># HA</span>
-<span class="nt">homeassistant_db_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;postgresql://&lt;your_user&gt;:&lt;your_password&gt;@localhost/homeassistant&quot;</span>
-<span class="nt">external_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://homeassistant.volokzhanin.duckdns.org&quot;</span>
+<span class="nt">homeassistant_db_url</span><span class="p">:</span><span class="w"> </span><span class="s">"postgresql://&lt;your_user&gt;:&lt;your_password&gt;@localhost/homeassistant"</span>
+<span class="nt">external_url</span><span class="p">:</span><span class="w"> </span><span class="s">"https://homeassistant.volokzhanin.duckdns.org"</span>
 <span class="nt">trusted_proxy_docker</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">172.0.0.0/8</span>
 <span class="nt">trusted_proxy_lan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.0.0/16</span>
 </pre></div>
@@ -210,7 +211,7 @@ touch<span class="w"> </span><span class="o">{</span>docker-compose.yml,.env<spa
 </div>
 <p>Если вы увидели:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>psql<span class="w"> </span><span class="o">(</span><span class="m">13</span>.21<span class="w"> </span><span class="o">(</span>Debian<span class="w"> </span><span class="m">13</span>.21-1.pgdg120+1<span class="o">))</span>
-Type<span class="w"> </span><span class="s2">&quot;help&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.
+Type<span class="w"> </span><span class="s2">"help"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.
 </pre></div>
 </div>
 <p>Это значит подключение удалось.
@@ -230,16 +231,16 @@ wget<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>h
 <span class="o">-</span>                    <span class="mi">100</span><span class="o">%</span> <span class="o">|*****************************************************************************************************************|</span>  <span class="mi">4990</span>  <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">ETA</span>
 <span class="n">written</span> <span class="n">to</span> <span class="n">stdout</span>
 <span class="n">INFO</span><span class="p">:</span> <span class="n">Trying</span> <span class="n">to</span> <span class="n">find</span> <span class="n">the</span> <span class="n">correct</span> <span class="n">directory</span><span class="o">...</span>
-<span class="n">INFO</span><span class="p">:</span> <span class="n">Found</span> <span class="n">Home</span> <span class="n">Assistant</span> <span class="n">configuration</span> <span class="n">directory</span> <span class="n">at</span> <span class="s1">&#39;//config&#39;</span>
+<span class="n">INFO</span><span class="p">:</span> <span class="n">Found</span> <span class="n">Home</span> <span class="n">Assistant</span> <span class="n">configuration</span> <span class="n">directory</span> <span class="n">at</span> <span class="s1">'//config'</span>
 <span class="n">INFO</span><span class="p">:</span> <span class="n">Creating</span> <span class="n">custom_components</span> <span class="n">directory</span><span class="o">...</span>
 <span class="n">INFO</span><span class="p">:</span> <span class="n">Changing</span> <span class="n">to</span> <span class="n">the</span> <span class="n">custom_components</span> <span class="n">directory</span><span class="o">...</span>
 <span class="n">INFO</span><span class="p">:</span> <span class="n">Downloading</span> <span class="n">HACS</span>
 <span class="n">Connecting</span> <span class="n">to</span> <span class="n">github</span><span class="o">.</span><span class="n">com</span> <span class="p">(</span><span class="mf">140.82.121.3</span><span class="p">:</span><span class="mi">443</span><span class="p">)</span>
 <span class="n">Connecting</span> <span class="n">to</span> <span class="n">github</span><span class="o">.</span><span class="n">com</span> <span class="p">(</span><span class="mf">140.82.121.3</span><span class="p">:</span><span class="mi">443</span><span class="p">)</span>
 <span class="n">Connecting</span> <span class="n">to</span> <span class="n">objects</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span> <span class="p">(</span><span class="mf">185.199.108.133</span><span class="p">:</span><span class="mi">443</span><span class="p">)</span>
-<span class="n">saving</span> <span class="n">to</span> <span class="s1">&#39;hacs.zip&#39;</span>
+<span class="n">saving</span> <span class="n">to</span> <span class="s1">'hacs.zip'</span>
 <span class="n">hacs</span><span class="o">.</span><span class="n">zip</span>             <span class="mi">100</span><span class="o">%</span> <span class="o">|*****************************************************************************************************************|</span> <span class="mf">18.1</span><span class="n">M</span>  <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">ETA</span>
-<span class="s1">&#39;hacs.zip&#39;</span> <span class="n">saved</span>
+<span class="s1">'hacs.zip'</span> <span class="n">saved</span>
 <span class="n">INFO</span><span class="p">:</span> <span class="n">Creating</span> <span class="n">HACS</span> <span class="n">directory</span><span class="o">...</span>
 <span class="n">INFO</span><span class="p">:</span> <span class="n">Unpacking</span> <span class="n">HACS</span><span class="o">...</span>
 
@@ -260,7 +261,7 @@ wget<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>h
 <li><p>Устанавливаем <a class="reference external" href="https://github.com/dougiteixeira/proxmoxve">Proxmox VE</a> для мониторинга состояния <a class="reference external" href="https://ru.wikipedia.org/wiki/Proxmox_Virtual_Environment">Proxmox</a>. Для авторизации необходимо получить токен на стороне <a class="reference external" href="https://ru.wikipedia.org/wiki/Proxmox_Virtual_Environment">Proxmox</a>, его получение я описал в этой <a class="reference internal" href="#%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20%D1%86%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%B4%D0%BB%D1%8F%20%D0%98%D0%91%D0%9F%20DEXP%20MIX%20850VA.md"><span class="xref myst">статье</span></a>.</p></li>
 <li><p>Устанавливаем <a class="reference external" href="https://www.home-assistant.io/integrations/sql">SQL</a>. И добавляем запрос:</p></li>
 </ol>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="p">(</span><span class="n">pg_database_size</span><span class="p">(</span><span class="s1">&#39;homeassistant&#39;</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">db_size</span><span class="p">;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="p">(</span><span class="n">pg_database_size</span><span class="p">(</span><span class="s1">'homeassistant'</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">db_size</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>в интеграцию.</p>

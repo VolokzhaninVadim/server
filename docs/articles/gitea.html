@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b1f822e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -108,47 +109,47 @@ mkdir<span class="w"> </span><span class="o">{</span>gitea,gitea/postgres-db,git
 <ol class="arabic simple" start="4">
 <li><p>Редактируем <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> через <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">docker-compose.yml</span></code> и вставляем данные:</p></li>
 </ol>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>services:
-  db:
-    image: postgres:16
-    container_name: gitea_database
-    restart: always
-    env_file: &quot;.env&quot;
-    environment:
-      - POSTGRES_USER=gitea
-      - POSTGRES_PASSWORD=$GITEA_DATABASE
-      - POSTGRES_DB=gitea
-      - PGDATA=/var/lib/postgresql/data/pgdata
-    ports:
-      - &quot;5432:5432&quot;
-    volumes:
-      - ./postgres-db:/var/lib/postgresql/data
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:16</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitea_database</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+<span class="w">    </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="s">".env"</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_USER=gitea</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_PASSWORD=$GITEA_DATABASE</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_DB=gitea</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGDATA=/var/lib/postgresql/data/pgdata</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"5432:5432"</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./postgres-db:/var/lib/postgresql/data</span>
 
-  git:
-    image: gitea/gitea:1.20.5-rootless
-    container_name: gitea
-    env_file: &quot;.env&quot;
-    environment:
-      - USER_UID=1000
-      - USER_GID=1000
-      - GITEA__database__DB_TYPE=postgres
-      - GITEA__database__HOST=db:5432
-      - GITEA__database__NAME=gitea
-      - GITEA__database__USER=gitea
-      - GITEA__database__PASSWD=$GITEA_DATABASE
-      - GITEA__server__START_SSH_SERVER=true
-      - GITEA__server__SSH_PORT=2222
-    restart: always
-    volumes:
-      - ./data:/var/lib/gitea
-      - ./config:/etc/gitea
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
-    ports:
-      - &quot;3000:3000&quot;
-      - &quot;2222:2222&quot;
-    depends_on:
-      - db
+<span class="w">  </span><span class="nt">git</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitea/gitea:1.20.5-rootless</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitea</span>
+<span class="w">    </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="s">".env"</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER_UID=1000</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER_GID=1000</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GITEA__database__DB_TYPE=postgres</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GITEA__database__HOST=db:5432</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GITEA__database__NAME=gitea</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GITEA__database__USER=gitea</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GITEA__database__PASSWD=$GITEA_DATABASE</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GITEA__server__START_SSH_SERVER=true</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GITEA__server__SSH_PORT=2222</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./data:/var/lib/gitea</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./config:/etc/gitea</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/timezone:/etc/timezone:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/localtime:/etc/localtime:ro</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"3000:3000"</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"2222:2222"</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">

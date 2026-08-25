@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b1f822e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -123,15 +124,15 @@ mkdir<span class="w"> </span>./lampac/config_lampac
 <ol class="arabic simple" start="2">
 <li><p>Редактируем <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> через <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">docker-compose.yml</span></code> и вставляем данные:</p></li>
 </ol>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>services:
-  lampac:
-    restart: unless-stopped
-    container_name: lampac
-    image: immisterio/lampac
-    volumes:
-     # - ./media/downloads:/home/dlna
-      - ./config_lampac/init.conf:/home/init.conf
-    network_mode: host
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">lampac</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lampac</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">immisterio/lampac</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">     </span><span class="c1"># - ./media/downloads:/home/dlna</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./config_lampac/init.conf:/home/init.conf</span>
+<span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
 </pre></div>
 </div>
 <p>Если хотим смотреть уже загруженные медиа-файлы через Lampac-server (<a class="reference external" href="https://ru.wikipedia.org/wiki/DLNA">DLNA</a>), то создаем  <code class="docutils literal notranslate"><span class="pre">./media/downloads</span></code> и раскомментируем необходимую строку в <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>.
@@ -147,7 +148,7 @@ mkdir<span class="w"> </span>./lampac/config_lampac
 <blockquote>
 <div><p><a class="reference external" href="https://msx.benzac.de/wiki/index.php?title=Welcome">Media Station X</a> - оболочка для медиатеки телевизора или приставки.</p>
 </div></blockquote>
-<p>- <a class="reference external" href="https://4pda.to/forum/index.php?showtopic=1014407&amp;amp;ysclid=m6c3lcw7v8416875371">4PDA</a></p>
+<p>- <a class="reference external" href="https://4pda.to/forum/index.php?showtopic=1014407&amp;ysclid=m6c3lcw7v8416875371">4PDA</a></p>
 <ol class="arabic simple">
 <li><p>Устанавливаем Media Station X.</p></li>
 <li><p>Запускаем Media Station X.</p></li>
@@ -255,15 +256,15 @@ mkdir<span class="w"> </span>./lampac/config_lampac
 <li><p>Вставляем данные через <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">/config_lampac/init.conf</span></code>:</p></li>
 </ol>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w"> </span><span class="nt">&quot;accsdb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">	</span><span class="nt">&quot;whitepattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^/over/&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;maxiptohour&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
-<span class="w">	</span><span class="nt">&quot;authMesage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Войдите в аккаунт cub.red&quot;</span><span class="p">,</span>
-<span class="w">	</span><span class="nt">&quot;denyMesage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Добавьте  {account_email} в init.conf&quot;</span><span class="p">,</span>
-<span class="w">	</span><span class="nt">&quot;expiresMesage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Время доступа {account_email} истекло в {expires}&quot;</span><span class="p">,</span>
-<span class="w">	</span><span class="nt">&quot;accounts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	  </span><span class="nt">&quot;user@example.ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2040-10-17T00:00:00&quot;</span>
+<span class="w"> </span><span class="nt">"accsdb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"enable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">	</span><span class="nt">"whitepattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^/over/"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"maxiptohour"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<span class="w">	</span><span class="nt">"authMesage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Войдите в аккаунт cub.red"</span><span class="p">,</span>
+<span class="w">	</span><span class="nt">"denyMesage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Добавьте  {account_email} в init.conf"</span><span class="p">,</span>
+<span class="w">	</span><span class="nt">"expiresMesage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Время доступа {account_email} истекло в {expires}"</span><span class="p">,</span>
+<span class="w">	</span><span class="nt">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	  </span><span class="nt">"user@example.ru"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2040-10-17T00:00:00"</span>
 
 <span class="w">		</span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>

@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b1f822e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -93,8 +94,10 @@
 <p>По всем этим критериям на тот момент победу одержала технология <a class="reference external" href="https://ru.wikipedia.org/wiki/Zigbee">Zigbee</a>. Были и недостатки в виде несовместимости некоторых устройств, производители которых используют свои закрытые прошивки и при этом указывают «Zigbee». Также есть ограничение по скорости, поэтому не рекомендуется передавать потокового видео, например. Для меня это были не проблемы, поэтому пошел в выбранную сторону. В этой статье буду описывать как я настроил работу координатора Zigbee, который занимает центральное место в сети IoT устройств.
 Концептуальная схема выглядит так:</p>
 <p class="plantuml">
+<object data="../_images/plantuml-9ab35902a9d56a0436fd93863c870c5b96185284.svg" type="image/svg+xml" style="width:340px;height:1609px;background:#FFFFFF;">
 <img src="../_images/plantuml-9ab35902a9d56a0436fd93863c870c5b96185284.png" alt="!include plantuml/zigbee.plantuml"/>
-</p>
+
+</object></p>
 </section>
 <section id="id2">
 <h2>Покупка координатора<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
@@ -139,7 +142,7 @@ password_file<span class="w"> </span>/mosquitto/config/mqttuser
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eclipse-mosquitto:latest</span>
 <span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
 <span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;1883:1883/tcp&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"1883:1883/tcp"</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/localtime:/etc/localtime:ro</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./config_mosquitto/config:/mosquitto/config</span>
@@ -156,7 +159,7 @@ password_file<span class="w"> </span>/mosquitto/config/mqttuser
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/koenkk/zigbee2mqtt</span>
 <span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
 <span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8099:8099/tcp&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"8099:8099/tcp"</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/localtime:/etc/localtime:ro</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./config_zigbee2mqtt/zigbee2mqtt/data:/app/data</span>

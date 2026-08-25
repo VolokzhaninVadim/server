@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b1f822e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -126,7 +127,7 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Обновляемся и устанавливаем необходимые пакеты</span>
 apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
 apt<span class="w"> </span>install<span class="w"> </span>dpkg-dev<span class="w"> </span>curl<span class="w"> </span>zram-tools<span class="w"> </span>git<span class="w"> </span>jq<span class="w"> </span>-y
-curl<span class="w"> </span>--proto<span class="w"> </span><span class="s1">&#39;=https&#39;</span><span class="w"> </span>--tlsv1.2<span class="w"> </span>-sSf<span class="w"> </span>https://sh.rustup.rs<span class="w"> </span>-sSf<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-s
+curl<span class="w"> </span>--proto<span class="w"> </span><span class="s1">'=https'</span><span class="w"> </span>--tlsv1.2<span class="w"> </span>-sSf<span class="w"> </span>https://sh.rustup.rs<span class="w"> </span>-sSf<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-s
 <span class="nb">source</span><span class="w"> </span>~/.cargo/env
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/wofferl/proxmox-backup-arm64.git
 <span class="nb">cd</span><span class="w"> </span>proxmox-backup-arm64
@@ -147,10 +148,10 @@ cat<span class="w"> </span>/proc/swaps
 <span class="c1"># ./build.sh</span>
 
 <span class="c1"># Скачиваем собранные пакеты</span>
-curl<span class="w"> </span>-s<span class="w"> </span>https://api.github.com/repos/wofferl/proxmox-backup-arm64/releases/tags/3.4.8-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.assets[] | .browser_download_url&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;\.deb</span>$<span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>download_links.txt
+curl<span class="w"> </span>-s<span class="w"> </span>https://api.github.com/repos/wofferl/proxmox-backup-arm64/releases/tags/3.4.8-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.assets[] | .browser_download_url'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">"\.deb</span>$<span class="s2">"</span><span class="w"> </span>&gt;<span class="w"> </span>download_links.txt
 <span class="c1"># Скачиваем каждый файл из списка</span>
 <span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>url<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span>curl<span class="w"> </span>-LO<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$url</span><span class="s2">&quot;</span>
+<span class="w">  </span>curl<span class="w"> </span>-LO<span class="w"> </span><span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>
 <span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span>download_links.txt
 
 <span class="c1"># Устанавливаем пакеты PBS</span>
@@ -189,21 +190,21 @@ proxmox-backup-manager<span class="w"> </span>user<span class="w"> </span>update
 $<span class="w"> </span>neofetch
 <span class="w">       </span>_,met<span class="nv">$$$$$gg</span>.<span class="w">          </span>root@NanoPi-R5C
 <span class="w">    </span>,g<span class="nv">$$$$$$$$$$$$$$$P</span>.<span class="w">       </span>---------------
-<span class="w">  </span>,g<span class="nv">$$</span>P<span class="s2">&quot;     &quot;&quot;&quot;</span>Y<span class="nv">$$</span>.<span class="s2">&quot;.        OS: Debian GNU/Linux 12 (bookworm) aarch64</span>
-<span class="s2"> ,</span><span class="nv">$$</span><span class="s2">P&#39;              `</span><span class="nv">$$</span>$<span class="s2">.     Host: FriendlyElec NanoPi R5C</span>
-<span class="s2">&#39;,</span><span class="nv">$$</span><span class="s2">P       ,ggs.     `</span><span class="nv">$$</span><span class="s2">b:   Kernel: 6.1.118</span>
-<span class="s2">`d</span><span class="nv">$$</span><span class="s2">&#39;     ,</span><span class="nv">$P</span><span class="s2">&quot;</span><span class="s1">&#39;   .    $$$    Uptime: 1 hour, 45 mins</span>
-<span class="s1"> $$P      d$&#39;</span><span class="w">     </span>,<span class="w">    </span><span class="nv">$$</span>P<span class="w">    </span>Packages:<span class="w"> </span><span class="m">709</span><span class="w"> </span><span class="o">(</span>dpkg<span class="o">)</span>
-<span class="w"> </span><span class="nv">$$</span>:<span class="w">      </span><span class="nv">$$</span>.<span class="w">   </span>-<span class="w">    </span>,d<span class="nv">$$</span><span class="s1">&#39;    Shell: bash 5.2.15</span>
-<span class="s1"> $$;      Y$b._   _,d$P&#39;</span><span class="w">      </span>Terminal:<span class="w"> </span>/dev/pts/1
-<span class="w"> </span>Y<span class="nv">$$</span>.<span class="w">    </span><span class="sb">`</span>.<span class="sb">`</span><span class="s2">&quot;Y</span><span class="nv">$$$$</span><span class="s2">P&quot;</span><span class="err">&#39;</span><span class="w">         </span>CPU:<span class="w"> </span><span class="o">(</span><span class="m">4</span><span class="o">)</span><span class="w"> </span>@<span class="w"> </span><span class="m">1</span>.992GHz
-<span class="w"> </span><span class="sb">`</span><span class="nv">$$</span>b<span class="w">      </span><span class="s2">&quot;-.__              Memory: 275MiB / 3904MiB</span>
+<span class="w">  </span>,g<span class="nv">$$</span>P<span class="s2">"     """</span>Y<span class="nv">$$</span>.<span class="s2">".        OS: Debian GNU/Linux 12 (bookworm) aarch64</span>
+<span class="s2"> ,</span><span class="nv">$$</span><span class="s2">P'              `</span><span class="nv">$$</span>$<span class="s2">.     Host: FriendlyElec NanoPi R5C</span>
+<span class="s2">',</span><span class="nv">$$</span><span class="s2">P       ,ggs.     `</span><span class="nv">$$</span><span class="s2">b:   Kernel: 6.1.118</span>
+<span class="s2">`d</span><span class="nv">$$</span><span class="s2">'     ,</span><span class="nv">$P</span><span class="s2">"</span><span class="s1">'   .    $$$    Uptime: 1 hour, 45 mins</span>
+<span class="s1"> $$P      d$'</span><span class="w">     </span>,<span class="w">    </span><span class="nv">$$</span>P<span class="w">    </span>Packages:<span class="w"> </span><span class="m">709</span><span class="w"> </span><span class="o">(</span>dpkg<span class="o">)</span>
+<span class="w"> </span><span class="nv">$$</span>:<span class="w">      </span><span class="nv">$$</span>.<span class="w">   </span>-<span class="w">    </span>,d<span class="nv">$$</span><span class="s1">'    Shell: bash 5.2.15</span>
+<span class="s1"> $$;      Y$b._   _,d$P'</span><span class="w">      </span>Terminal:<span class="w"> </span>/dev/pts/1
+<span class="w"> </span>Y<span class="nv">$$</span>.<span class="w">    </span><span class="sb">`</span>.<span class="sb">`</span><span class="s2">"Y</span><span class="nv">$$$$</span><span class="s2">P"</span><span class="err">'</span><span class="w">         </span>CPU:<span class="w"> </span><span class="o">(</span><span class="m">4</span><span class="o">)</span><span class="w"> </span>@<span class="w"> </span><span class="m">1</span>.992GHz
+<span class="w"> </span><span class="sb">`</span><span class="nv">$$</span>b<span class="w">      </span><span class="s2">"-.__              Memory: 275MiB / 3904MiB</span>
 <span class="s2">  `Y</span><span class="nv">$$</span>
 <span class="s2">   `Y</span><span class="nv">$$</span><span class="s2">.</span>
 <span class="s2">     `</span><span class="nv">$$</span><span class="s2">b.</span>
 <span class="s2">       `Y</span><span class="nv">$$</span><span class="s2">b.</span>
-<span class="s2">          `&quot;</span>Y<span class="nv">$b</span>._
-<span class="w">              </span><span class="sb">`</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">          `"</span>Y<span class="nv">$b</span>._
+<span class="w">              </span><span class="sb">`</span><span class="s2">"""</span>
 </pre></div>
 </div>
 <p>Для хранения резервных копий добавляем диск через «Datastore».
@@ -234,16 +235,16 @@ $<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>
 
 <span class="c1"># Заполняем файлы</span>
 $<span class="w"> </span>proxmox-backup-manager<span class="w"> </span>cert<span class="w"> </span>info<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Fingerprint<span class="w"> </span>&gt;<span class="w"> </span>.fingerprint
-<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;&lt;ПарольДляbackup@pbs&gt;&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>.pbs_pass
+<span class="nb">echo</span><span class="w"> </span><span class="s1">'&lt;ПарольДляbackup@pbs&gt;'</span><span class="w"> </span>&gt;<span class="w"> </span>.pbs_pass
 
 <span class="c1"># Заполняем файл скрипта для создания резервных копий</span>
 $<span class="w"> </span>nano<span class="w"> </span>backup.sh
-<span class="nb">export</span><span class="w"> </span><span class="nv">PBS_REPOSITORY</span><span class="o">=</span><span class="s2">&quot;backup@pbs@&lt;IP PBS&gt;:&lt;Datastore&gt;&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PBS_REPOSITORY</span><span class="o">=</span><span class="s2">"backup@pbs@&lt;IP PBS&gt;:&lt;Datastore&gt;"</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PBS_PASSWORD</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>/home/volokzhanin/backup/.pbs_pass<span class="k">)</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PBS_FINGERPRINT</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>/home/volokzhanin/backup/.fingerprint<span class="k">)</span>
 
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$PBS_PASSWORD</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>proxmox-backup-client<span class="w"> </span>backup<span class="w"> </span>root.pxar:/<span class="w">  </span><span class="se">\</span>
-<span class="w">  </span>--repository<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PBS_REPOSITORY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--repository<span class="w"> </span><span class="s2">"</span><span class="nv">$PBS_REPOSITORY</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--include-dev<span class="w"> </span>/home
 
 <span class="c1"># Создаем запуск по расписанию нашего скрипта</span>
@@ -274,7 +275,7 @@ $<span class="w"> </span>crontab<span class="w"> </span>-e
 sudo<span class="w"> </span>wget<span class="w"> </span>https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg<span class="w"> </span>-O<span class="w"> </span>/etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg
 
 <span class="c1"># Создание файла репозитория</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64] http://download.proxmox.com/debian/pbs-client bookworm main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/pbs-client.list
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"deb [arch=amd64] http://download.proxmox.com/debian/pbs-client bookworm main"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/pbs-client.list
 <span class="c1"># Установка клиента</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>proxmox-backup-client
 </pre></div>
@@ -285,7 +286,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </
 <span class="c1"># Просмотр содержимого резервной копии</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$PBS_PASSWORD</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>proxmox-backup-client<span class="w"> </span>catalog<span class="w"> </span>dump<span class="w"> </span>host/your_backup
 <span class="c1"># Восстановление в тестовую директорию, далее можно восстанавливать отдельные файлы или директории</span>
-<span class="nb">echo</span><span class="w"> </span><span class="nv">$PBS_PASSWORD</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>proxmox-backup-client<span class="w"> </span>restore<span class="w"> </span><span class="s2">&quot;host/your_backup&quot;</span><span class="w"> </span>root.ppxar<span class="w"> </span>/tmp/restore_test/
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$PBS_PASSWORD</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>proxmox-backup-client<span class="w"> </span>restore<span class="w"> </span><span class="s2">"host/your_backup"</span><span class="w"> </span>root.ppxar<span class="w"> </span>/tmp/restore_test/
 </pre></div>
 </div>
 <p>У хостов в PVE есть возможность просмотра структуры папок и скачивания выбранных объектов. Очень часто только этого достаточно для решения возникших вопросов.</p>

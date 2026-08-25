@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b1f822e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -106,24 +107,24 @@ touch<span class="w"> </span>docker-compose.yml
 <p>Далее создаем наш прокси-сервер через <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">docker-compose.yml</span></code>:</p>
 <div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">app</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;jc21/nginx-proxy-manager:latest&#39;</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">'jc21/nginx-proxy-manager:latest'</span>
 <span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx-proxy-manager-app</span>
 <span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
 <span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;80:80&#39;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;43013:81&#39;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;443:443&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'80:80'</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'43013:81'</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'443:443'</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">DB_MYSQL_HOST</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;db&quot;</span>
+<span class="w">      </span><span class="nt">DB_MYSQL_HOST</span><span class="p">:</span><span class="w"> </span><span class="s">"db"</span>
 <span class="w">      </span><span class="nt">DB_MYSQL_PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3306</span>
-<span class="w">      </span><span class="nt">DB_MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;secret&gt;&quot;</span>
-<span class="w">      </span><span class="nt">DB_MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;secret&gt;&quot;</span>
-<span class="w">      </span><span class="nt">DB_MYSQL_NAME</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;secret&gt;&quot;</span>
+<span class="w">      </span><span class="nt">DB_MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="s">"&lt;secret&gt;"</span>
+<span class="w">      </span><span class="nt">DB_MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">"&lt;secret&gt;"</span>
+<span class="w">      </span><span class="nt">DB_MYSQL_NAME</span><span class="p">:</span><span class="w"> </span><span class="s">"&lt;secret&gt;"</span>
 <span class="w">      </span><span class="c1"># Uncomment this if IPv6 is not enabled on your host</span>
-<span class="w">      </span><span class="c1">#DISABLE_IPV6: &#39;true&#39;</span>
+<span class="w">      </span><span class="c1">#DISABLE_IPV6: 'true'</span>
 <span class="w">      </span><span class="c1">#отображение реальных ip клиентов в логах sudo docker logs containername</span>
-<span class="w">      </span><span class="nt">REAL_IP_HEADER</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;X-Real-IP&quot;</span>
-<span class="w">      </span><span class="nt">TRUSTED_PROXIES</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;172.0.0.0/8,</span><span class="nv"> </span><span class="s">10.0.0.0/8,</span><span class="nv"> </span><span class="s">192.168.0.0/16&quot;</span>
+<span class="w">      </span><span class="nt">REAL_IP_HEADER</span><span class="p">:</span><span class="w"> </span><span class="s">"X-Real-IP"</span>
+<span class="w">      </span><span class="nt">TRUSTED_PROXIES</span><span class="p">:</span><span class="w"> </span><span class="s">"172.0.0.0/8,</span><span class="nv"> </span><span class="s">10.0.0.0/8,</span><span class="nv"> </span><span class="s">192.168.0.0/16"</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./data:/data</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./letsencrypt:/etc/letsencrypt</span>
@@ -135,10 +136,10 @@ touch<span class="w"> </span>docker-compose.yml
 <span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx-proxy-manager-db</span>
 <span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;secret&gt;&#39;</span>
-<span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;secret&gt;&#39;</span>
-<span class="w">      </span><span class="nt">MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;secret&gt;&#39;</span>
-<span class="w">      </span><span class="nt">MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;secret&gt;&#39;</span>
+<span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">'&lt;secret&gt;'</span>
+<span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="s">'&lt;secret&gt;'</span>
+<span class="w">      </span><span class="nt">MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="s">'&lt;secret&gt;'</span>
+<span class="w">      </span><span class="nt">MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">'&lt;secret&gt;'</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./data/mysql:/var/lib/mysql</span>
 <span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
@@ -179,11 +180,11 @@ Password:<span class="w"> </span>changeme
 <h2>Ошибки<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h2>
 <p>На вкладке «Settings» можем настроить поведение, если NPM получит host, о котором она ничего не знает. Я сделал так:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>      &lt;iframe
-        width=&quot;720&quot;
-        height=&quot;405&quot;
-        src=&quot;https://vk.com/video_ext.php?oid=708854916&amp;id=456241709&amp;hash=3c9f00d96cf169d6&quot;
-        frameBorder=&quot;0&quot;
-        allow=&quot;clipboard-write; autoplay&quot;
+        width="720"
+        height="405"
+        src="https://vk.com/video_ext.php?oid=708854916&amp;id=456241709&amp;hash=3c9f00d96cf169d6"
+        frameBorder="0"
+        allow="clipboard-write; autoplay"
         webkitAllowFullScreen
         mozallowfullscreen
         allowFullScreen

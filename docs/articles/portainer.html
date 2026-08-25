@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b1f822e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -104,7 +105,7 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./config_portainer:/data</span>
 <span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;9000:9000&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"9000:9000"</span>
 </pre></div>
 </div>
 <p>Зайти в UI можем по пути <code class="docutils literal notranslate"><span class="pre">http://&lt;IP&gt;:9000</span></code>.  В первый раз нас перенаправят на страницу для заведения пароля для пользователя с админскими правами.</p>
@@ -140,8 +141,10 @@
 <h2>ИТОГ<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <p>Теперь у нас есть мощный инструмент взаимодействия с контейнерами.</p>
 <p class="plantuml">
+<object data="../_images/plantuml-d25dc4350803f8e9d094c06fd1da91973d4539ae.svg" type="image/svg+xml" style="width:1414px;height:606px;background:#FFFFFF;">
 <img src="../_images/plantuml-d25dc4350803f8e9d094c06fd1da91973d4539ae.png" alt="!include plantuml/portainer.plantuml"/>
-</p>
+
+</object></p>
 <p>Ссылки:</p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="server.html"><span class="std std-doc">Зачем нужен собственный сервер в 2025?</span></a></p></li>
