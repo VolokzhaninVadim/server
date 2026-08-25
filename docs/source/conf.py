@@ -51,10 +51,12 @@ html_sidebars = {
 }
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+html_css_files = ['custom.css']
 markdown_uri_doc_suffix = ".html"
 pygments_style = 'sphinx'
 source_suffix = ['.rst', '.md']
 myst_heading_anchors = 4
+plantuml_output_format = 'svg'
 html_js_files = [
    'js/mermaid.js',
 ]

@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b1f822e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -177,10 +178,10 @@ tesseract<span class="w"> </span>--version
 <span class="w">    </span><span class="nt">deploy</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">resources</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">limits</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">cpus</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;4&#39;</span>
+<span class="w">          </span><span class="nt">cpus</span><span class="p">:</span><span class="w"> </span><span class="s">'4'</span>
 <span class="w">          </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8192m</span>
 <span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;curl&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-f&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;http://localhost:9200/_cluster/health?local=true&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"CMD"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"curl"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"-f"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"http://localhost:9200/_cluster/health?local=true"</span><span class="p p-Indicator">]</span>
 <span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30s</span>
 <span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
 <span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
@@ -201,12 +202,12 @@ tesseract<span class="w"> </span>--version
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JWT_ENABLED=true</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JWT_SECRET=${ONLYOFFICE_SECRET}</span>
 <span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;8080:80&#39;</span>
-<span class="w">    </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;.env&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'8080:80'</span>
+<span class="w">    </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="s">".env"</span>
 <span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
 <span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;curl&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-f&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;http://localhost/welcome/&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"CMD"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"curl"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"-f"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"http://localhost/welcome/"</span><span class="p p-Indicator">]</span>
 <span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30s</span>
 <span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
 <span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
@@ -227,21 +228,21 @@ tesseract<span class="w"> </span>--version
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>curl<span class="w"> </span>http://localhost:9200/
 <span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;name&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="s2">&quot;elasticsearch&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;cluster_name&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="s2">&quot;nextcloud&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;cluster_uuid&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="s2">&quot;****************&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;version&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="s2">&quot;number&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="s2">&quot;8.17.3&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;build_flavor&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="s2">&quot;default&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;build_type&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="s2">&quot;docker&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;build_hash&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="s2">&quot;***************&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;build_date&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="s2">&quot;2025-02-28T10:07:26.089129809Z&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;build_snapshot&quot;</span><span class="w"> </span>:<span class="w"> </span>false,
-<span class="w">    </span><span class="s2">&quot;lucene_version&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="s2">&quot;9.12.0&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;minimum_wire_compatibility_version&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="s2">&quot;7.17.0&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;minimum_index_compatibility_version&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="s2">&quot;7.0.0&quot;</span>
+<span class="w">  </span><span class="s2">"name"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"elasticsearch"</span>,
+<span class="w">  </span><span class="s2">"cluster_name"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"nextcloud"</span>,
+<span class="w">  </span><span class="s2">"cluster_uuid"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"****************"</span>,
+<span class="w">  </span><span class="s2">"version"</span><span class="w"> </span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">"number"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"8.17.3"</span>,
+<span class="w">    </span><span class="s2">"build_flavor"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"default"</span>,
+<span class="w">    </span><span class="s2">"build_type"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"docker"</span>,
+<span class="w">    </span><span class="s2">"build_hash"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"***************"</span>,
+<span class="w">    </span><span class="s2">"build_date"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"2025-02-28T10:07:26.089129809Z"</span>,
+<span class="w">    </span><span class="s2">"build_snapshot"</span><span class="w"> </span>:<span class="w"> </span>false,
+<span class="w">    </span><span class="s2">"lucene_version"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"9.12.0"</span>,
+<span class="w">    </span><span class="s2">"minimum_wire_compatibility_version"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"7.17.0"</span>,
+<span class="w">    </span><span class="s2">"minimum_index_compatibility_version"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"7.0.0"</span>
 <span class="w">  </span><span class="o">}</span>,
-<span class="w">  </span><span class="s2">&quot;tagline&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="s2">&quot;You Know, for Search&quot;</span>
+<span class="w">  </span><span class="s2">"tagline"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"You Know, for Search"</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -250,9 +251,9 @@ tesseract<span class="w"> </span>--version
 <h2>Настройка поиска по файлам<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <p>Эти действия не влияют на полнотекстовый поиск, но сильно ускоряют поиск внутри самого Nextcloud.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Настраиваем базу данных для поиска по файлам</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>nextcloud-postgres<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>nextcloud<span class="w"> </span>-d<span class="w"> </span>nextcloud<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;CREATE EXTENSION IF NOT EXISTS pg_trgm;&quot;</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>nextcloud-postgres<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>nextcloud<span class="w"> </span>-d<span class="w"> </span>nextcloud<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;CREATE INDEX CONCURRENTLY IF NOT EXISTS fs_name_gin_trgm ON oc_filecache USING GIN (name gin_trgm_ops);&quot;</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>nextcloud-postgres<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>nextcloud<span class="w"> </span>-d<span class="w"> </span>nextcloud<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;CREATE INDEX CONCURRENTLY IF NOT EXISTS fs_path_gin_trgm ON oc_filecache USING GIN (path gin_trgm_ops);&quot;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>nextcloud-postgres<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>nextcloud<span class="w"> </span>-d<span class="w"> </span>nextcloud<span class="w"> </span>-c<span class="w"> </span><span class="s2">"CREATE EXTENSION IF NOT EXISTS pg_trgm;"</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>nextcloud-postgres<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>nextcloud<span class="w"> </span>-d<span class="w"> </span>nextcloud<span class="w"> </span>-c<span class="w"> </span><span class="s2">"CREATE INDEX CONCURRENTLY IF NOT EXISTS fs_name_gin_trgm ON oc_filecache USING GIN (name gin_trgm_ops);"</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>nextcloud-postgres<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>nextcloud<span class="w"> </span>-d<span class="w"> </span>nextcloud<span class="w"> </span>-c<span class="w"> </span><span class="s2">"CREATE INDEX CONCURRENTLY IF NOT EXISTS fs_path_gin_trgm ON oc_filecache USING GIN (path gin_trgm_ops);"</span>
 </pre></div>
 </div>
 </section>
@@ -260,33 +261,33 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
 <h2>Настройка полнотекстового поиска<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
 <p>Настраиваем Elasticsearch:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Выбираем платформу поиска</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>fulltextsearch<span class="w"> </span>search_platform<span class="w"> </span>--value<span class="o">=</span><span class="s2">&quot;OCA\\FullTextSearch_Elasticsearch\\Platform\\ElasticSearchPlatform&quot;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>fulltextsearch<span class="w"> </span>search_platform<span class="w"> </span>--value<span class="o">=</span><span class="s2">"OCA\\FullTextSearch_Elasticsearch\\Platform\\ElasticSearchPlatform"</span>
 
 <span class="c1"># Отключаем строку поиска</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>fulltextsearch<span class="w"> </span>app_navigation<span class="w"> </span>--value<span class="o">=</span><span class="s2">&quot;0&quot;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>fulltextsearch<span class="w"> </span>app_navigation<span class="w"> </span>--value<span class="o">=</span><span class="s2">"0"</span>
 
 <span class="c1"># Настройка ElasticSearch</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>fulltextsearch_elasticsearch:configure<span class="w"> </span><span class="s1">&#39;{&quot;elastic_host&quot;: &quot;http://nextcloud-elasticsearch:9200&quot;, &quot;elastic_index&quot;: &quot;cloud&quot;, &quot;analyzer_tokenizer&quot;: &quot;standard&quot;}&#39;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>fulltextsearch_elasticsearch:configure<span class="w"> </span><span class="s1">'{"elastic_host": "http://nextcloud-elasticsearch:9200", "elastic_index": "cloud", "analyzer_tokenizer": "standard"}'</span>
 <span class="c1"># Устанавливаем количество реплик равным 0</span>
-curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span><span class="s2">&quot;localhost:9200/cloud/_settings&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;index&quot;: {&quot;number_of_replicas&quot;: 0}}&#39;</span>
+curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span><span class="s2">"localhost:9200/cloud/_settings"</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"index": {"number_of_replicas": 0}}'</span>
 
 <span class="c1"># Индексировать локальные файлы</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>files_fulltextsearch<span class="w"> </span>files_local<span class="w"> </span>--value<span class="o">=</span><span class="s2">&quot;1&quot;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>files_fulltextsearch<span class="w"> </span>files_local<span class="w"> </span>--value<span class="o">=</span><span class="s2">"1"</span>
 
 <span class="c1"># Индексировать внешние файлы</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>files_fulltextsearch<span class="w"> </span>files_external<span class="w"> </span>--value<span class="o">=</span><span class="s2">&quot;1&quot;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>files_fulltextsearch<span class="w"> </span>files_external<span class="w"> </span>--value<span class="o">=</span><span class="s2">"1"</span>
 
 <span class="c1"># Индексировать групповые папки</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>files_fulltextsearch<span class="w"> </span>files_group_folders<span class="w"> </span>--value<span class="o">=</span><span class="s2">&quot;1&quot;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>files_fulltextsearch<span class="w"> </span>files_group_folders<span class="w"> </span>--value<span class="o">=</span><span class="s2">"1"</span>
 
 <span class="c1"># Максимальный размер файла для индексации (в МБ)</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>files_fulltextsearch<span class="w"> </span>files_size<span class="w"> </span>--value<span class="o">=</span><span class="s2">&quot;50&quot;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>files_fulltextsearch<span class="w"> </span>files_size<span class="w"> </span>--value<span class="o">=</span><span class="s2">"50"</span>
 
 <span class="c1"># Индексировать PDF</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>files_fulltextsearch<span class="w"> </span>files_pdf<span class="w"> </span>--value<span class="o">=</span><span class="s2">&quot;1&quot;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>files_fulltextsearch<span class="w"> </span>files_pdf<span class="w"> </span>--value<span class="o">=</span><span class="s2">"1"</span>
 
 <span class="c1"># Индексировать офисные документы</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>files_fulltextsearch<span class="w"> </span>files_office<span class="w"> </span>--value<span class="o">=</span><span class="s2">&quot;1&quot;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>www-data<span class="w"> </span>nextcloud-app<span class="w"> </span>php<span class="w"> </span>occ<span class="w"> </span>config:app:set<span class="w"> </span>files_fulltextsearch<span class="w"> </span>files_office<span class="w"> </span>--value<span class="o">=</span><span class="s2">"1"</span>
 </pre></div>
 </div>
 <p>Для <a class="reference external" href="https://ru.wikipedia.org/wiki/Tesseract">Tesseract</a> не понял, как сделать через команды, поэтому делаем через UI (Параметры сервера -&gt; Полнотекстовый поиск):
@@ -299,7 +300,7 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
 <p>Создание файла <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A8%D1%83%D0%BC%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%BB%D0%BE%D0%B2%D0%B0">стоп-слов</a>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w">  </span>config_elasticsearch/stopwords/
 touch<span class="w">   </span>config_elasticsearch/stopwords/ru_RU.txt
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;и\nв\nне\nна\nс\nпо\nчто&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>config_elasticsearch/stopwords/ru_RU.txt
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"и\nв\nне\nна\nс\nпо\nчто"</span><span class="w"> </span>&gt;<span class="w"> </span>config_elasticsearch/stopwords/ru_RU.txt
 </pre></div>
 </div>
 <p>Запустить процесс индексирования в фоне:</p>
@@ -314,7 +315,7 @@ tail<span class="w"> </span>-f<span class="w"> </span>/tmp/fulltext_index.log
 health<span class="w"> </span>status<span class="w"> </span>index<span class="w"> </span>uuid<span class="w">                   </span>pri<span class="w"> </span>rep<span class="w"> </span>docs.count<span class="w"> </span>docs.deleted<span class="w"> </span>store.size<span class="w"> </span>pri.store.size<span class="w"> </span>dataset.size
 yellow<span class="w"> </span>open<span class="w">   </span>cloud<span class="w"> </span>V_uK0nSIQliHcQZfOJEEmA<span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="m">1</span><span class="w">     </span><span class="m">111064</span><span class="w">            </span><span class="m">1</span><span class="w">     </span><span class="m">12</span>.2gb<span class="w">         </span><span class="m">12</span>.2gb<span class="w">       </span><span class="m">12</span>.2gb
 
-$<span class="w"> </span>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;http://localhost:9200/cloud/_count&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.count
+$<span class="w"> </span>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">"http://localhost:9200/cloud/_count"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.count
 <span class="m">111104</span>
 </pre></div>
 </div>
@@ -349,9 +350,9 @@ sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w">
 </div>
 <p>В процессе индексации столкнулся с такой проблемой, которую не знал, как решить, и только после множества попыток и поисков ответов на вопросы нашел решение. Оказывается, Elasticsearch очень плохо работает с большим количеством мелких файлов, которые у меня были в папках <code class="docutils literal notranslate"><span class="pre">.git</span></code> и <code class="docutils literal notranslate"><span class="pre">.env</span></code>. Решил это созданием в этих папках файла <code class="docutils literal notranslate"><span class="pre">.noindex</span></code>, который указывает Elasticsearch не индексировать этот путь:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Найти папки .git/.venv*/.env* и создать внутри .noindex</span>
-find<span class="w"> </span>/main/documents<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;.git&quot;</span><span class="w"> </span>-exec<span class="w"> </span>touch<span class="w"> </span><span class="o">{}</span>/.noindex<span class="w"> </span><span class="se">\;</span>
-find<span class="w"> </span>/main/documents<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;.venv*&quot;</span><span class="w"> </span>-exec<span class="w"> </span>touch<span class="w"> </span><span class="o">{}</span>/.noindex<span class="w"> </span><span class="se">\;</span>
-find<span class="w"> </span>/main/documents<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;.env*&quot;</span><span class="w"> </span>-exec<span class="w"> </span>touch<span class="w"> </span><span class="o">{}</span>/.noindex<span class="w"> </span><span class="se">\;</span>
+find<span class="w"> </span>/main/documents<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span><span class="s2">".git"</span><span class="w"> </span>-exec<span class="w"> </span>touch<span class="w"> </span><span class="o">{}</span>/.noindex<span class="w"> </span><span class="se">\;</span>
+find<span class="w"> </span>/main/documents<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span><span class="s2">".venv*"</span><span class="w"> </span>-exec<span class="w"> </span>touch<span class="w"> </span><span class="o">{}</span>/.noindex<span class="w"> </span><span class="se">\;</span>
+find<span class="w"> </span>/main/documents<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span><span class="s2">".env*"</span><span class="w"> </span>-exec<span class="w"> </span>touch<span class="w"> </span><span class="o">{}</span>/.noindex<span class="w"> </span><span class="se">\;</span>
 </pre></div>
 </div>
 <p>Работа с ошибками Elasticsearch отдельная тема, так как не нашел, как точечно работать с ними. Если ошибка возникает, то она указывает на конкретный идентификатор файла внутри базы данных Nextcloud.</p>
@@ -375,7 +376,7 @@ FROM<span class="w"> </span>oc_filecache
 WHERE<span class="w"> </span><span class="nv">fileid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">83013800</span><span class="p">;</span>
 
 <span class="c1"># Удалить файл из индекса</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>nextcloud-elasticsearch<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </span><span class="s2">&quot;http://localhost:9200/cloud/_doc/files:83094143?pretty&quot;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>nextcloud-elasticsearch<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </span><span class="s2">"http://localhost:9200/cloud/_doc/files:83094143?pretty"</span>
 </pre></div>
 </div>
 <p>Также можно создать файл <code class="docutils literal notranslate"><span class="pre">.noindex</span></code>, если хотите исключить папку из индексирования.</p>

@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b1f822e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -136,7 +137,7 @@ touch<span class="w"> </span>docker-compose.yml
 <li><p><code class="docutils literal notranslate"><span class="pre">password</span></code>: <code class="docutils literal notranslate"><span class="pre">admin123</span></code></p></li>
 </ul>
 <p>Проверяем целостность базы данных:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>calibre<span class="w"> </span>sqlite3<span class="w"> </span>/books/metadata.db<span class="w"> </span><span class="s2">&quot;PRAGMA integrity_check;&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>calibre<span class="w"> </span>sqlite3<span class="w"> </span>/books/metadata.db<span class="w"> </span><span class="s2">"PRAGMA integrity_check;"</span>
 ok
 </pre></div>
 </div>
@@ -148,17 +149,17 @@ ok
 <h2>Оптимизации<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <p>Оптимизации запускаем через <code class="docutils literal notranslate"><span class="pre">crontab</span> <span class="pre">-e</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calibre: ежедневное обслуживание</span>
-<span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>calibre<span class="w"> </span>sqlite3<span class="w"> </span>/books/metadata.db<span class="w"> </span><span class="s2">&quot;VACUUM; ANALYZE; PRAGMA optimize;&quot;</span>
+<span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>calibre<span class="w"> </span>sqlite3<span class="w"> </span>/books/metadata.db<span class="w"> </span><span class="s2">"VACUUM; ANALYZE; PRAGMA optimize;"</span>
 <span class="c1"># Calibre: увеличиваем размер кэш</span>
-@reboot<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>calibre<span class="w"> </span>sqlite3<span class="w"> </span>/books/metadata.db<span class="w"> </span><span class="s2">&quot;PRAGMA cache_size = -100000;&quot;</span>
+@reboot<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>calibre<span class="w"> </span>sqlite3<span class="w"> </span>/books/metadata.db<span class="w"> </span><span class="s2">"PRAGMA cache_size = -100000;"</span>
 </pre></div>
 </div>
 <p>1 раз выполняем:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>calibre<span class="w"> </span>sqlite3<span class="w"> </span>/books/metadata.db<span class="w"> </span><span class="s2">&quot;PRAGMA journal_mode = WAL;&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>calibre<span class="w"> </span>sqlite3<span class="w"> </span>/books/metadata.db<span class="w"> </span><span class="s2">"PRAGMA journal_mode = WAL;"</span>
 </pre></div>
 </div>
 <p>Проверяем результат:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>calibre<span class="w"> </span>sqlite3<span class="w"> </span>/books/metadata.db<span class="w"> </span><span class="s2">&quot;PRAGMA journal_mode;&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>calibre<span class="w"> </span>sqlite3<span class="w"> </span>/books/metadata.db<span class="w"> </span><span class="s2">"PRAGMA journal_mode;"</span>
 wal
 </pre></div>
 </div>

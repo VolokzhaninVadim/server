@@ -2,8 +2,6 @@
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
-' LAYOUT_WITH_LEGEND()
-
 !procedure $CreateTag ($alias, $description="")
     AddElementTag($alias, $legendText=$description, $sprite=%string("img:../_images/100x100/"+$alias+".png{scale=0.5}"))
 !endprocedure
@@ -56,43 +54,44 @@ System_Ext(browser, "Браузер пользователя", "Просмотр
 System_Ext(tplink, "Роутер", "Маршрутизация трафика", $tags="tplink")
 System(ups, "UPS", "Мониторинг UPS", $tags="nut")
 
+' --- VPS ---
 AddProperty("vCPU", "1")
 AddProperty("RAM GB", "1")
 AddProperty("Storage GB", "10")
 AddProperty("Public IPv4", Germany)
 AddProperty("Bandwidth", "10 Mbit/s")
-
 Deployment_Node(vps_node, "VPS в облаке", $tags="vps") {
     Component(amneziavpn, "Amnezia VPN", "VPN-сервис", "Обеспечивает доступ к некоторым ресурсам через шифрование", $tags="amneziavpn")
 }
-
 System_Ext(external_resources, "Интернет-ресурсы", "Сайты и сервисы, доступные только через VPN")
 
+' --- Умный дом (Raspberry Pi) ---
 AddProperty("CPU", "4")
 AddProperty("RAM GB", "8")
 AddProperty("Micro SD GB (System)", "128")
 Deployment_Node(smarthome, "Сервер умного дома", $tags="raspberry_pi"){
-  Deployment_Node(smart-home, "Умный дом", "VM", "Docker", $tags="ubuntu"){
+  Deployment_Node(smart_home_lxc, "Умный дом", "LXC", "Docker", $tags="ubuntu"){
     Component(home_assistant, "Home Assistant", "Умный дом", "Управление умным домом", $tags="home_assistant")
     Component(vscode, "VSCode server", "VSCode server", "Написание и редактирование кода", $tags="vscode")
     Component(node_red, "Node-RED", "Node-RED", "Визуальное программирование автоматизаций", $tags="node_red")
     Component(mosquitto, "Mosquitto", "Mosquitto", "Брокер сообщений для умного дома", $tags="mosquitto")
-    Component(mosquzigbee2mqttitto, "Zigbee2mqtt", "Zigbee2mqtt", "Zigbee сообщения в MQTT сообщения", $tags="zigbee2mqtt")
+    Component(zigbee2mqtt, "Zigbee2mqtt", "Zigbee2mqtt", "Zigbee сообщения в MQTT сообщения", $tags="zigbee2mqtt")
     Component(homepage, "Homepage", "Homepage", "Приборная панель для сервисов сервера", $tags="homepage")
     Component(musicassistant, "Music Assistant", "Music Assistant", "Управление проигрыванием музыки", $tags="musicassistant")
     Component(postgres_smart_home, "Postgres smart home", "Postgres smart home", "База данных для умного дома", $tags="postgres")
     Component(portainer_agent_smart_home, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
-}
+  }
 }
 
+' --- Сервер резервных копий ---
 AddProperty("CPU", "4")
 AddProperty("RAM GB", "4")
 AddProperty("Micro SD GB (System)", "32")
 Deployment_Node(backup, "Сервер резервных копий", $tags="frendly_elec"){
-Deployment_Node(backup-server, "Сервер резервных копий", "VM", "", $tags="proxmox"){
-}
+  Deployment_Node(backup_lxc, "Сервер резервных копий", "LXC", "", $tags="proxmox")
 }
 
+' --- Основной сервер Proxmox ---
 AddProperty("vCPU", "6")
 AddProperty("RAM GB", "94")
 AddProperty("SSD GB (System)", "2 * 512 [ZFS RAID 1]")
@@ -103,33 +102,41 @@ AddProperty("NIC", "1")
 AddProperty("Graphic card (NVidia)", "1")
 Deployment_Node(server, "Сервер Волокжанина Вадима", $tags="proxmox") {
 
-  Deployment_Node(proxy, "Проксирование web-запросов", "VM", "Docker", $tags="ubuntu"){
+  ' --- LXC: proxy ---
+  Deployment_Node(proxy, "Проксирование web-запросов", "LXC", "Docker", $tags="ubuntu"){
     Component(pihole, "PiHole", "PiHole", "Блокировщик рекламы", $tags="pihole")
     Component(unbound, "Unbound", "Unbound", "DNS-сервер", $tags="unbound")
     Component(npm, "Nginx Proxy Manager", "Nginx Proxy Manager", "Проксирование web-запросов на сервер", $tags="npm")
     Component(duckdns, "DuckDNS", "DuckDNS", "DDNS", $tags="duckdns")
     Component(tor, "TOR", "TOR", "Проксирование web-запросов от сервера", $tags="tor")
     Component(portainer, "Portainer", "Portainer", "Управление Docker", $tags="portainer")
-}
+    Component(portainer_agent_proxy, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
+  }
 
-  Deployment_Node(cloud, "Облако", "VM", "Docker", $tags="ubuntu"){
+  ' --- LXC: cloud ---
+  Deployment_Node(cloud, "Облако", "LXC", "Docker", $tags="ubuntu"){
     Component(nextcloud, "Nextcloud", "Nextcloud", "Частное облако", $tags="nextcloud")
     Component(onlyoffice, "ONLYOFFICE", "ONLYOFFICE", "Работа с документами on-line", $tags="onlyoffice")
-    Component(redis, "Redis", "Redis", "Кэширование запросов в облако", $tags="redis")
-    Component(elasticsearch, "Elasticsearch", "Elasticsearch", "Поиск по тексту", $tags="elasticsearch")
-    Component(syncthing, "Syncthing", "Syncthing", "Синхронизация файлов между сервером и устройствами", $tags="syncthing")
-    Component(gitea, "Gitea", "Gitea", "Git-сервер с функцией зеркалирования репозиториев Github", $tags="gitea")
-    Component(davmail, "DavMail", "DavMail", "POP/IMAP/SMTP/Caldav/Carddav/LDAP шлюз для перевода в Carddav и Caldav", $tags="davmail")
+    Component(redis_cloud, "Redis", "Redis", "Кэширование запросов в облако", $tags="redis")
     Component(postgres_private_cloud, "Postgres private cloud ", "Postgres private cloud", "База данных для частного облака", $tags="postgres")
-    Component(postgres_gitea, "Postgres Gitea ", "Postgres Gitea", "База данных для собственного git", $tags="postgres")
     Component(portainer_agent_private_cloud, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
-}
+  }
 
-  Deployment_Node(mediaserver, "Медиа сервер", "VM", "Docker", $tags="ubuntu"){
+  ' --- LXC: transfer (новый, с Gitea и Syncthing) ---
+  Deployment_Node(transfer, "Transfer", "LXC", "Docker", $tags="ubuntu"){
+    Component(gitea, "Gitea", "Gitea", "Git-сервер с функцией зеркалирования репозиториев Github", $tags="gitea")
+    Component(postgres_gitea, "Postgres Gitea ", "Postgres Gitea", "База данных для собственного git", $tags="postgres")
+    Component(syncthing, "Syncthing", "Syncthing", "Синхронизация файлов между сервером и устройствами", $tags="syncthing")
+    Component(davmail, "DavMail", "DavMail", "POP/IMAP/SMTP/Caldav/Carddav/LDAP шлюз для перевода в Carddav и Caldav", $tags="davmail")
+    Component(portainer_agent_transfer, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
+  }
+
+  ' --- LXC: media (с пробросом GPU) ---
+  AddProperty("GPU", "NVIDIA passthrough")
+  Deployment_Node(media, "Медиа сервер", "LXC", "Docker", $tags="ubuntu"){
     Component(immich, "Immich", "Immich", "Управление частными фото/видео c AI", $tags="immich")
     Component(postgres_private_media, "Postgres private media", "Postgres private media", "База данных для частных фото/видео", $tags="postgres")
-    Component(redis, "Redis", "Redis", "Кэширование запросов для частных фото/видеоh", $tags="redis")
-    Component(steam, "Steam", "Steam", "Игровой сервер", $tags="steam")
+    Component(redis_media, "Redis", "Redis", "Кэширование запросов для частных фото/видео", $tags="redis")
     Component(calibre, "Calibre", "Calibre", "Электронная библиотека", $tags="calibre")
     Component(transmission, "Transmission", "Transmission", "Торрент-качалка", $tags="transmission")
     Component(torrserver, "Torrserver", "Torrserver", "Просмотр торррентов on-line с функцией DLNA", $tags="torrserver")
@@ -137,13 +144,24 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(jackett, "Jackett", "Jackett", "Торрент-поиск", $tags="jackett")
     Component(lampa, "Lampa", "Lampa", "Медиасервер для торрентов", $tags="lampa")
     Component(portainer_agent_media, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
-    Component(ollama, "Local LLM", "Local LLM", "Лоальная LLM", $tags="ollama")
-    Component(stable_diffusion, "Stable Diffusion", "Stable Diffusion", "Лоальная Stable Diffusions", $tags="stable_diffusion")
-}
+  }
+
+  ' --- LXC: llm (с пробросом GPU) ---
+  AddProperty("GPU", "NVIDIA passthrough")
+  Deployment_Node(llm, "Local LLM", "LXC", "Docker", $tags="ubuntu"){
+    Component(ollama, "Ollama", "Ollama", "Локальная LLM", $tags="ollama")
+    Component(portainer_agent_llm, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
+  }
+
+  ' --- LXC: game (с пробросом GPU) ---
+  AddProperty("GPU", "NVIDIA passthrough")
+  Deployment_Node(game, "Игровой сервер", "LXC", "Docker", $tags="ubuntu"){
+    Component(steam, "Steam", "Steam", "Игровой сервер", $tags="steam")
+    Component(portainer_agent_game, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
+  }
 }
 
 ' --- Связи ---
-
 Rel(users, browser, "Просмотр Web-страниц")
 Rel(browser, tplink, "Web-запросы")
 Rel(tplink, server, "Запросы к домашним сервисам")
@@ -151,11 +169,12 @@ Rel(tplink, smarthome, "Запросы к умному дому")
 Rel(tplink, vps_node, "Запросы к ресурсам через VPN (Интернет)")
 Rel(vps_node, external_resources, "Проксирование запросов (VPN-туннель)")
 
-Rel(ups, smarthome, "Электричество")
+Rel(ups, smarthome, "Статусы устройства")
 Rel(smarthome, ups, "Сигналы от автоматизаций")
-Rel(ups, backup, "Электричество")
 Rel(ups, server, "Электричество")
-
-' SHOW_LEGEND()
+Rel(ups, tplink, "Электричество")
+Rel(backup, smarthome, "Статусы устройства")
+Rel(server, backup, "Резервные копии")
+Rel(smarthome, backup, "Резервные копии")
 
 @enduml
