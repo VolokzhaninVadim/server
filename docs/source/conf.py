@@ -50,6 +50,7 @@ html_sidebars = {
     'using/windows': ['windowssidebar.html', 'searchbox.html'],
 }
 html_theme = 'sphinx_rtd_theme'
+plantuml_output_format = 'svg_img'
 html_static_path = ['_static']
 html_css_files = ['custom.css']
 markdown_uri_doc_suffix = ".html"
@@ -57,7 +58,6 @@ pygments_style = 'sphinx'
 source_suffix = ['.rst', '.md']
 myst_heading_anchors = 4
 html_js_files = [
-    'js/custom.js',
    'js/mermaid.js'
 ]
 mermaid_version = "11.12.1"
