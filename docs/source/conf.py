@@ -56,9 +56,9 @@ markdown_uri_doc_suffix = ".html"
 pygments_style = 'sphinx'
 source_suffix = ['.rst', '.md']
 myst_heading_anchors = 4
-plantuml_output_format = 'svg'
 html_js_files = [
-   'js/mermaid.js',
+    'js/custom.js',
+   'js/mermaid.js'
 ]
 mermaid_version = "11.12.1"
 mermaid_d3_zoom = True
