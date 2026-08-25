@@ -1,0 +1,12 @@
+.wy-nav-content {
+    max-width: 100% !important; /* Снимаем ограничение по ширине для основного контента */
+}
+
+.section img {
+    max-width: 100%;
+    height: auto;
+}
+
+.wy-table-responsive {
+    overflow: visible !important; /* Делаем переполнение видимым */[reference:3]
+}

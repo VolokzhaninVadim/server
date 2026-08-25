@@ -19,7 +19,7 @@
 	url = git@github.com:VolokzhaninVadim/media_server.git
 	branch = master
 [submodule "repos/cloud/private_library"]
-	path = repos/media/private_library
+	path = repos/library/private_library
 	url = git@github.com:VolokzhaninVadim/private_library.git
 	branch = main
 [submodule "repos/cloud/docker_manager"]
@@ -27,16 +27,16 @@
 	url = git@github.com:VolokzhaninVadim/docker_manager.git
 	branch = main
 [submodule "repos/media/game_server"]
-	path = repos/media/game_server
+	path = repos/game/game_server
 	url = git@github.com:VolokzhaninVadim/game_server.git
 [submodule "repos/dashboard/smart_home"]
 	path = repos/smart_home/smart_home
 	url = git@github.com:VolokzhaninVadim/smart_home.git
 [submodule "repos/cloud/gitea"]
-	path = repos/cloud/gitea
+	path = repos/transfer/gitea
 	url = git@github.com:VolokzhaninVadim/gitea.git
 [submodule "repos/cloud/davmail"]
-	path = repos/cloud/davmail
+	path = repos/transfer/davmail
 	url = git@github.com:VolokzhaninVadim/davmail.git
 [submodule "repos/proxy/docker_manager"]
 	path = repos/proxy/docker_manager
@@ -45,5 +45,8 @@
 	path = repos/media/private_media
 	url = git@github.com:VolokzhaninVadim/private_media.git
 [submodule "repos/media/llm"]
-	path = repos/media/llm
+	path = repos/llm/llm
 	url = git@github.com:VolokzhaninVadim/llm.git
+[submodule "repos/transfer/transfer"]
+	path = repos/transfer/transfer
+	url = git@github.com:VolokzhaninVadim/transfer.git

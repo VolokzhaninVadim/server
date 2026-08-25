@@ -123,7 +123,7 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
   }
 
   ' --- LXC: transfer (новый, с Gitea и Syncthing) ---
-  Deployment_Node(transfer, "Transfer", "LXC", "Docker", $tags="ubuntu"){
+  Deployment_Node(transfer, "Передача данных", "LXC", "Docker", $tags="ubuntu"){
     Component(gitea, "Gitea", "Gitea", "Git-сервер с функцией зеркалирования репозиториев Github", $tags="gitea")
     Component(postgres_gitea, "Postgres Gitea ", "Postgres Gitea", "База данных для собственного git", $tags="postgres")
     Component(syncthing, "Syncthing", "Syncthing", "Синхронизация файлов между сервером и устройствами", $tags="syncthing")
@@ -137,7 +137,6 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(immich, "Immich", "Immich", "Управление частными фото/видео c AI", $tags="immich")
     Component(postgres_private_media, "Postgres private media", "Postgres private media", "База данных для частных фото/видео", $tags="postgres")
     Component(redis_media, "Redis", "Redis", "Кэширование запросов для частных фото/видео", $tags="redis")
-    Component(calibre, "Calibre", "Calibre", "Электронная библиотека", $tags="calibre")
     Component(transmission, "Transmission", "Transmission", "Торрент-качалка", $tags="transmission")
     Component(torrserver, "Torrserver", "Torrserver", "Просмотр торррентов on-line с функцией DLNA", $tags="torrserver")
     Component(jellyfin, "Jellyfin", "Jellyfin", "Медиасервер", $tags="jellyfin")
@@ -146,9 +145,15 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(portainer_agent_media, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
   }
 
+  ' --- LXC: library ---
+  Deployment_Node(library, "Библиотека", "LXC", "Docker", $tags="ubuntu"){
+    Component(calibre, "Calibre", "Calibre", "Электронная библиотека", $tags="calibre")
+    Component(portainer_agent_library, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
+  }
+
   ' --- LXC: llm (с пробросом GPU) ---
   AddProperty("GPU", "NVIDIA passthrough")
-  Deployment_Node(llm, "Local LLM", "LXC", "Docker", $tags="ubuntu"){
+  Deployment_Node(llm, "Локальная LLM", "LXC", "Docker", $tags="ubuntu"){
     Component(ollama, "Ollama", "Ollama", "Локальная LLM", $tags="ollama")
     Component(portainer_agent_llm, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
   }
