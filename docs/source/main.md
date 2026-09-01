@@ -41,6 +41,7 @@ git mv old/submodule new/submodule
 1. [Как запустить фильтр для рекламы?](../source/articles/pihole.md)
 
 ## Медиа
+1. [Как запустить медиасервер?](../source/articles/mediaserver.md)
 1. [Как запустить игровой сервер?](../source/articles/staem.md)
 1. [Как создать систему для просмотра торрентов?](../source/articles/lampa.md)
 1. [Как просматривать медиа с торрентов?](../source/articles/torrserver.md)
