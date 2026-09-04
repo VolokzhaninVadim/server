@@ -46,6 +46,7 @@ $CreateTag(raspberry_pi, "Raspberry Pi")
 $CreateTag(frendly_elec, "Frendly Elec")
 $CreateTag(vps, "VPS")
 $CreateTag(amneziavpn, "Amnezia VPN")
+$CreateTag(frigate, "Frigate")
 
 title "Сервер Волокжанина Вадима"
 
@@ -93,7 +94,7 @@ Deployment_Node(backup, "Сервер резервных копий", $tags="fre
 
 ' --- Основной сервер Proxmox ---
 AddProperty("vCPU", "6")
-AddProperty("RAM GB", "94")
+AddProperty("RAM GB", "62,73")
 AddProperty("SSD GB (System)", "2 * 512 [ZFS RAID 1]")
 AddProperty("HDD TB (VMs)", "2 * 12 [ZFS RAID 1]")
 AddProperty("HDD TB (Сache VMs)", "128 GB SSD ")
@@ -142,6 +143,7 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(jellyfin, "Jellyfin", "Jellyfin", "Медиасервер", $tags="jellyfin")
     Component(jackett, "Jackett", "Jackett", "Торрент-поиск", $tags="jackett")
     Component(lampa, "Lampa", "Lampa", "Медиасервер для торрентов", $tags="lampa")
+    Component(frigate, "Frigate", "Frigate", "Видеонаблюдение с AI-детекцией объектов", $tags="frigate")
     Component(portainer_agent_media, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
   }
 

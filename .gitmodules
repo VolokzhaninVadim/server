@@ -50,3 +50,6 @@
 [submodule "repos/transfer/transfer"]
 	path = repos/transfer/transfer
 	url = git@github.com:VolokzhaninVadim/transfer.git
+[submodule "repos/media/nvr"]
+	path = repos/media/nvr
+	url = git@github.com:VolokzhaninVadim/nvr.git
