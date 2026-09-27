@@ -50,7 +50,6 @@ git mv old/submodule new/submodule
 1. [Как запустить собственную электронную библиотеку?](../source/articles/calibre.md)
 1. [Как запустить сервис для работы с частным медиа?](../source/articles/immich.md)
 1. [Как запустить Minecraft на игровом сервере?](../source/articles/minecraft.md)
-1. [Как управлять музыкой в умном доме?](../source/articles/musicassistant.md)
 
 ## Облако
 1. [Как запустить сервис с собственным облаком?](../source/articles/nextcloud.md)
@@ -66,5 +65,6 @@ git mv old/submodule new/submodule
 1. [Как запустить сервис для создания автоматизаций в умном доме?](../source/articles/nodered.md)
 1. [Как запустить приборную панель для сервисов?](./articles/dashboard.md)
 1. [Как настроить голосовое управление умным домом?](./articles/yandex_alisa.md)
+1. [Как управлять музыкой в умном доме?](../source/articles/musicassistant.md)
 
 Создано [Sphinx](https://github.com/sphinx-doc/sphinx)
