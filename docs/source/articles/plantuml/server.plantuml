@@ -47,6 +47,7 @@ $CreateTag(frendly_elec, "Frendly Elec")
 $CreateTag(vps, "VPS")
 $CreateTag(amneziavpn, "Amnezia VPN")
 $CreateTag(frigate, "Frigate")
+$CreateTag(vaultwarden, "Vaultwarden")
 
 title "Сервер Волокжанина Вадима"
 
@@ -129,6 +130,7 @@ Deployment_Node(server, "Сервер Волокжанина Вадима", $tag
     Component(postgres_gitea, "Postgres Gitea ", "Postgres Gitea", "База данных для собственного git", $tags="postgres")
     Component(syncthing, "Syncthing", "Syncthing", "Синхронизация файлов между сервером и устройствами", $tags="syncthing")
     Component(davmail, "DavMail", "DavMail", "POP/IMAP/SMTP/Caldav/Carddav/LDAP шлюз для перевода в Carddav и Caldav", $tags="davmail")
+    Component(vaultwarden, "Vaultwarden", "Vaultwarden", "Хранилище паролей", $tags="vaultwarden")
     Component(portainer_agent_transfer, "Portainer agent", "Portainer agent", "Агент Portainer", $tags="portainer")
   }
 
