@@ -53,3 +53,6 @@
 [submodule "repos/media/nvr"]
 	path = repos/media/nvr
 	url = git@github.com:VolokzhaninVadim/nvr.git
+[submodule "repos/transfer/password_store"]
+	path = repos/transfer/password_store
+	url = git@github.com:VolokzhaninVadim/password_store.git
