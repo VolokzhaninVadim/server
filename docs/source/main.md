@@ -65,5 +65,6 @@ git mv old/submodule new/submodule
 1. [Как запустить приборную панель для сервисов?](./articles/dashboard.md)
 1. [Как настроить голосовое управление умным домом?](./articles/yandex_alisa.md)
 1. [Как управлять музыкой в умном доме?](../source/articles/musicassistant.md)
+1. [Как настроить умную розетку: превращаем обычную технику в умную](../source/articles/smart_power_socket.md)
 
 Создано [Sphinx](https://github.com/sphinx-doc/sphinx)
